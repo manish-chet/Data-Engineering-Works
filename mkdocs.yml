@@ -29,15 +29,14 @@ theme:
 nav:
   - Home: index.md
   - Projects: projects.md
-  - Big Data:
-      - Apache Kafka:
-          - Overview: bigdata/kafka.md
+  - Kafka:
+          - Overview: kafka/kafka.md
           - Installation:
-              - With ZooKeeper: bigdata/kafka/kafka_install_zookeeper.md
-              - With KRaft: bigdata/kafka/kafka_install_kraft.md
-      - Apache Airflow:
-          - Overview: bigdata/airflow/index.md
-          - Installation: bigdata/airflow/airflow_install_onpremise.md
+              - With ZooKeeper: kafka/kafka_install_zookeeper.md
+              - With KRaft: kafka/kafka_install_kraft.md
+  - Airflow:
+          - Overview: airflow/index.md
+          - Installation: airflow/airflow_install_onpremise.md
   - About Me: about.md
 
 markdown_extensions:

@@ -44,7 +44,7 @@ FLUSH PRIVILEGES;
 
 ### 2️⃣ Install and Setup RabbitMQ
 
-📄 [Download rabbitmq.conf](../../files/airflow/rabbitmq.conf)
+📄 [Download rabbitmq.conf]
 
 ```bash
 # Extract the RabbitMQ setup file
@@ -70,8 +70,8 @@ rabbitmqctl eval 'application:set_env(rabbit, consumer_timeout, undefined).'
 
 ### 3️⃣ Install Airflow and Setup
 
-📄 [Download airflow.cfg](../../files/airflow/airflow.cfg)  
-📄 [Download webserver_config.py](../../files/airflow/webserver_config.py)
+📄 [Download airflow.cfg]
+📄 [Download webserver_config.py]
 
 ```bash
 pip install virtualenv

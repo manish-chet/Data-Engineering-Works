@@ -1,29 +1,20 @@
 # 👋 Welcome to Data Engineering Works
 
-Welcome to my personal knowledge hub on **Big Data** and **Data Engineering**. This site is built using [MkDocs Material](https://squidfunk.github.io/mkdocs-material/) and serves as a growing collection of guides, notes, and tools I've used or built.
+Welcome to my personal knowledge hub on **Big Data** and **Data Engineering**.
+Here, I share insights, experiences, and lessons learned from my journey as a Big Data Engineer.
+### Overview
+I bring up some exciting projects about data engineering, check it out here [*PROJECTS*](projects/README.md).
+If you want to dive into the topics and get basic/advance understandings, I suggest you go through the learning tabs, such as below:
 
----
+- *Apache Kafka*
+- *Apache Airflow*
+- *Apache Ignite*
+- *Apache Flink*
+- *Apache Iceberg & Many More*
 
-## 📘 What You’ll Find Here
-
-- ✅ Hands-on installation guides for tools like Kafka, Flink, and Airflow  
-- 🔄 Stream processing pipelines using Kafka + Flink  
-- ☁️ Hybrid cloud + on-prem integrations  
-- 🧠 Best practices from real-world projects  
-- 🛠️ Reusable snippets, YAML configs, and troubleshooting steps
-
----
-
-## 🔗 Navigation
-
-Use the top menu or sidebar to explore topics like:
-
-- **Apache Kafka**
-- **Apache Airflow**
-- **Apache Ignite**
-- **Lakehouse & Modern Data Stack**
-
----
+Stay tune to this notes, I will keep updating it to the most recent Data Engineering updates I work on.
 
 > 💡 Built for data engineers, by a data engineer.  
 > ✨ Always evolving — just like our data pipelines.
+
+Find my profile in [About me](about.md).
