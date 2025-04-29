@@ -2,9 +2,14 @@ site_name: Data Engineering Works
 site_description: Documentation for Data Engineering and Big Data Technologies
 site_author: Manishkumar Chetpalli
 
+repo_url: https://github.com/manish-chet/DataEngineering
+repo_name: "DataEngineering"
+edit_uri: edit/main/docs/
+
 theme:
   name: material
   logo: assets/images/sqldeveloper-original.svg
+  favicon: assets/images/sqldeveloper-original.svg
   features:
     - navigation.tabs
     - navigation.sections
@@ -14,14 +19,14 @@ theme:
     - search.share
   palette:
     - scheme: default
-      primary: indigo
-      accent: indigo
+      primary: teal
+      accent: teal
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     - scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: teal
+      accent: teal
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
