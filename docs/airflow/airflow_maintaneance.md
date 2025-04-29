@@ -1,7 +1,7 @@
 #### Airflow DB Cleanup
 A maintenance workflow that you can deploy into Airflow to periodically clean out the DagRun, TaskInstance, Log, XCom, Job DB and SlaMiss entries to avoid having too much data in your Airflow MetaStore.
 
-1. Copy the airflow-db-cleanup.py file to this dags directory
+1. Copy the airflow-db-cleanup.py file to the dags directory
 ```bash
 wget https://github.com/manish-chet/DataEngineering/airflow/airflow-db-cleanup.py
 ```        
@@ -23,7 +23,7 @@ wget https://github.com/manish-chet/DataEngineering/airflow/airflow-db-cleanup.p
 #### Airflow Log Cleanup   
 A maintenance workflow that you can deploy into Airflow to periodically clean out the task logs to avoid those getting too big.
 
-1. Copy the airflow-log-cleanup.py file to this dags directory
+1. Copy the airflow-log-cleanup.py file to the dags directory
 ```bash
 wget https://github.com/manish-chet/DataEngineering/airflow/airflow-log-cleanup.py
 ```
@@ -40,7 +40,7 @@ wget https://github.com/manish-chet/DataEngineering/airflow/airflow-log-cleanup.
 
 A webserver config file to integrate Airflow with LDAP and RBAC
 
-1. Copy the airflow-log-cleanup.py file to this dags directory
+1. Copy the webserver_config.py file to the airflow home directory
 ```bash
 wget https://github.com/manish-chet/DataEngineering/airflow/webserver_config.py
 ```
