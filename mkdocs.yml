@@ -37,6 +37,7 @@ nav:
   - Airflow:
           - Overview: airflow/index.md
           - Installation: airflow/airflow_install_onpremise.md
+          - Maintaneance: airflow/airflow_maintaneance.md
   - About Me: about.md
 
 markdown_extensions:

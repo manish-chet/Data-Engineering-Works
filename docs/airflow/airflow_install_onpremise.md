@@ -63,7 +63,7 @@ FLUSH PRIVILEGES;
 Download the setup file before installing rabbitmq install erlang package first
 
 # Download the rabbitmq.conf file
-wget https://github.com/manish-chet/DataEngineering/blob/main/airflowinstall/rabbitmq.comf
+wget https://github.com/manish-chet/DataEngineering/blob/main/airflow/rabbitmq.comf
 copy the file in rabbitmq/etc/conf directory
 edit the rabbitmq.conf with IP and details
 
@@ -111,7 +111,7 @@ pip install 'apache-airflow[password]'
 airflow version
 
 # Download the airflow.cfg and edit the hostname and IP details
-wget https://github.com/manish-chet/DataEngineering/blob/main/airflowinstall/airflow.cfg
+wget https://github.com/manish-chet/DataEngineering/blob/main/airflow/airflow.cfg
 
 
 # Create users
@@ -158,7 +158,7 @@ pip install 'apache-airflow[password]'
 airflow version
 
 # Download the airflow.cfg and edit the hostname and IP details
-wget https://github.com/manish-chet/DataEngineering/blob/main/airflowinstall/airflow.cfg
+wget https://github.com/manish-chet/DataEngineering/blob/main/airflow/airflow.cfg
 
 
 After this you need to go to master node and run below MySQL command so that user from worker node can connect to the database on master node.
