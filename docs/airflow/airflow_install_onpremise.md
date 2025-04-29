@@ -1,19 +1,35 @@
-# 🚀 Apache Airflow Setup Guide (MySQL + RabbitMQ + Celery + Flower UI)
+# Apache Airflow Setup Guide (MySQL + RabbitMQ + Celery + Flower UI)
 
-## 🌟 Prerequisites
+I recently worked on setting up an Apache Airflow cluster for a project on Google Cloud Platform.  
+While GCP offers a managed Airflow service called **Cloud Composer**, I wanted to build a custom cluster.
 
-- 🖥️ 3 VMs (Ensure SELinux disabled, firewall off, THP disabled, etc.)
-- ☕ Java 8 or higher
-- 💽 Sufficient disk space
-- 🌐 Network connectivity
-- 🐍 Python 3
+So, I decided to document everything that worked for me to get a fully functional Airflow cluster.
+
+By the end of this guide, you’ll have a secure, web-authenticated Apache Airflow cluster with the following components:
+
+- **Operating System:** RHEL/CENTOS/UBUNTU
+- **Python Version:** 3.8  
+- **Backend Database:** MySQL  
+- **Executor:** Celery  
+- **Celery Backend (Broker):** RabbitMQ  
+
+> **Note:** All commands are executed from the home directory (`~/`).
 
 ---
 
-## 🔧 Step-by-Step Installation
+More details and step-by-step instructions will follow in the next sections.
+Make sure you install the following packages before starting installation
+```bash
+yum install libmysqlclient-dev python3 python3-dev build-essential libssl-dev libffi-dev libxml2-dev libxslt1-dev zlib1g-dev freetds-bin krb5-user ldap-utils libsasl2-2 libsasl2-modules libssl1.1 locales lsb-release sasl2-bin sqlite3 unixodbc
 
-### 1️⃣ Install MySQL/PostgreSQL
+```
 
+---
+
+##  Step-by-Step Installation
+
+### Install Database (MasterNode)
+Use Mysql or PostgreSQL
 ```bash
 yum -y install @mysql
 
@@ -33,33 +49,41 @@ mysql -u"root" -p"root"
 CREATE DATABASE airflow;
 CREATE USER 'airflowuser'@'%' IDENTIFIED BY 'airflowuser';
 GRANT ALL PRIVILEGES ON airflow.* TO 'airflowuser'@'%';
-
 CREATE USER 'airflowuser'@'localhost' IDENTIFIED BY 'airflowuser';
 GRANT ALL PRIVILEGES ON airflow.* TO 'airflowuser'@'localhost';
-
 FLUSH PRIVILEGES;
 ```
 
 ---
 
-### 2️⃣ Install and Setup RabbitMQ
-
-📄 [Download rabbitmq.conf]
+###  Install and Setup RabbitMQ (Masternode)
 
 ```bash
 # Extract the RabbitMQ setup file
-# Edit the rabbitmq.conf
+Download the setup file before installing rabbitmq install erlang package first
 
-# Set environment variables in bashrc
+# Download the rabbitmq.conf file
+wget https://github.com/manish-chet/DataEngineering/blob/main/airflowinstall/rabbitmq.comf
+copy the file in rabbitmq/etc/conf directory
+edit the rabbitmq.conf with IP and details
+
+#Set environment variables in bashrc
 export RABBITMQ_LOG_BASE=/data/rabbitmq/rabbitmq/logs
 export PATH=$PATH:/data/rabbitmq/rabbitmq/rabbitmq_server-3.13.7/sbin
 
-# Create the conf file
+#Enable rabbitmq plugins
+rabbitmq-plugins enable rabbitmq_management  
 
-# Start the server and create Airflow user
-rabbitmq-plugins enable rabbitmq_management
+#Shutdown rabbitmq
 sbin/rabbitmqctl shutdown
+
+#Rabbitmq status
+rabbitmqctl status
+
+#Start rabbitmq in detached mdoe
 rabbitmq-server -detached
+
+#Create user
 rabbitmqctl add_user airflow airflow
 rabbitmqctl set_user_tags airflow administrator
 rabbitmqctl set_permissions -p / airflow ".*" ".*" ".*"
@@ -67,31 +91,85 @@ rabbitmqctl eval 'application:set_env(rabbit, consumer_timeout, undefined).'
 ```
 
 ---
-
-### 3️⃣ Install Airflow and Setup
-
-📄 [Download airflow.cfg]
-📄 [Download webserver_config.py]
-
+###  Install Airflow package and configure
 ```bash
+# Create virtualenv 
 pip install virtualenv
 python3.8 -m pip install --upgrade pip
 virtualenv -p python3.8 airflow_env
 source airflow_env/bin/activate
 
+# Install necessary packages
 pip install "apache-airflow==2.10.2" --constraint constraints.txt
+pip install 'apache-airflow[mysql]'
+pip install 'apache-airflow[celery]'
+pip install 'apache-airflow[rabbitmq]'
+pip install 'apache-airflow[crypto]'
+pip install 'apache-airflow[password]'
 
+# Check airflow version
 airflow version
+
+# Download the airflow.cfg and edit the hostname and IP details
+wget https://github.com/manish-chet/DataEngineering/blob/main/airflowinstall/airflow.cfg
+
 
 # Create users
 airflow create_user -r Admin -u airflow -e your_email@domain.com -f Airflow -l Admin -p password
 airflow users create -r Admin -u manishkumar2.c -f manishkumar -l chetpalli -e manishkumar2.c@email.com -p manish123
 
-# Initialize and run Airflow services
+#Initialize DB
 airflow db migrate
+
+#Initialize Webserver
 airflow webserver -D
+
+#Initialize Scheduler
 airflow scheduler -D
+
+#Initialize Flower
 airflow celery worker -D
+
+#Initialize Celery
 airflow celery flower -D
+
+#Initialize Trigger
 airflow triggerer -D
+```
+
+
+###  Setting up Workernode
+```bash
+# Create virtualenv 
+pip install virtualenv
+python3.8 -m pip install --upgrade pip
+virtualenv -p python3.8 airflow_env
+source airflow_env/bin/activate
+
+# Install necessary packages
+pip install "apache-airflow==2.10.2" --constraint constraints.txt
+pip install 'apache-airflow[mysql]'
+pip install 'apache-airflow[celery]'
+pip install 'apache-airflow[rabbitmq]'
+pip install 'apache-airflow[crypto]'
+pip install 'apache-airflow[password]'
+
+# Check airflow version
+airflow version
+
+# Download the airflow.cfg and edit the hostname and IP details
+wget https://github.com/manish-chet/DataEngineering/blob/main/airflowinstall/airflow.cfg
+
+
+After this you need to go to master node and run below MySQL command so that user from worker node can connect to the database on master node.
+# replace hostname here with your remote worker ip address
+sudo mysql -e "CREATE USER 'airflow'@'hostname' IDENTIFIED BY 'password'; GRANT ALL PRIVILEGES ON airflowdb.* TO 'airflow'@'hostname';"
+
+# Initialize the airflow database on worker node 
+airflow initdb
+
+# Start the worker
+airflow celery worker -D
+
+You should be able to see the worker node coming up on Flower interface at YOUR_MASTER_IP_ADDRESS:5555
 ```

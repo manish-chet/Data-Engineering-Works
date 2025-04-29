@@ -1,12 +1,12 @@
 # Apache Airflow Overview
 
-## 🚀 What is Apache Airflow?
+## What is Apache Airflow?
 
 Apache Airflow is an open-source platform to **programmatically author**, **schedule**, and **monitor** workflows. It allows you to orchestrate complex computational workflows using Python.
 
 ---
 
-## 🧠 Key Concepts
+## Key Concepts
 
 | Term            | Description |
 |-----------------|-------------|
@@ -20,7 +20,7 @@ Apache Airflow is an open-source platform to **programmatically author**, **sche
 
 ---
 
-## ⚙️ Core Components
+## Core Components
 
 - **Scheduler**: Monitors DAGs and triggers task executions.
 - **Executor**: Executes tasks (e.g., Sequential, Local, Celery, Kubernetes).
@@ -30,7 +30,7 @@ Apache Airflow is an open-source platform to **programmatically author**, **sche
 
 ---
 
-## 🧩 Common Use Cases
+## Common Use Cases
 
 - ETL pipelines
 - ML model training & deployment
