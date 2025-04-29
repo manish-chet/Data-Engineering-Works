@@ -36,7 +36,7 @@ wget https://github.com/manish-chet/DataEngineering/airflow/airflow-log-cleanup.
 
 4. Enable the DAG in the Airflow Webserver
 
-#### Airflow Webserver - LDAP Authentication Configuration
+#### Airflow Webserver - LDAP Configuration
 
 A webserver config file to integrate Airflow with LDAP and RBAC
 
