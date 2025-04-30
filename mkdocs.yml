@@ -39,10 +39,15 @@ nav:
           - Installation:
               - With ZooKeeper: kafka/kafka_install_zookeeper.md
               - With KRaft: kafka/kafka_install_kraft.md
+          - Study Material: kafka/kafka_study_material.md          
   - Airflow:
           - Overview: airflow/index.md
           - Installation: airflow/airflow_install_onpremise.md
           - Maintaneance: airflow/airflow_maintaneance.md
+          - Study Material: airflow/airflow_study_material.md
+  - Kubernetes:
+          - Overview: devops/kubernetes_overview.md
+          - Installation: devops/kubernetes_install.md
   - About Me: about.md
 
 markdown_extensions:
