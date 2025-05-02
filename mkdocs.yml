@@ -48,6 +48,10 @@ nav:
   - Kubernetes:
           - Overview: devops/kubernetes_overview.md
           - Installation: devops/kubernetes_install.md
+  - Data Engineering:
+          - Overview: DataEngineering/DataEngineering.md
+          - Data Engineering Lifecycle: DataEngineering/DEcycle.md
+          - Data Engineering UnderCurrents: DataEngineering/DEundercurrent.md     
   - About Me: about.md
 
 markdown_extensions:
