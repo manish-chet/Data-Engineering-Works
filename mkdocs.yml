@@ -45,13 +45,16 @@ nav:
           - Installation: airflow/airflow_install_onpremise.md
           - Maintaneance: airflow/airflow_maintaneance.md
           - Study Material: airflow/airflow_study_material.md
-  - Kubernetes:
-          - Overview: devops/kubernetes_overview.md
-          - Installation: devops/kubernetes_install.md
+  - DevOps:
+          - Kubernetes: 
+            - Overview: devops/kubernetes_overview.md
+            - Installation: devops/kubernetes_install.md
+          - YAML: devops/yaml.md
   - Data Engineering:
           - Overview: DataEngineering/DataEngineering.md
           - Data Engineering Lifecycle: DataEngineering/DEcycle.md
-          - Data Engineering UnderCurrents: DataEngineering/DEundercurrent.md     
+          - Data Engineering UnderCurrents: DataEngineering/DEundercurrent.md  
+          - Data Architecture: DataEngineering/DEundercurrent.md     
   - About Me: about.md
 
 markdown_extensions:
