@@ -26,9 +26,7 @@ yum install libmysqlclient-dev python3 python3-dev build-essential libssl-dev li
 
 ---
 
-##  Step-by-Step Installation
-
-### Install Database (MasterNode)
+### Database Setup
 Use Mysql or PostgreSQL
 ```bash
 yum -y install @mysql
@@ -56,7 +54,7 @@ FLUSH PRIVILEGES;
 
 ---
 
-###  Install and Setup RabbitMQ (Masternode)
+### RabbitMQ Setup
 
 ```bash
 # Extract the RabbitMQ setup file
@@ -91,7 +89,7 @@ rabbitmqctl eval 'application:set_env(rabbit, consumer_timeout, undefined).'
 ```
 
 ---
-###  Install Airflow package and configure
+###  Airflow configuration
 ```bash
 # Create virtualenv 
 pip install virtualenv
@@ -138,7 +136,7 @@ airflow triggerer -D
 ```
 
 
-###  Setting up Workernode
+###  Worker Node addition
 ```bash
 # Create virtualenv 
 pip install virtualenv

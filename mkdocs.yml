@@ -1,4 +1,4 @@
-site_name: Data Engineering Works
+site_name: Data Engineering Studies
 site_description: Documentation for Data Engineering and Big Data Technologies
 site_author: Manishkumar Chetpalli
 
@@ -6,27 +6,37 @@ repo_url: https://github.com/manish-chet/DataEngineering
 repo_name: "DataEngineering"
 edit_uri: edit/main/docs/
 
+
+copyright: >
+  Copyright &copy; 2025 Manishkumar Chetpalli
+
 theme:
   name: material
   logo: assets/images/sqldeveloper-original.svg
   favicon: assets/images/sqldeveloper-original.svg
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.path
     - navigation.sections
     - navigation.top
     - search.highlight
     - search.suggest
     - search.share
+    - navigation.footer  
+    - content.action.feedback 
+    - toc.integrate 
+    - toc.follow
   palette:
     - scheme: default
-      primary: teal
-      accent: teal
+      primary: black
+      accent: light green
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     - scheme: slate
-      primary: teal
-      accent: teal
+      primary: black
+      accent: light green
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
@@ -35,26 +45,24 @@ nav:
   - Home: index.md
   - Projects: projects/README.md
   - Kafka:
-          - Overview: kafka/kafka.md
-          - Installation:
-              - With ZooKeeper: kafka/kafka_install_zookeeper.md
-              - With KRaft: kafka/kafka_install_kraft.md
+          - Kafka Overview: kafka/kafka.md
+          - Kafka With ZooKeeper: kafka/kafka_install_zookeeper.md
+          - Kafka With KRaft: kafka/kafka_install_kraft.md
           - Study Material: kafka/kafka_study_material.md          
   - Airflow:
-          - Overview: airflow/index.md
-          - Installation: airflow/airflow_install_onpremise.md
-          - Maintaneance: airflow/airflow_maintaneance.md
+          - Airflow Overview: airflow/index.md
+          - Airflow Installation: airflow/airflow_install_onpremise.md
+          - Airflow Maintaneance DAGs: airflow/airflow_maintaneance.md
           - Study Material: airflow/airflow_study_material.md
-  - DevOps:
-          - Kubernetes: 
-            - Overview: devops/kubernetes_overview.md
-            - Installation: devops/kubernetes_install.md
-          - YAML: devops/yaml.md
+  - Kubernetes:
+          - Kubernetes Overview:  devops/kubernetes_overview.md
+          - Kubernetes Installation: devops/kubernetes_install.md
+  - YAML: devops/yaml.md
   - Data Engineering:
-          - Overview: DataEngineering/DataEngineering.md
+          - Data Engineering Overview: DataEngineering/DataEngineering.md
           - Data Engineering Lifecycle: DataEngineering/DEcycle.md
           - Data Engineering UnderCurrents: DataEngineering/DEundercurrent.md  
-          - Data Architecture: DataEngineering/DEundercurrent.md     
+          - Good Data Architecture: DataEngineering/DesigningGDA.md
   - About Me: about.md
 
 markdown_extensions:
@@ -93,3 +101,18 @@ markdown_extensions:
 
 extra_javascript:
   - https://unpkg.com/mermaid@9.1.3/dist/mermaid.min.js
+
+extra:
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/manishkumarchetpalli/
+    - icon: fontawesome/brands/github
+      link: https://github.com/manish-chet
+  i18n:
+    feedback:
+      title: "Was this page helpful?"
+      positive: "Yes"
+      negative: "No"
+
+extra_css:
+  - stylesheets/extra.css

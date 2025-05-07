@@ -1,11 +1,9 @@
-# Kafka Installation with ZooKeeper (On-Premise)
+# Kafka Installation with ZooKeeper
 ##  Prerequisites
-
 - 3 VMs (Ensure pre-requisites like SELinux disabled, firewall off, THP disabled, etc.)
 - Java 8 or higher
 - Sufficient disk space
 - Network connectivity
-
 
 ##  Production Considerations
 
@@ -31,16 +29,17 @@ net.ipv4.tcp_max_syn_backlog = 4096
 net.core.netdev_max_backlog = 5000
 ```
 
-### GC Tuning (for 64GB system with 5GB heap)
+### GC Tuning 
 
 ```bash
+(for 64GB system with 5GB heap)
 -XX:MaxGCPauseMillis=20
 -XX:InitiatingHeapOccupancyPercent=35
 ```
 
 ---
 
-## Step-by-Step Installation (Repeat on All Nodes)
+## Step-by-Step Installation
 ###  Zookeeper Installation
 1. **Configure certificates**  
 ```bash
@@ -158,20 +157,5 @@ kafka-topics.sh --delete --topic RRA_DL_TEST \
   --command-config /data1/kafkacerts/admin.properties
 ```
 
----
 
-## Common Issues
-
-- Is ZooKeeper running
-- Network/firewall issues
-- Java installed and accessible
-- Disk space sufficient
-- Check Kafka logs
-
----
-
-## Related Topics
-
-- [Kafka Installation with KRaft](./kafka_install_kraft.md)
-- [Kafka Overview](./kafka.md)
 

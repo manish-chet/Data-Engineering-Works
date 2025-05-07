@@ -1,6 +1,6 @@
 # Data Engineering Wiki
 
-Welcome to the **Data Engineering Wiki** – a knowledge base built to help you understand the core concepts, lifecycle, and practical evolution of data engineering in modern data-driven systems.
+Welcome to the **Data Engineering Wiki** – a knowledge base built on book named **Fundamentals of DataEngineering** to help you understand the core concepts, lifecycle, and practical evolution of data engineering in modern data-driven systems.
 
 ---
 

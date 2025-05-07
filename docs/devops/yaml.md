@@ -254,6 +254,83 @@ metadata:
 ```
 
 ---
+##  Docker Compose YAML Example
+
+A Docker Compose file helps define and run multi-container Docker applications.
+
+```yaml
+version: '3.8'
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./html:/usr/share/nginx/html
+
+  app:
+    build: .
+    environment:
+      - APP_ENV=production
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydb
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
+```
+
+### Explanation
+
+* **version**: Specifies the version of Docker Compose file format
+* **services**: Defines three services: `web`, `app`, and `db`
+* **volumes**: Persists PostgreSQL data
+
+---
+
+##  Kubernetes Deployment Example
+
+A YAML configuration for deploying a web application on Kubernetes.
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.14.2
+          ports:
+            - containerPort: 80
+```
+
+###  Explanation
+
+* **apiVersion**: The Kubernetes API version
+* **kind**: The type of object (Deployment)
+* **metadata**: Metadata including the name
+* **spec**: Specifications including number of replicas, pod template, and container details
+
+---
 
 ## Using PyYAML in Python
 

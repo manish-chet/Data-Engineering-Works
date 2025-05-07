@@ -1,4 +1,4 @@
-# Apache Kafka Overview
+# What is Apache Kafka?
 
 **Apache Kafka** is a distributed event streaming platform used for building real-time data pipelines and streaming applications. It was originally developed at LinkedIn and later open-sourced through the Apache Software Foundation.
 

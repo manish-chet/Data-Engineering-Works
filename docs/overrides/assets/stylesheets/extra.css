@@ -1,0 +1,33 @@
+/* Ensure left nav, content, and TOC align better */
+.md-main {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .md-main__inner {
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  /* Optional: center tables inside content */
+  .md-content table {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Optional: better table spacing */
+  .md-typeset table:not([class]) {
+    width: auto;
+    min-width: 60%;
+  }
+  
+  /* Ensure TOC and nav don't overlap content */
+  .md-sidebar--primary,
+  .md-sidebar--secondary {
+    min-width: 240px;
+    max-width: 300px;
+  }
+  
