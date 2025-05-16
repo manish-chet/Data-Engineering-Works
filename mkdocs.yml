@@ -55,7 +55,8 @@ nav:
           - Airflow Maintaneance DAGs: airflow/airflow_maintaneance.md
           - Study Material: airflow/airflow_study_material.md
   - Kubernetes:
-          - Kubernetes Overview:  devops/kubernetes_overview.md
+          - Kubernetes Overview:  devops/Kubernetes.md
+          - Kubernetes Architecture Explained: devops/kubernetesarchitecture.md
           - Kubernetes Installation: devops/kubernetes_install.md
   - YAML: devops/yaml.md
   - Data Engineering:

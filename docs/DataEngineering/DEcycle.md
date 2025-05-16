@@ -1,8 +1,5 @@
 # What Is the Data Engineering Lifecycle?
-
-The  data  engineering  lifecycle  comprises  stages  that  turn  raw  data  ingredients  into  a  
-useful end product, ready for consumption by analysts, data scientists, ML engineers,  
-and others.
+The  data  engineering  lifecycle  comprises  stages  that  turn  raw  data  ingredients  into  a   useful end product, ready for consumption by analysts, data scientists, ML engineers,  and others.
 
 ![Steps](DEcycle.png)
 
@@ -27,7 +24,7 @@ Examples: Transactional databases (RDBMS), Application message queues (e.g., Kaf
 - What’s the data update method? (Snapshot or CDC)
 - Who owns/provides the data?
 - Will reading from it affect app performance?
-- Are there upstream dependencies?
+- Are there upstream dependencies?  
 
 ---
 
@@ -69,7 +66,7 @@ It’s often a major bottleneck due to:
 - Ingestion service failures
 - Poor data quality or availability
 
-**Key Considerations When Choosing Storage**
+**Key Considerations When Ingesting data**
 
 - Can storage systems handle real-time load?
 - Do you need real-time or will micro-batch (e.g., every minute) suffice?
@@ -83,13 +80,7 @@ It’s often a major bottleneck due to:
 | **Batch** | Collects data in intervals or chunks | Analytics, ML training, reports  |
 | **Streaming** | Processes data in real-time (low latency) | Real-time dashboards, alerts     |
 
-| Model | Description | Example |
-|-------|-------------|---------|
-| **Push** | Source system sends data to target | IoT devices → message queue |
-| **Pull** | Ingestion system retrieves data | ETL process querying DB |
-
 ---
-
 ## 4. Transformation
 
 The process of changing raw data into useful formats for analysis, reporting, or machine learning.  
@@ -131,33 +122,19 @@ Data has no value if it isn’t used or consumed.
 
 #### 1. Analytics
 - **Business Intelligence (BI):** Reporting on past and current trends using business logic.
- Logic-on-read is becoming more common (business rules applied during querying, not transformation).
-- **Self-Service Analytics:**  
-  Empowers non-technical users to explore data.  
-  Requires high data quality and organizational maturity.
-- **Operational Analytics:**  
-  Real-time dashboards (e.g., app health, live inventory).  
-  Consumed immediately to trigger action.
-- **Embedded Analytics:**  
-  Delivered to customers via apps (e.g., SaaS dashboards).  
-  Requires robust access control and multitenancy to prevent data leaks.
+  Logic-on-read is becoming more common (business rules applied during querying, not transformation).
+- **Self-Service Analytics:** Empowers non-technical users to explore data. Requires high data quality and organizational maturity.
+- **Operational Analytics:** Real-time dashboards (e.g., app health, live inventory). Consumed immediately to trigger action.
+- **Embedded Analytics:** Delivered to customers via apps (e.g., SaaS dashboards). Requires robust access control and multitenancy to prevent data leaks.
 
 #### 2. Machine Learning
 - **Feature Stores:** Systems that store and manage features for ML models.  
-- **Data Engineers may:**
-  - Maintain Spark clusters, orchestrate pipelines, and monitor metadata
-  - Collaborate closely with ML and analytics engineers.
-
-**Key Questions:**
-- Is the data high-quality, discoverable, and representative?
-- Are the boundaries between teams clear?
+- **Data Engineers may** Maintain Spark clusters, orchestrate pipelines, and monitor metadata. Collaborate closely with ML and analytics engineers.
 
 > ML maturity depends on solid data foundations—master analytics first.
 
 #### 3. Reverse ETL
-- Sends data back to source systems (e.g., CRMs, marketing platforms).
-- Example: Push customer segments from a warehouse to Google Ads.
-- **Tools:** Hightouch, Census
+- Sends data back to source systems (e.g., CRMs, marketing platforms). Example: Push customer segments from a warehouse to Google Ads.
 
 **Challenges:**
 - Must maintain lineage, business logic, and security.
