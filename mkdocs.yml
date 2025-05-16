@@ -58,7 +58,6 @@ nav:
           - Kubernetes Overview:  devops/Kubernetes.md
           - Kubernetes Architecture Explained: devops/kubernetesarchitecture.md
           - Kubernetes Installation: devops/kubernetes_install.md
-  - YAML: devops/yaml.md
   - Data Engineering:
           - Data Engineering Overview: DataEngineering/DataEngineering.md
           - Data Engineering Lifecycle: DataEngineering/DEcycle.md
