@@ -2,7 +2,7 @@
 
 ![Steps](kubearch.png)
 
-The architecture diagram depicted in the video shows two basic components: Master and Worker (also referred to as Node). These can be considered nodes. In the example discussed, the diagram shows a master and two nodes, indicating the use of two EC2 instances for the lab. A node signifies a server that manages containers or pods. The master is the component that controls these nodes. This structure follows a client-server model, similar to systems like Chef. For a lab setup, three EC2 instances would be created, and one would be designated as the master.
+The architecture diagram depicted in the image shows two basic components: Master and Worker (also referred to as Node). These can be considered nodes. In the example discussed, the diagram shows a master and two nodes, indicating the use of two EC2 instances for the lab. A node signifies a server that manages containers or pods. The master is the component that controls these nodes. This structure follows a client-server model, similar to systems like Chef. For a lab setup, three EC2 instances would be created, and one would be designated as the master.
 
 The diagram also illustrates how users interact with the cluster. Users communicate with the cluster through the API Server. Users can create manifests, which are configuration files written in YAML or JSON format, similar to recipes in Chef. These manifests describe the desired state, such as creating a pod with a specific number of containers. The API Server reads the manifest, understands the desired state, and then communicates with the Controller Manager to initiate the process.
 
