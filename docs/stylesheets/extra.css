@@ -1,16 +1,3 @@
-/* Force the main content area to align left */
-.md-main__inner {
-  margin-left: 0 !important;
-  max-width: 100% !important;
-  justify-content: flex-start !important;
-}
-
-/* Optional: remove max-width constraint from content and headers */
-.md-content, .md-typeset {
-  max-width: 100% !important;
-}
-
-/* Optional: tighten the left sidebar as well */
-.md-sidebar--primary {
-  margin-left: 0 !important;
+.md-tabs__list {
+  justify-content: flex-start;
 }
