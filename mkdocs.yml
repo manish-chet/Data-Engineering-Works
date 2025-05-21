@@ -51,17 +51,11 @@ nav:
   - Home: index.md
   - Projects: projects/README.md
   - Kafka:
-          - Kafka Overview: kafka/kafka.md
-          - Kafka With ZooKeeper: kafka/kafka_install_zookeeper.md
-          - Kafka With KRaft: kafka/kafka_install_kraft.md
-          - Study Material: kafka/kafka_study_material.md          
+          - Kafka With ZooKeeper: kafka/kafka_install_zookeeper.md        
   - Airflow:
-          - Airflow Overview: airflow/index.md
           - Airflow Installation: airflow/airflow_install_onpremise.md
           - Airflow Maintaneance DAGs: airflow/airflow_maintaneance.md
-          - Study Material: airflow/airflow_study_material.md
   - Kubernetes:
-          - Kubernetes Overview:  devops/Kubernetes.md
           - Kubernetes Architecture Explained: devops/kubernetesarchitecture.md
           - Kubernetes Installation: devops/kubernetes_install.md
   - Data Engineering:
