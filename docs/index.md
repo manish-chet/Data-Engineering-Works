@@ -1,4 +1,5 @@
-# Welcome!
+# Welcome
+
 Hello! I'm Manish, a data engineer based in Mumbai. I'm passionate about Data Engineering and Generative AI.
 
 This site is my personal hub for sharing projects, insights, and lessons learned from my journey as a Big Data Engineer.

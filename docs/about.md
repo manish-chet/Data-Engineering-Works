@@ -4,7 +4,7 @@ Hi, I'm **Manish Kumar Chetpalli**, a Data Engineer with 3 years of experience w
 
 I specialize in designing and optimizing data pipelines, building real-time data streaming frameworks, and automating deployments using DevOps tools. My work has supported key platforms like JioMart and AJIO with high-performance solutions.
 
-###  Skills
+## Skills
 
 - **Big Data:** HDFS, Hive, Spark, Kafka, Airflow, Iceberg, Nifi, Ignite, Trino, Kerberos
 - **Languages:** Python, SQL, PySpark
@@ -12,7 +12,7 @@ I specialize in designing and optimizing data pipelines, building real-time data
 - **Cloud:** Azure, AWS, Databricks
 - **DevOps:** Jenkins, Docker, Kubernetes, GitLab, Grafana, Prometheus
 
-###  Projects
+### Projects
 
 - **Real-time streaming pipelines** using Kafka, Flink, Oracle GoldenGate, and SAP HANA
 - **Realtime dashboards** powered by Apache Ignite and Spark
@@ -20,12 +20,10 @@ I specialize in designing and optimizing data pipelines, building real-time data
 - **Hybrid Cloud Kafka integration** connecting on-prem and cloud environments securely
 - **Container orchestration** with Docker and Kubernetes for scalable deployments
 
-###  Education
+### Education
 
-- **B.E. in Electronics & Telecommunication** – University of Mumbai 
+- **B.E. in Electronics & Telecommunication** – University of Mumbai
 - **Data Science Master's Program** – GreyAtom School of Data Science
-
-
 
 ---
 !!!      Feel free to reach out if you’d like to collaborate, discuss tech, or share insights!
@@ -33,5 +31,3 @@ I specialize in designing and optimizing data pipelines, building real-time data
 - [LinkedIn](https://www.linkedin.com/in/manishkumarchetpalli)
 - [GitHub](https://github.com/manishchet)
 - [Email](mailto:chetpallimanishkumar@gmail.com)
-
-
