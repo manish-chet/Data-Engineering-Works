@@ -63,6 +63,8 @@ nav:
           - Data Engineering Lifecycle: DataEngineering/DEcycle.md
           - Data Engineering UnderCurrents: DataEngineering/DEundercurrent.md  
           - Good Data Architecture: DataEngineering/DesigningGDA.md
+  - Tooling & setup: 
+          - Jupyternotebok and JupyteHhub: tooling/jupyter_setup.md
   - About Me: about.md
 
 markdown_extensions:
