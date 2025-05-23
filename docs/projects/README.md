@@ -1,7 +1,5 @@
 # List of Projects
 
-Hi, you will find list of projects which I had worked on so far:
-
 - Credit Card Transactional Analysis For Fraud Risk  
 - Crypto Data Analysis Near Realtime Data Pipeline
 - Airline Data Ingestion Incrementally
@@ -13,4 +11,5 @@ Hi, you will find list of projects which I had worked on so far:
 - Runnnig flink on kubernetes
 - Apache Iceberg and PySpark
 
+Documenation is in progress.
 Stay tuned, I will be updating the list with detailed version.
