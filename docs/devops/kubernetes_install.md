@@ -1,5 +1,5 @@
 # Steps to Set Up the Kubernetes Cluster
-![Steps](kubernetesinstall.png)
+![Steps](kubeinstall.svg)
 ## Sanity Setup and Check
 
 Ensure the following pre-requisites are met on all hosts:
