@@ -1,6 +1,6 @@
 # Kubernetes Architecture Explained
 
-![Steps](kubearch.png)
+![Steps](kubearch2.svg)
 
 The architecture diagram depicted in the image shows two basic components: Master and Worker (also referred to as Node). These can be considered nodes. In the example discussed, the diagram shows a master and two nodes, indicating the use of two EC2 instances for the lab. A node signifies a server that manages containers or pods. The master is the component that controls these nodes. This structure follows a client-server model, similar to systems like Chef. For a lab setup, three EC2 instances would be created, and one would be designated as the master.
 
