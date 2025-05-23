@@ -65,6 +65,7 @@ nav:
           - Good Data Architecture: DataEngineering/DesigningGDA.md
   - Tooling & setup: 
           - Jupyternotebok and JupyteHhub: tooling/jupyter_setup.md
+          - Postgres HA: tooling/postgresHA.md
   - About Me: about.md
 
 markdown_extensions:
