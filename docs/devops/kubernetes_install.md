@@ -140,7 +140,7 @@
 
 ## Worker Node Setup
 
-???- "Repeat Setup Steps and Join Cluster"
+???- "Repeat Master node Setup Steps and Join Cluster"
     ```bash
     # Repeat the above steps on all worker nodes, then join them to the cluster:
     sudo kubeadm join hostIP:6443 --token xxxxx --discovery-token-ca-cert-hash sha256:xxx
