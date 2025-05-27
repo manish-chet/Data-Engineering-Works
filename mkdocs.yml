@@ -1,4 +1,4 @@
-site_name: Data Engineering Studies
+site_name: Data Engineering Works
 site_description: Documentation for Data Engineering and Big Data Technologies
 site_author: Manishkumar Chetpalli
 
@@ -75,7 +75,7 @@ nav:
       - Kafka IQs: kafka/kafkaiq.md
       - Airflow IQs: airflow/airflowiq.md 
   - About Me: about.md
-
+  
 markdown_extensions:
   - admonition
   - codehilite
