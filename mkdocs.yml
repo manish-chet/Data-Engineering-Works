@@ -49,25 +49,30 @@ theme:
 
 nav:
   - Home: index.md
-  - Kafka:
+  - Apache Projects: 
+      - Overview: apache.md
+      - Apache Ignite: 
+          - Architecture Deep Dive: ignite/ignite.md
+      - Apache Kafka:
           - Kafka With ZooKeeper: kafka/kafka_install_zookeeper.md
           - Kafka IQs: kafka/kafkaiq.md        
-  - Airflow:
+      - Airflow:
           - Airflow Installation: airflow/airflow_install_onpremise.md
           - Airflow Maintaneance DAGs: airflow/airflow_maintaneance.md
           - Airflow LDAP integration: airflow/airflow_ldap.md
           - Airflow IQs: airflow/airflowiq.md 
   - Kubernetes:
-          - Kubernetes Architecture Explained: devops/kubernetesarchitecture.md
-          - Kubernetes Installation: devops/kubernetes_install.md
+      - Kubernetes Architecture Explained: devops/kubernetesarchitecture.md
+      - Kubernetes Installation: devops/kubernetes_install.md
   - Data Engineering:
-          - Data Engineering Overview: DataEngineering/DataEngineering.md
-          - Data Engineering Lifecycle: DataEngineering/DEcycle.md
-          - Data Engineering UnderCurrents: DataEngineering/DEundercurrent.md  
-          - Good Data Architecture: DataEngineering/DesigningGDA.md
+      - Data Engineering Overview: DataEngineering/DataEngineering.md
+      - Data Engineering Lifecycle: DataEngineering/DEcycle.md
+      - Data Engineering UnderCurrents: DataEngineering/DEundercurrent.md  
+      - Good Data Architecture: DataEngineering/DesigningGDA.md
+      - Data Engineering Roadmap: DataEngineering/roadmap.md
   - Tooling & setup: 
-          - Jupyternotebok and JupyteHhub: tooling/jupyter_setup.md
-          - Postgres HA: tooling/postgresHA.md
+      - Jupyternotebok and JupyteHhub: tooling/jupyter_setup.md
+      - Postgres HA: tooling/postgresHA.md
   - About Me: about.md
 
 markdown_extensions:
@@ -91,7 +96,11 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.smartsymbols
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed
   - pymdownx.tasklist:
       custom_checkbox: true
@@ -100,9 +109,6 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.mark
   - attr_list
-
-extra_javascript:
-  - https://unpkg.com/mermaid@9.1.3/dist/mermaid.min.js
 
 extra:
   social:
