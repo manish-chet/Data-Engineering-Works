@@ -54,13 +54,11 @@ nav:
       - Apache Ignite: 
           - Architecture Deep Dive: ignite/ignite.md
       - Apache Kafka:
-          - Kafka With ZooKeeper: kafka/kafka_install_zookeeper.md
-          - Kafka IQs: kafka/kafkaiq.md        
+          - Kafka With ZooKeeper: kafka/kafka_install_zookeeper.md     
       - Airflow:
           - Airflow Installation: airflow/airflow_install_onpremise.md
           - Airflow Maintaneance DAGs: airflow/airflow_maintaneance.md
           - Airflow LDAP integration: airflow/airflow_ldap.md
-          - Airflow IQs: airflow/airflowiq.md 
   - Kubernetes:
       - Kubernetes Architecture Explained: devops/kubernetesarchitecture.md
       - Kubernetes Installation: devops/kubernetes_install.md
@@ -73,6 +71,9 @@ nav:
   - Tooling & setup: 
       - Jupyternotebok and JupyteHhub: tooling/jupyter_setup.md
       - Postgres HA: tooling/postgresHA.md
+  - Interview Prep:
+      - Kafka IQs: kafka/kafkaiq.md
+      - Airflow IQs: airflow/airflowiq.md 
   - About Me: about.md
 
 markdown_extensions:
