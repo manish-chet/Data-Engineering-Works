@@ -74,6 +74,7 @@ nav:
   - Interview Prep:
       - Kafka IQs: kafka/kafkaiq.md
       - Airflow IQs: airflow/airflowiq.md 
+      - Hadoop IQs: hadoop/hadoop_iq.md
   - About Me: about.md
   
 markdown_extensions:
