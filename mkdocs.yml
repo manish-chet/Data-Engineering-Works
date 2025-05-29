@@ -53,6 +53,7 @@ nav:
       - Overview: apache.md
       - Apache Ignite: 
           - Architecture Deep Dive: ignite/ignite.md
+          - Installation: ignite/igniteinstall.md
       - Apache Kafka:
           - Kafka With ZooKeeper: kafka/kafka_install_zookeeper.md     
       - Airflow:
