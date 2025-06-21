@@ -49,17 +49,25 @@ theme:
 
 nav:
   - Home: index.md
-  - Apache Projects: 
-      - Overview: apache.md
-      - Apache Ignite: 
-          - Architecture Deep Dive: ignite/ignite.md
-          - Installation: ignite/igniteinstall.md
-      - Apache Kafka:
-          - Kafka With ZooKeeper: kafka/kafka_install_zookeeper.md     
-      - Airflow:
-          - Airflow Installation: airflow/airflow_install_onpremise.md
-          - Airflow Maintaneance DAGs: airflow/airflow_maintaneance.md
-          - Airflow LDAP integration: airflow/airflow_ldap.md
+  - Projects: projects/README.md
+  - Ignite: 
+      - Architecture Deep Dive: ignite/ignite.md
+      - Installation: ignite/igniteinstall.md
+  - Kafka:
+      - Kafka Overview: kafka/kafka.md
+      - Kafka Instal with ZK: kafka/kafka_install_zookeeper.md     
+  - Airflow:
+      - Airflow Installation: airflow/airflow_install_onpremise.md
+      - Airflow Maintaneance DAGs: airflow/airflow_maintaneance.md
+      - Airflow LDAP integration: airflow/airflow_ldap.md
+  - Hadoop:
+      - Big Data Overview: hadoop/Bigdata.md
+      - Hadoop Concepts: hadoop/HadoopArchitecture.md
+      - Hadoop HA Architecture: hadoop/HadoopHA.md
+      - MapReduce Concepts: hadoop/mapreduce.md
+      - YARN Concepts: hadoop/yarn.md
+      - Kerberos Concepts: hadoop/kerberos.md 
+      - Hadoop Cluster Planning: hadoop/hadoopcluster.md
   - Kubernetes:
       - Kubernetes Architecture Explained: devops/kubernetesarchitecture.md
       - Kubernetes Installation: devops/kubernetes_install.md
@@ -68,14 +76,10 @@ nav:
       - Data Engineering Lifecycle: DataEngineering/DEcycle.md
       - Data Engineering UnderCurrents: DataEngineering/DEundercurrent.md  
       - Good Data Architecture: DataEngineering/DesigningGDA.md
-      - Data Engineering Roadmap: DataEngineering/roadmap.md
+  - SQL: sql/sql.md
   - Tooling & setup: 
       - Jupyternotebok and JupyteHhub: tooling/jupyter_setup.md
       - Postgres HA: tooling/postgresHA.md
-  - Interview Prep:
-      - Kafka IQs: kafka/kafkaiq.md
-      - Airflow IQs: airflow/airflowiq.md 
-      - Hadoop IQs: hadoop/hadoop_iq.md
   - About Me: about.md
   
 markdown_extensions:
