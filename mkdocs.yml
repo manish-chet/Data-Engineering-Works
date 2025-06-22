@@ -60,7 +60,7 @@ nav:
       - Airflow Installation: airflow/airflow_install_onpremise.md
       - Airflow Maintaneance DAGs: airflow/airflow_maintaneance.md
       - Airflow LDAP integration: airflow/airflow_ldap.md
-  - Hadoop:
+  - Big Data:
       - Big Data Overview: hadoop/Bigdata.md
       - Hadoop Concepts: hadoop/HadoopArchitecture.md
       - Hadoop HA Architecture: hadoop/HadoopHA.md
