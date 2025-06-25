@@ -74,7 +74,7 @@
     [Service]
     User=root
     Environment="PATH=/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/data1/jupyterhub/bin"
-    ExecStart=/data1/jupyterhub/bin/jupyterhub -f /data1/jupyterhub/etc/jupyterhub/jupyterhub_config.py --ip 10.21.68.202 --port=18888
+    ExecStart=/data1/jupyterhub/bin/jupyterhub -f /data1/jupyterhub/etc/jupyterhub/jupyterhub_config.py --ip IP --port=18888
     [Install]
     WantedBy=multi-user.target
 
