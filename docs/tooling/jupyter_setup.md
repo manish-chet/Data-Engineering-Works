@@ -88,8 +88,8 @@
 
 ???-  "For SSL"
     ```bash
-    /data1/jupyterhub/bin/jupyterhub -f /data1/jupyterhub/etc/jupyterhub/jupyterhub_config.py --ip 10.129.131.157 --port=18888 
-    /data1/jupyterhub/bin/jupyterhub -f /data1/jupyterhub/etc/jupyterhub/jupyterhub_config.py --ip  10.21.68.202 --port 443 --ssl-key /data1/jupyterhub/etc/jupyterhub/my_ssl.key --ssl-cert /data1/jupyterhub/etc/jupyterhub/my_ssl.cert
+    /data1/jupyterhub/bin/jupyterhub -f /data1/jupyterhub/etc/jupyterhub/jupyterhub_config.py --ip IP --port=18888 
+    /data1/jupyterhub/bin/jupyterhub -f /data1/jupyterhub/etc/jupyterhub/jupyterhub_config.py --ip  IP --port 443 --ssl-key /data1/jupyterhub/etc/jupyterhub/my_ssl.key --ssl-cert /data1/jupyterhub/etc/jupyterhub/my_ssl.cert
     ```
 
 
