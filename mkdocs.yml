@@ -49,7 +49,7 @@ theme:
 
 nav:
   - Home: index.md
-  - Big Data: 
+  - Hadoop: 
       - Big Data Overview: hadoop/Bigdata.md
       - Hadoop Concepts: hadoop/HadoopArchitecture.md
       - Hadoop HA Architecture: hadoop/HadoopHA.md
