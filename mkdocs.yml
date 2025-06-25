@@ -51,25 +51,23 @@ nav:
   - Home: index.md
   - Big Data: 
       - Big Data Overview: hadoop/Bigdata.md
-      - Hadoop:
-          - Hadoop Concepts: hadoop/HadoopArchitecture.md
-          - Hadoop HA Architecture: hadoop/HadoopHA.md
-          - MapReduce Concepts: hadoop/mapreduce.md
-          - YARN Concepts: hadoop/yarn.md
-          - Kerberos Concepts: hadoop/kerberos.md
-          - Hadoop Cluster Planning: hadoop/hadoopcluster.md
-      - Ignite:
-          - Ignite Overview: ignite/ignite.md
-          - Onprem Install: ignite/igniteinstall.md
-      - Hive:
-          - Hive Overview: hive/hive.md
-      - Kafka:
-          - Kafka Overview: kafka/kafka.md
-          - Onprem ZK: kafka/kafka_install_zookeeper.md
-      - Airflow:
-          - Airflow Installation: airflow/airflow_install_onpremise.md
-          - Airflow Maintaneance DAGs: airflow/airflow_maintaneance.md
-          - Airflow LDAP integration: airflow/airflow_ldap.md
+      - Hadoop Concepts: hadoop/HadoopArchitecture.md
+      - Hadoop HA Architecture: hadoop/HadoopHA.md
+      - MapReduce Concepts: hadoop/mapreduce.md
+      - YARN Concepts: hadoop/yarn.md
+      - Kerberos Concepts: hadoop/kerberos.md
+  - Ignite:
+      - Ignite Overview: ignite/ignite.md
+      - Onprem Install: ignite/igniteinstall.md
+  - Hive:
+      - Hive Overview: hive/hive.md
+  - Kafka:
+      - Kafka Overview: kafka/kafka.md
+      - Onprem ZK: kafka/kafka_install_zookeeper.md
+  - Airflow:
+      - Airflow Installation: airflow/airflow_install_onpremise.md
+      - Airflow Maintaneance DAGs: airflow/airflow_maintaneance.md
+      - Airflow LDAP integration: airflow/airflow_ldap.md
   - Kubernetes:
       - Kubernetes Architecture Explained: devops/kubernetesarchitecture.md
       - Kubernetes Installation: devops/kubernetes_install.md
