@@ -49,35 +49,37 @@ theme:
 
 nav:
   - Home: index.md
-  - Projects: projects/README.md
-  - Ignite: 
-      - Architecture Deep Dive: ignite/ignite.md
-      - Installation: ignite/igniteinstall.md
-  - Kafka:
-      - Kafka Overview: kafka/kafka.md
-      - Kafka Instal with ZK: kafka/kafka_install_zookeeper.md     
-  - Airflow:
-      - Airflow Installation: airflow/airflow_install_onpremise.md
-      - Airflow Maintaneance DAGs: airflow/airflow_maintaneance.md
-      - Airflow LDAP integration: airflow/airflow_ldap.md
-  - Big Data:
+  - Big Data: 
       - Big Data Overview: hadoop/Bigdata.md
-      - Hadoop Concepts: hadoop/HadoopArchitecture.md
-      - Hadoop HA Architecture: hadoop/HadoopHA.md
-      - MapReduce Concepts: hadoop/mapreduce.md
-      - YARN Concepts: hadoop/yarn.md
-      - Kerberos Concepts: hadoop/kerberos.md 
-      - Hadoop Cluster Planning: hadoop/hadoopcluster.md
+      - Hadoop:
+          - Hadoop Concepts: hadoop/HadoopArchitecture.md
+          - Hadoop HA Architecture: hadoop/HadoopHA.md
+          - MapReduce Concepts: hadoop/mapreduce.md
+          - YARN Concepts: hadoop/yarn.md
+          - Kerberos Concepts: hadoop/kerberos.md
+          - Hadoop Cluster Planning: hadoop/hadoopcluster.md
+      - Ignite:
+          - Ignite Overview: ignite/ignite.md
+          - Onprem Install: ignite/igniteinstall.md
+      - Hive:
+          - Hive Overview: hive/hive.md
+      - Kafka:
+          - Kafka Overview: kafka/kafka.md
+          - Onprem ZK: kafka/kafka_install_zookeeper.md
+      - Airflow:
+          - Airflow Installation: airflow/airflow_install_onpremise.md
+          - Airflow Maintaneance DAGs: airflow/airflow_maintaneance.md
+          - Airflow LDAP integration: airflow/airflow_ldap.md
   - Kubernetes:
       - Kubernetes Architecture Explained: devops/kubernetesarchitecture.md
       - Kubernetes Installation: devops/kubernetes_install.md
   - Data Engineering:
       - Data Engineering Overview: DataEngineering/DataEngineering.md
       - Data Engineering Lifecycle: DataEngineering/DEcycle.md
-      - Data Engineering UnderCurrents: DataEngineering/DEundercurrent.md  
+      - Data Engineering UnderCurrents: DataEngineering/DEundercurrent.md
       - Good Data Architecture: DataEngineering/DesigningGDA.md
   - SQL: sql/sql.md
-  - Tooling & setup: 
+  - Tooling & setup:
       - Jupyternotebok and JupyteHhub: tooling/jupyter_setup.md
       - Postgres HA: tooling/postgresHA.md
   - About Me: about.md

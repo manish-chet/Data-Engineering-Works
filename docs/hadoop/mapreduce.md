@@ -26,11 +26,11 @@ The master node can get over-burdened and may fail.
 
 Now, MapReduce allows us to overcome the above issues by bringing the processing unit to the data. This allows us to have the following advantages:
 
-    1. It is very cost-effective to move processing unit to the data.
+ 1. It is very cost-effective to move processing unit to the data.
 
-    2. The processing time is reduced as all the nodes are working with their part of the data in parallel.
+ 2. The processing time is reduced as all the nodes are working with their part of the data in parallel.
 
-    3. Every node gets a part of the data to process and therefore, there is no chance of a node getting overburdened.
+ 3. Every node gets a part of the data to process and therefore, there is no chance of a node getting overburdened.
 
 ### MapReduce Data Flow
 Input Files: The data for a MapReduce task is stored in input files, and input files typically lives in HDFS.
