@@ -1,0 +1,1852 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for Data Engineering and Big Data Technologies">
+      
+      
+        <meta name="author" content="Manishkumar Chetpalli">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/sqldeveloper-original.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Git - Data Engineering Works</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Data Engineering Works" class="md-header__button md-logo" aria-label="Data Engineering Works" data-md-component="logo">
+      
+  <img src="../../assets/images/sqldeveloper-original.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Data Engineering Works
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Git
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="light-green"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/manish-chet/DataEngineering" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    DataEngineering
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../hadoop/Bigdata/" class="md-tabs__link">
+          
+  
+  
+  Hadoop
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../ignite/ignite/" class="md-tabs__link">
+          
+  
+  
+  Ignite
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../hive/hive/" class="md-tabs__link">
+          
+  
+  
+  Hive
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../kafka/kafka/" class="md-tabs__link">
+          
+  
+  
+  Kafka
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../airflow/airflow_install_onpremise/" class="md-tabs__link">
+          
+  
+  
+  Airflow
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../kubernetesarchitecture/" class="md-tabs__link">
+          
+  
+  
+  Kubernetes
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../DataEngineering/DataEngineering/" class="md-tabs__link">
+          
+  
+  
+  Data Engineering
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../sql/sql/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  SQL
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tooling/jupyter_setup/" class="md-tabs__link">
+          
+  
+  
+  Tooling & setup
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About Me
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Data Engineering Works" class="md-nav__button md-logo" aria-label="Data Engineering Works" data-md-component="logo">
+      
+  <img src="../../assets/images/sqldeveloper-original.svg" alt="logo">
+
+    </a>
+    Data Engineering Works
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/manish-chet/DataEngineering" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    DataEngineering
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hadoop
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Hadoop
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hadoop/Bigdata/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Big Data Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hadoop/HadoopArchitecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hadoop Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hadoop/HadoopHA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hadoop HA Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hadoop/mapreduce/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MapReduce Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hadoop/yarn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    YARN Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hadoop/kerberos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kerberos Concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ignite
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Ignite
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ignite/ignite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ignite Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ignite/igniteinstall/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Onprem Install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Hive
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Hive
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hive/hive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hive Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Kafka
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Kafka
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kafka/kafka/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kafka Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../kafka/kafka_install_zookeeper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Onprem ZK
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Airflow
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Airflow
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../airflow/airflow_install_onpremise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Airflow Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../airflow/airflow_maintaneance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Airflow Maintaneance DAGs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../airflow/airflow_ldap.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Airflow LDAP integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Kubernetes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetesarchitecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes Architecture Explained
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes_install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kubernetes Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Data Engineering
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Data Engineering
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DataEngineering/DataEngineering/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Engineering Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DataEngineering/DEcycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Engineering Lifecycle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DataEngineering/DEundercurrent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Engineering UnderCurrents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DataEngineering/DesigningGDA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Good Data Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sql/sql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Tooling & setup
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Tooling & setup
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tooling/jupyter_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jupyternotebok and JupyteHhub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tooling/postgresHA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Postgres HA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About Me
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Git</h1>
+
+<p><strong>Git Fundamentals and Setup</strong></p>
+<ul>
+<li><strong>What Git is:</strong> Git is a Version Control System <code>. Specifically, it's a **distributed** Version Control System</code>. It was written by Linus Torvalds (creator of Linux) in 2005 in just 5 days <code>. Today, it is the **de facto standard for all developers**</code>. Git allows you to <strong>track code changes over time by author</strong> with a set of commands to search, manipulate, and revert history ``.</li>
+<li><strong>Git vs. Hosting Services:</strong> When the term "Git" is used in the course, it does not refer to companies like GitHub, GitLab, or Stash <code>. These companies **use Git** but are not Git itself</code>. GitHub is described as a product by Microsoft that hosts Git repositories and is a way for them to make money and collect data <code>. Forking and Pull Requests are features offered by these hosting services, not core Git operations</code>.</li>
+<li><strong>Git Usage:</strong> 93% of developers use Git, which the speaker feels is low because 100% of developers they've worked with use it <code>. Git has a very strong hold on the Version Control industry</code>.</li>
+<li><strong>Git Documentation:</strong> One of the best parts of Git is that all the documentation is fantastic <code>. You can access it using the `man` command, like `man git` or `man git tag`</code>.</li>
+<li><strong>Git Configuration (<code>git config</code>):</strong><ul>
+<li>You need to configure Git with your information (name and email) whenever you code ``.</li>
+<li>Git configuration is stored in a file, either in <strong>global space</strong> (your home directory) or within your <code>.git</code> folder ``.</li>
+<li>You can set configuration values using <code>git config --global &lt;key&gt; &lt;value&gt;</code> ``.</li>
+<li>You can list configuration values using <code>git config list</code> or <code>git config list --local</code> or <code>git config list --global</code> ``.</li>
+<li>You can set the <strong>default branch</strong> using <code>git config --global init.defaultBranch &lt;branch-name&gt;</code> <code>. While the default used to be `master`, many people and platforms like GitHub have updated it to `main`</code>. It's recommended to use <code>main</code> if you primarily work with GitHub <code>. You can also set this configuration at a local level for a specific repository</code>.</li>
+<li>Example commands shown: <code>git config list --local</code>, <code>git config list --global</code>, <code>git config add --global init.defaultBranch main</code> ``.</li>
+</ul>
+</li>
+<li><strong>Creating a Repository (<code>git init</code>):</strong><ul>
+<li>The first step of any project is to create a Git repository, or repo <code>. A repo represents a single project, and you typically have one repo per project</code>.</li>
+<li>A repo is just a directory containing project files, but it also includes a <strong>hidden <code>.git</code> directory</strong> ``.</li>
+<li>The <code>.git</code> directory is literally the <strong>entire state of your Git project</strong> <code>. Everything about the repo, including branches and commits, is stored there</code>.</li>
+<li>The command <code>git init</code> creates this new, empty <code>.git</code> directory ``.</li>
+<li>Example: Navigate to a directory (e.g., <code>webflix</code>), run <code>git init</code>, and you will see a <code>.git</code> folder when listing hidden files (<code>ls -la</code>) ``.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Working with Files and Commits</strong></p>
+<ul>
+<li><strong>File States:</strong> A file in a Git repository can be in several states ``:<ul>
+<li><strong>Untracked:</strong> Git doesn't know about this file yet. It has never been added to the index (staging area) or tracked <code>. If you delete an untracked file, you lose its content</code>.</li>
+<li><strong>Staged:</strong> The file has been added to the staging area, ready to be included in the next commit ``.</li>
+<li><strong>Committed:</strong> The changes in the file have been saved as a snapshot in the repository's history ``.</li>
+</ul>
+</li>
+<li><strong>Checking Status (<code>git status</code>):</strong> The <code>git status</code> command shows you the current state of your repo, including which files are untracked, staged, or modified ``.</li>
+<li><strong>Staging Changes (<code>git add</code>):</strong> The <code>git add &lt;file&gt;</code> command adds a file (or changes to a file) to the staging area <code>. This is the command to add a file to the index</code>.<ul>
+<li>Example: After creating a file like <code>contents.md</code>, <code>git status</code> shows it as untracked. Running <code>git add contents.md</code> moves it to the staged state ``.</li>
+</ul>
+</li>
+<li><strong>Committing Changes (<code>git commit</code>):</strong><ul>
+<li>A commit is a <strong>snapshot of the repository at any given time</strong> ``.</li>
+<li>Git <strong>does not store diffs</strong> (differences) per commit <code>. Instead, it stores the **entire history per commit**, meaning your entire project state is in a single commit</code>. More accurately, it stores <strong>references</strong> to the entire state ``.</li>
+<li>Commits are tied to an author, time of day, and other information ``.</li>
+<li>The command <code>git commit -m "&lt;message&gt;"</code> creates a new commit with the staged changes and the provided message <code>. Commit messages often start with a capitalized letter</code>.</li>
+<li>Example: After staging <code>contents.md</code>, run <code>git commit -m "Add contents"</code> to save it as a commit <code>. `git status` will then show a clean working tree</code>.</li>
+<li>You can add many commits to the graph ``.</li>
+</ul>
+</li>
+<li><strong>Viewing History (<code>git log</code>):</strong> The <code>git log</code> command shows the commit history ``.<ul>
+<li><code>git log --oneline</code> shows each commit on a single line with a shortened hash ``.</li>
+<li><code>git log -p</code> shows the diff (changes introduced) by each commit ``.</li>
+<li><code>git log --graph --decorate --oneline --parents</code> is a useful combination to visualize the commit graph, branches, and parent relationships ``.</li>
+</ul>
+</li>
+<li><strong>Plumbing vs. Porcelain Commands:</strong> Some Git commands are considered "plumbing" (low-level, internal) and others "porcelain" (high-level, user-friendly) <code>. You use porcelain commands like `git log` more often, but plumbing commands like `git cat-file` are useful for understanding Git's internals</code>.</li>
+</ul>
+<p><strong>Git Internals: Objects</strong></p>
+<ul>
+<li>Git stores its data as objects. Two important object types are:<ul>
+<li><strong>Blob:</strong> A way of storing a <strong>file</strong> ``.</li>
+<li><strong>Tree:</strong> A way of storing a <strong>directory</strong> ``.</li>
+</ul>
+</li>
+<li><strong>Viewing Object Contents (<code>git cat-file -p</code>):</strong><ul>
+<li>The plumbing command <code>git cat-file -p &lt;hash&gt;</code> allows you to see the contents of a Git object (like a commit, tree, or blob) without needing to fuss with the raw files <code>. The `-p` flag pretty-prints the object</code>.</li>
+<li>Example 1: Using <code>git cat-file -p &lt;commit-hash&gt;</code> on a commit shows the author, message, and a reference to a <strong>tree object</strong> ``.</li>
+<li>Example 2: Using <code>git cat-file -p &lt;tree-hash&gt;</code> on that tree object shows entries for files (blobs) and directories (other trees) within that snapshot, each with their own hash ``.</li>
+<li>Example 3: Using <code>git cat-file -p &lt;blob-hash&gt;</code> on a blob object shows the actual content of the file at that commit ``.</li>
+</ul>
+</li>
+<li><strong>How Git Stores Snapshots (Mind Blown Moment):</strong> Git stores an entire snapshot of files on a per-commit level <code>. When a commit references a file that hasn't changed since the parent commit, it doesn't store the file content again; it stores a **pointer** to the *same* blob object hash that the parent commit used</code>. This is why it's efficient <code>. If a tree (directory) hasn't changed, it can point to the *same* tree object hash as the parent</code>.<ul>
+<li>Analogy: Commit A points to Tree 1 (representing directory state). Tree 1 points to Blob X (contents file). Commit B adds a new file. It points to Tree 2. Tree 2 points to the <em>same</em> Blob X (for contents) and a <em>new</em> Blob Y (for the new file). Tree 2 has a different hash than Tree 1 because its contents (the list of files/blobs it points to) changed, but it reuses the hash for Blob X because the file content didn't change ``.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Branching and Merging</strong></p>
+<ul>
+<li><strong>Branches:</strong> A branch is literally just a <strong>pointer to a commit</strong> <code>. Because they are just pointers, branches are **lightweight and cheap** to create</code>.<ul>
+<li><code>git branch</code> lists existing branches and shows which one you are currently on ``.</li>
+</ul>
+</li>
+<li><strong>Tips:</strong> The "tip" of a branch is the <strong>latest commit</strong> on that branch ``.</li>
+<li><strong>Merge Base:</strong> The merge base, also called the <strong>best common ancestor</strong>, is the nearest commit that is an ancestor to <strong>both</strong> branches involved in a merge or rebase ``.</li>
+<li><strong>Switching Branches (<code>git switch</code> / <code>git checkout</code>):</strong><ul>
+<li><code>git switch &lt;branch-name&gt;</code> is the newer, recommended command for simply changing branches ``.</li>
+<li><code>git checkout &lt;branch-name&gt;</code> is an older command that can also switch branches, but it's less intuitive as it's used for many other things (like restoring files or resolving merge conflicts) <code>. The course primarily uses `git switch` but notes older developers often use `git checkout`</code>.</li>
+<li><code>git switch -c &lt;new-branch-name&gt;</code> creates a new branch and switches to it ``.</li>
+</ul>
+</li>
+<li><strong>Diverging Branches:</strong> Branches diverge when new commits are added to each branch independently after they split from a common ancestor (the merge base) ``.</li>
+<li><strong>Merging (<code>git merge</code>):</strong> Merging combines the history from one branch into another ``.<ul>
+<li>When merging two branches with diverging history, Git finds the <strong>merge base</strong> ``.</li>
+<li>It then combines the changes from the commits on both branches (since the merge base) into a new commit ``.</li>
+<li>This new commit is called a <strong>merge commit</strong> ``.</li>
+<li>A merge commit is unique because it's the <strong>only commit with two parents</strong> (one pointing to the tip of each branch being merged) ``.</li>
+<li>Example: Merging a branch <code>add-classics</code> (which diverged from <code>main</code> at commit A and has commit D) onto <code>main</code> (which has commits B and C after A, and E after C) results in a merge commit (F) on <code>main</code> with parents C (from <code>main</code>) and D (from <code>add-classics</code>) ``.</li>
+<li>Command: <code>git merge &lt;branch-to-merge-in&gt;</code> ``.</li>
+</ul>
+</li>
+<li><strong>Fast Forward Merge:</strong> This is the simplest type of merge <code>. It happens when the tip of the branch you are merging *onto* is also the merge base</code>. In this case, there's no diverging history on the target branch, so Git simply moves the pointer of the target branch forward to the tip of the branch being merged in <code>. **No merge commit with two parents is created**</code>.<ul>
+<li>Example: If you are on <code>main</code> and merge a branch <code>feature</code> where <code>feature</code> was created off <code>main</code> and only added new commits sequentially, Git can fast-forward <code>main</code>'s pointer to the latest commit of <code>feature</code> ``.</li>
+</ul>
+</li>
+<li><strong>Advantages/Disadvantages of Merge:</strong><ul>
+<li><strong>Advantage:</strong> Preserves the <strong>true history</strong> of the project, showing where branches happened and merged ``.</li>
+<li><strong>Disadvantage:</strong> Can create many merge commits, making history harder to read and understand ``.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Rebasing</strong></p>
+<ul>
+<li><strong>Rebase (<code>git rebase</code>):</strong> Rebasing is different from merging; it <strong>rewrites history</strong> ``.<ul>
+<li>When you rebase branch <code>feature</code> onto branch <code>main</code>, Git finds the merge base, moves the tip of <code>feature</code> back to the merge base, and then <strong>replays</strong> the commits from <code>feature</code> one by one on top of the current tip of <code>main</code> ``.</li>
+<li>This creates <strong>new commit objects</strong> for the changes from <code>feature</code>, effectively making it look as if <code>feature</code> branched off of the latest commit of <code>main</code> <code>. The original commits from `feature` are no longer part of the history of the rebased branch</code>.</li>
+<li>Command: <code>git rebase &lt;target-branch&gt;</code> (when on the branch you want to rebase) <code>. Example: `git rebase main` (while on `band` branch) replays `band`'s commits onto `main`</code>.</li>
+</ul>
+</li>
+<li><strong>Advantages/Disadvantages of Rebase:</strong><ul>
+<li><strong>Advantage:</strong> Creates a <strong>linear history</strong> that is generally easier to read, understand, and work with <code>. This can be useful when preparing commits from a feature branch for a pull request</code>.</li>
+<li><strong>Disadvantage:</strong> <strong>Rewrites history</strong>, which can be problematic for collaborative branches ``.</li>
+</ul>
+</li>
+<li><strong>Important Warning:</strong> <strong>You should NEVER rebase a public branch</strong> like <code>main</code> <code>. If you do this, when others try to pull, their histories will be out of sync, leading to conflict problems</code>. It is generally okay to rebase <strong>your own private branch</strong> on top of a public branch ``.</li>
+</ul>
+<p><strong>Handling Conflicts</strong></p>
+<ul>
+<li>Conflicts happen when changes are made to the <strong>same lines of code</strong> in different commits that Git tries to combine (merge or rebase), and Git cannot automatically figure out which change to keep ``.</li>
+<li>Git inserts conflict markers (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>) into the file ``.</li>
+<li><strong>Resolving Conflicts:</strong> You need to manually edit the file to remove the conflict markers and keep the desired code ``.</li>
+<li><strong><code>git checkout --ours</code> and <code>git checkout --theirs</code>:</strong> These commands can help resolve conflicts during both merging and rebasing ``.<ul>
+<li>During a <strong>merge</strong>, <code>ours</code> refers to the changes on the branch you are currently on (where you ran <code>git merge</code>), and <code>theirs</code> refers to the changes on the branch you are merging <em>in</em> ``.</li>
+<li>During a <strong>rebase</strong>, you need to think in reverse: <code>theirs</code> represents the changes from the branch being rebased (the commits being replayed), which in reality are <em>your</em> changes on that branch. <code>ours</code> represents the changes from the target branch (the one being rebased onto, e.g., <code>main</code>) <code>. So, during a rebase, `git checkout --ours` keeps the changes from the target branch (e.g., `main`), and `git checkout --theirs` keeps the changes from the branch being rebased (e.g., `band` branch changes being replayed)</code>.</li>
+<li>Example: During a merge conflict, <code>git checkout --ours &lt;file&gt;</code> will use the version of the file from your current branch <code>. `git checkout --theirs &lt;file&gt;` will use the version from the branch you are merging in</code>.</li>
+</ul>
+</li>
+<li>After manually editing or using <code>git checkout</code> to resolve conflicts, you must <code>git add</code> the file to stage the resolution and then continue the merge or rebase ``.<ul>
+<li>For merge: After staging, <code>git commit</code> completes the merge commit ``.</li>
+<li>For rebase: After staging, <code>git rebase --continue</code> continues the rebasing process ``.</li>
+</ul>
+</li>
+<li><strong>Resolving Conflicts in Editor:</strong> Many code editors (like VS Code) have UI features to help resolve conflicts, often labeled "Accept incoming changes" (like <code>theirs</code> in a merge) and "Accept current changes" (like <code>ours</code> in a merge) ``.</li>
+<li><strong><code>git rerere</code> (Reuse Recorded Resolution):</strong> This is a hidden feature (from <code>git help rerere</code>) that, if enabled, allows Git to <strong>remember how you resolved a hunk conflict</strong> <code>. The next time it sees the *same* conflict, Git can **resolve it automatically**</code>. This applies to both rebasing and merging ``.</li>
+</ul>
+<p><strong>Undoing Changes</strong></p>
+<ul>
+<li><strong>Git Reset (<code>git reset</code>):</strong> Used to undo the last commits or changes in the index or working tree <code>. It can move the branch pointer back to a previous commit</code>.<ul>
+<li><code>git reset --soft &lt;commit&gt;</code>: Goes back to a previous commit but <strong>keeps all of your changes</strong>. Committed changes will be uncommitted and staged, while uncommitted changes remain as they were <code>. The working directory and staging area are left untouched</code>.<ul>
+<li>Example: <code>git reset --soft HEAD~1</code> undoes the last commit, leaving its changes staged <code>. This is useful if you want to redo the last commit or fix a commit message before it's pushed publicly</code>. It's also useful for fixing mistakes during rebase or cherry-pick ``.</li>
+</ul>
+</li>
+<li><code>git reset --hard &lt;commit&gt;</code>: Goes back to a previous commit and <strong>discards all changes</strong> made after that commit in both the staging area and the working directory <code>. All changes made *after* the target commit are lost from your working files</code>.<ul>
+<li>Example: <code>git reset --hard &lt;commit-hash&gt;</code> or <code>git reset --hard HEAD~1</code> ``.</li>
+</ul>
+</li>
+<li><strong>Danger of <code>git reset --hard</code>:</strong> If you have unstaged or staged changes that were never committed and you run <code>git reset --hard</code>, those changes will be <strong>deleted for good</strong> from your working tree <code>. Untracked files (files Git doesn't know about) are **not** removed by `git reset --hard`</code>.</li>
+<li>While <code>git reset --hard</code> loses changes from the working tree and index, the commit objects themselves are often still recoverable using <code>git reflog</code> ``.</li>
+</ul>
+</li>
+<li><strong>Git Revert (<code>git revert</code>):</strong> Used to undo the changes introduced by a specific commit ``.<ul>
+<li>It creates a <strong>NEW commit</strong> that is the <strong>inverse</strong> of the commit being reverted ``.</li>
+<li>This preserves the project's history, showing that the original commit happened and then a subsequent commit undid its changes ``.</li>
+<li>Command: <code>git revert &lt;commit-hash&gt;</code> <code>. Git will often prompt you to edit the commit message for the new revert commit</code>.</li>
+<li>Example: <code>git revert &lt;hash&gt;</code> creates a new commit that contains changes opposite to those in the specified commit <code>. `git log -p` can show the inverse nature of the changes</code>.</li>
+</ul>
+</li>
+<li><strong>Git Reflog (<code>git reflog</code>):</strong><ul>
+<li>Keeps a <strong>record of where the HEAD has been</strong> ``.</li>
+<li>This is extremely useful for recovering commits or states that seem lost (e.g., after a hard reset, rebase, or deleting a branch) because the commit objects still exist and are referenced in the reflog ``.</li>
+<li>Example: If you accidentally delete a branch containing a unique commit, <code>git reflog</code> will show the history of your HEAD movements, including the hash of the "lost" commit <code>. You can then use plumbing commands like `git cat-file` or even merge/cherry-pick from the reflog hash to recover the changes</code>.</li>
+</ul>
+</li>
+<li><strong>Git Commit Amend (<code>git commit --amend</code>):</strong><ul>
+<li>Allows you to change the <strong>last commit's commit message</strong> ``.</li>
+<li>You can also stage additional changes before running <code>git commit --amend</code> to add them to the last commit ``.</li>
+<li>Warning: This is a <strong>destructive, history-altering item</strong> because it changes the SHA hash of the last commit <code>. Do not amend commits that have already been pushed to a public branch</code>.</li>
+<li>Example: If you just committed and immediately realize the message is wrong, <code>git commit --amend</code> opens the editor to change the message for that last commit ``.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Remotes and Collaboration</strong></p>
+<ul>
+<li><strong>Remote Repositories (Remotes):</strong> Remotes are just <strong>other repos</strong> <code>. A repo is a collection of commits; a branch is just a pointer to a commit within a repo</code>.</li>
+<li><strong>Distributed Version Control:</strong> Git is distributed <code>. This means **one repo is not inherently the authoritative source**; every repo is its own repo, and you sync between them</code>. You can have many authoritative repos, but typically teams use one (like a GitHub repo) for easy pulling and pushing ``.</li>
+<li><strong>Origin:</strong> When you clone a repository, Git automatically sets up a remote named <code>origin</code> that points back to the repository you cloned from <code>. This is the conventional name for the primary remote</code>.</li>
+<li><strong>Adding a Remote (<code>git remote add</code>):</strong> You can add other remotes to your local repository using <code>git remote add &lt;name&gt; &lt;url&gt;</code> ``.<ul>
+<li>Example: <code>git remote add origin &lt;your-github-repo-url&gt;</code> ``.</li>
+</ul>
+</li>
+<li><strong>Listing Remotes (<code>git remote -v</code>):</strong> Shows the names and URLs of your configured remotes ``.</li>
+<li><strong>Fetching Changes (<code>git fetch</code>):</strong> Downloads commits, files, and references from a remote repository into your local repository <code>. It **does not** automatically merge or modify your current working branches</code>. It updates the remote-tracking branches (e.g., <code>origin/main</code>) in your local repo ``.<ul>
+<li>Example: <code>git fetch origin</code> downloads changes from the <code>origin</code> remote ``.</li>
+</ul>
+</li>
+<li><strong>Pulling Changes (<code>git pull</code>):</strong> A shortcut that is typically equivalent to running <code>git fetch</code> followed by <code>git merge</code> <code>[?]</code>. It fetches changes from a remote and integrates them into your current local branch <code>[?]</code>.</li>
+<li><strong>Pushing Changes (<code>git push</code>):</strong> Uploads your local commits to a remote repository ``.<ul>
+<li>Example: <code>git push origin main</code> pushes the <code>main</code> branch to the <code>origin</code> remote ``.</li>
+</ul>
+</li>
+<li><strong>Forking (GitHub/Hosting Feature):</strong> A fork is a <strong>copy of an original repository</strong> on a hosting service like GitHub <code>. You create a fork in your own account</code>. Forking is <strong>not a Git command-line operation</strong>; it's a feature of the hosting service ``.<ul>
+<li>Purpose: It allows you to modify the project without affecting the original repository, which is the standard way to contribute to open-source projects where you don't have push access to the main repo ``.</li>
+<li>Workflow for Contribution: Fork the repo on the hosting service -&gt; Clone <em>your fork</em> to your local machine -&gt; Create a branch -&gt; Make changes -&gt; Commit -&gt; Push changes to <em>your fork</em> -&gt; Open a Pull Request from your fork's branch to the original repo's branch ``.</li>
+</ul>
+</li>
+<li><strong>Upstream Remote:</strong> When cloning your fork, it's common to add a second remote, conventionally named <code>upstream</code>, that points to the original repository you forked from <code>. This allows you to easily fetch and pull in changes from the original repo (`upstream`) into your fork (`origin`) so you are working on the latest version and avoid conflicts when submitting contributions</code>.<ul>
+<li>Example: <code>git remote add upstream &lt;original-repo-url&gt;</code> ``.</li>
+</ul>
+</li>
+<li><strong>Pull Request (GitHub/Hosting Feature):</strong> A mechanism offered by hosting services (like GitHub) to propose changes from one branch (e.g., your feature branch on your fork) to another branch (e.g., <code>main</code> on the original repo) <code>. It allows for discussion and code review before the changes are merged</code>. You cannot do a pull request directly <em>in Git</em> because Git doesn't know about GitHub's features ``.</li>
+</ul>
+<p><strong>Ignoring Files</strong></p>
+<ul>
+<li><strong>Git Ignore (<code>.gitignore</code>):</strong> A file (typically placed at the root of the repository) that lists files or patterns of files that Git should <strong>ignore</strong> and not track <code>. This is crucial for things like generated files (e.g., build outputs, logs) or dependency directories (e.g., `node_modules`)</code>.</li>
+<li><strong>Syntax:</strong><ul>
+<li>Each line is a pattern ``.</li>
+<li>Blank lines or lines starting with <code>#</code> are ignored as comments ``.</li>
+<li>Standard shell wildcards like <code>*</code> (matches zero or more characters) can be used ``.</li>
+<li>Patterns starting with <code>/</code> are anchored to the directory containing the <code>.gitignore</code> file ``.</li>
+<li>You can <strong>negate</strong> a pattern by prefixing it with an exclamation mark (<code>!</code>) <code>. This is useful to ignore an entire directory but include a specific file within it</code>.</li>
+<li>Example: <code>node_modules/</code> ignores the <code>node_modules</code> directory <code>. `*.html` ignores all HTML files</code>. <code>/main.py</code> ignores <code>main.py</code> in the same directory as the <code>.gitignore</code> file, but not in subdirectories <code>. `/secure/*` ignores everything directly inside the `secure` directory</code>. <code>/secure/</code> ignores the directory and its contents recursively <code>. `!.gitignore` might negate a previous ignore rule for `.gitignore`</code>.</li>
+</ul>
+</li>
+<li><strong>Placement:</strong> <code>.gitignore</code> files do not necessarily have to be at the root of the project; you can have multiple <code>.gitignore</code> files in different directories <code>. Rules in a `.gitignore` file apply to that directory and its subdirectories</code>. This is useful for things like monorepos ``.</li>
+</ul>
+<p><strong>Advanced Commands</strong></p>
+<ul>
+<li><strong>Git Squash (<code>git squash</code>):</strong> Not a command itself, but a common action performed using interactive rebase (<code>git rebase -i</code>) <code>. It allows you to **combine multiple commits into a single new commit**</code>. This is often done on feature branches before merging or creating a pull request to maintain a cleaner, linear history on the main branch ``.<ul>
+<li>Example: Using <code>git rebase -i HEAD~&lt;number-of-commits&gt;</code> opens an editor where you can mark commits to <code>pick</code> (keep) or <code>squash</code> (combine into the previous commit) ``.</li>
+</ul>
+</li>
+<li><strong>Git Stash (<code>git stash</code>):</strong> Saves changes in your working directory and staging area temporarily without committing them, allowing you to switch to a clean working directory ``.<ul>
+<li><code>git stash</code> saves the current changes onto a stack ``.</li>
+<li><code>git stash list</code> shows the list of stashed changes ``.</li>
+<li><code>git stash pop</code> applies the most recent stash and removes it from the stack ``.</li>
+<li><code>git stash drop</code> removes the most recent stash from the stack ``.</li>
+<li>You can add messages to stashes: <code>git stash save "&lt;message&gt;"</code> or the newer <code>git stash push -m "&lt;message&gt;"</code> ``.</li>
+</ul>
+</li>
+<li><strong>Git Cherry-pick (<code>git cherry-pick</code>):</strong> Applies the changes introduced by a <strong>specific commit</strong> from one branch onto another branch <code>. It creates a **new commit** on the target branch that contains the same changes as the picked commit</code>.<ul>
+<li>Requirement: A clean working tree (no uncommitted changes) on the target branch ``.</li>
+<li>Command: <code>git cherry-pick &lt;commit-hash&gt;</code> (while on the branch you want to apply the commit to) ``.</li>
+<li>Example: <code>git cherry-pick &lt;hash-of-commit-O&gt;</code> while on <code>main</code> will apply the changes from commit O to <code>main</code> by creating a new commit ``.</li>
+</ul>
+</li>
+<li><strong>Git Bisect (<code>git bisect</code>):</strong> A debugging tool that uses a <strong>binary search</strong> algorithm to find the commit that introduced a bug ``.<ul>
+<li>Workflow: Start bisecting (<code>git bisect start</code>) -&gt; Mark the current (buggy) commit as bad (<code>git bisect bad</code>) -&gt; Mark a known good commit (<code>git bisect good &lt;good-commit-hash&gt;</code>) ``.</li>
+<li>Git then checks out a commit roughly in the middle of the good and bad range <code>. You test if the bug is present</code>.</li>
+<li>If the bug is present, mark the commit as bad (<code>git bisect bad</code>); if not, mark it as good (<code>git bisect good</code>) ``.</li>
+<li>Git continues checking out middle commits based on your good/bad input until it narrows down to the single commit that introduced the bug ``.</li>
+<li>Exit bisect mode with <code>git bisect reset</code> ``.</li>
+<li>Analogy: Like finding a number in a sorted array using binary search ``.</li>
+</ul>
+</li>
+<li><strong>Git Worktree (<code>git worktree</code>):</strong> Allows you to have <strong>multiple working directories connected to the same repository</strong> <code>. Each worktree can have a different branch checked out</code>.<ul>
+<li>Command: <code>git worktree add &lt;path&gt; &lt;branch&gt;</code> creates a new linked worktree at the specified path with the specified branch checked out ``.</li>
+<li><code>git worktree list</code> shows all working trees for the repository ``.</li>
+<li>The main working directory stores references to the linked worktrees in the <code>.git/worktrees</code> directory ``.</li>
+<li>Restriction: You <strong>cannot</strong> work on a branch that is currently checked out by another worktree ``.</li>
+</ul>
+</li>
+<li><strong>Git Tag (<code>git tag</code>):</strong> Used to mark specific points in history as important ``.<ul>
+<li>A tag is an <strong>immutable pointer to a commit</strong> <code>. You cannot edit a tag</code>.</li>
+<li><code>git tag</code> lists existing tags ``.</li>
+<li><code>git tag &lt;tag-name&gt; &lt;commit-hash&gt;</code> creates a tag pointing to a specific commit. If no hash is given, it tags the HEAD commit ``.</li>
+<li><code>git tag -a &lt;tag-name&gt; -m "&lt;message&gt;"</code> creates an <strong>annotated tag</strong> which includes metadata like the tagger name, email, and date, and a tagging message ``.</li>
+<li>When you <code>git checkout &lt;tag-name&gt;</code>, you enter a <strong>detached HEAD</strong> state because tags are immutable and you can't commit directly on them ``.</li>
+<li>Typical Use: Tags are commonly used to mark <strong>release versions</strong> (e.g., v1.0.0, v2.1.3) using Semantic Versioning (Sver) ``.</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Manishkumar Chetpalli
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/manishkumarchetpalli/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/manish-chet" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotation", "content.code.copy", "content.tooltips", "content.tabs.link", "navigation.tabs", "navigation.tabs.sticky", "navigation.path", "navigation.sections", "navigation.top", "search.highlight", "search.suggest", "search.share", "navigation.footer", "content.action.feedback", "toc.follow"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  </body>
+</html>
