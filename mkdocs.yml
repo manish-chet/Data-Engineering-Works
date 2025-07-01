@@ -58,9 +58,19 @@ nav:
       - Kerberos Concepts: hadoop/kerberos.md
   - Ignite:
       - Ignite Overview: ignite/ignite.md
+      - Caching topology: ignite/ignite2.md
+      - Caching strategy: ignite/ignite3.md
+      - CAP Theorem and Where Does Ignite Stand: ignite/ignite4.md
+      - Zero SPOF: ignite/ignite5.md
+      - How SQL Queries Work in Ignite: ignite/ignite6.md
+      - Expiration & Eviction of Cache Entries in Ignite: ignite/ignite7.md
+      - Discovery and communication mechanisms: ignite/ignite8.md
       - Onprem Install: ignite/igniteinstall.md
   - Hive:
       - Hive Overview: hive/hive.md
+      - Hive SerDe: hive/hive2.md
+      - Partitioning & Bucketing: hive/hive3.md
+      - Joins in Hive: hive/hive4.md
   - Kafka:
       - Kafka Overview: kafka/kafka.md
       - Onprem ZK: kafka/kafka_install_zookeeper.md

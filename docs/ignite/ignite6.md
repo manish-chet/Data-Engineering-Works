@@ -1,0 +1,18 @@
+
+### How SQL Queries Work in Ignite
+
+In chapter one, we introduced Ignite SQL query feature very superficially. In chapter four, we will go into more details about Ignite SQL queries. It's interesting to know how a query processes under the hood of Ignite. There are two main approaches to process SQL queries in Ignite:
+
+- In-memory Map-Reduce: If you are executing any SQL query against a Partitioned cache, Ignite under the hood splits the query into in-memory map queries and a single reduce query. The number of map queries depends on the size of the partitions and number the partitions in the cluster. Then all map queries are executed on all data nodes of the participating caches, providing results to the reducing node, which will, in turn, run the reduce query over these intermediate results. If you are not familiar with the Map-Reduce pattern, you can imagine it as a Java Fork-join process.
+- H2 SQL engine: if you are executing SQL queries against Replicated or Local cache, Ignite knows that all data is available locally and runs a simple local SQL query in the H2 database engine. Note that, in replicated caches, every node contains a replica data for other nodes. H2 database is a free database written in Java and can work in an embedded mode. Depending on the configuration, every Ignite node can have an embedded H2 SQL engine.
+
+### Performance Tuning SQL Queries
+
+There are a few principles you should follow or consider when using SQL queries against Ignite cache:
+
+- Carefully use the index, Indexes also consumes memory (on-heap/off-heap). Also, each index needs to be updated separately. If you have a huge update on a cache, index update can seriously decrease your application performance.
+- Index only fields, that are participating in SQL WHERE clause.
+- Do not overuse the non-collocated distributed joins approach in practice because the performance of this type of joins is worse than the performance of the affinity collocation-based joins due to the fact that there will be much more network round-trips and data movement between the nodes to fulfill a query.
+- In SQL projection statement, select fields that you exactly needs. Extra fields often increase the data roundtrip over the network.
+- If the query is using operator OR then it may use indexes in a way you not would expect. For example, for query `select name from Person where sex='M' and (age = 20 or age = 30)` index on field age will not be used even if it is obviously more selective than index on field sex and thus is preferable. To workaround this issue you have to rewrite the query with UNION ALL (notice that UNION without ALL will return DISTINCT rows, which will change query semantics and introduce additional performance penalty) like `select name from Person where sex='M' and age = 20 UNION ALL select name from Person where sex='M' and age = 30`. This way indexes will be used correctly.
+- If query contains operator IN then it has two problems: it is impossible to provide variable list of parameters (you have to specify the exact list in query like `where id in (?, ?, ?)`), but you can not write it like `where id in ?` and pass array or collection) and this query will not use index. To work around both problems, you can rewrite the query in the following way: `select p.name from Person p join table(id bigint = ?) i on p.id = i.id`. Here you can provide object array (Object[]) of any length as a parameter, and the query will use an index on field id. Note that primitive arrays (int[], long[], etc..) can not be used with this syntax, you have to pass an array of boxed primitives.
