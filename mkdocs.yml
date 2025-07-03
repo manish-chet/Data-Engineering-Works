@@ -65,15 +65,23 @@ nav:
       - How SQL Queries Work in Ignite: ignite/ignite6.md
       - Expiration & Eviction of Cache Entries in Ignite: ignite/ignite7.md
       - Discovery and communication mechanisms: ignite/ignite8.md
-      - Onprem Install: ignite/igniteinstall.md
+      - Setup & Install: ignite/igniteinstall.md
   - Hive:
       - Hive Overview: hive/hive.md
       - Hive SerDe: hive/hive2.md
       - Partitioning & Bucketing: hive/hive3.md
       - Joins in Hive: hive/hive4.md
   - Kafka:
-      - Kafka Overview: kafka/kafka.md
-      - Onprem ZK: kafka/kafka_install_zookeeper.md
+    - Concepts:
+        - Overview: kafka/kafka.md
+        - Architecture: kafka/kafkaarch.md
+        - Concepts: kafka/kafka concepts.md
+        - Role of Zookeeper in Kafka: kafka/kafkazk.md
+        - Offsets: kafka/offsets.md
+        - Producers: kafka/producer.md
+        - Consumers: kafka/consumer.md
+    - Installation:
+        - KB-ZK Setup & Install: kafka/kafka_install_zookeeper.md
   - Airflow:
       - Airflow Installation: airflow/airflow_install_onpremise.md
       - Airflow Maintaneance DAGs: airflow/airflow_maintaneance.md

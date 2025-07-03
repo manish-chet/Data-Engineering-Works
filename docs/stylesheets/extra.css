@@ -1,3 +1,9 @@
 .md-tabs__list {
   justify-content: flex-start;
 }
+/* Make sidebar section labels (like "Concepts", "Installation") darker and bold */
+.md-nav__item .md-nav__link--section {
+  color: #000000 !important;     /* Darker color */
+  font-weight: 700 !important;   /* Bold */
+}
+
