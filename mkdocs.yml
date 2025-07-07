@@ -97,6 +97,9 @@ nav:
       - Data Engineering UnderCurrents: DataEngineering/DEundercurrent.md
       - Good Data Architecture: DataEngineering/DesigningGDA.md
   - SQL: sql/sql.md
+  - NoSQL: 
+      - Overview: sql/Mongo.md
+      - MongoDB: sql/mongo2.md
   - Tooling & setup:
       - Jupyternotebok and JupyteHhub: tooling/jupyter_setup.md
       - Postgres HA: tooling/postgresHA.md
