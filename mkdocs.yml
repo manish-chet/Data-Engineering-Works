@@ -86,10 +86,17 @@ nav:
       - Airflow Overview: airflow/airflow.md
       - Airflow Installation: airflow/airflow_install_onpremise.md
       - Airflow Maintaneance DAGs: airflow/airflow_maintaneance.md
-      - Airflow LDAP integration: airflow/airflow_ldap.md
-  - Kubernetes:
+  - Devops:
       - Kubernetes Architecture Explained: devops/kubernetesarchitecture.md
       - Kubernetes Installation: devops/kubernetes_install.md
+      - Kubernetes Labels, Selectors, and Replication Controllers: devops/kube2.md
+      - Kubernetes Jobs,init container and pod lifecycle: devops/kube3.md
+      - Deploying object in Kubernetes: devops/kube4.md
+      - Kubernetes Networking: devops/kube5.md
+      - Persistent Volumes & Liveness Probes: devops/kube6.md
+      - Namespaces & Resource Quotas: devops/kube7.md
+      - Horizontal Pod Autoscaling: devops/kube8.md
+      - Git: devops/git.md
   - Data Engineering:
       - Data Engineering Overview: DataEngineering/DataEngineering.md
       - Data Engineering Lifecycle: DataEngineering/DEcycle.md
