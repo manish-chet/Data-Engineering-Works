@@ -93,9 +93,9 @@ nav:
       - Kubernetes Jobs,init container and pod lifecycle: devops/kube3.md
       - Deploying object in Kubernetes: devops/kube4.md
       - Kubernetes Networking: devops/kube5.md
-      - Persistent Volumes & Liveness Probes: devops/kube6.md
-      - Namespaces & Resource Quotas: devops/kube7.md
-      - Horizontal Pod Autoscaling: devops/kube8.md
+      - Kubernetes Persistent Volumes & Liveness Probes: devops/kube6.md
+      - Kubernetes Namespaces & Resource Quotas: devops/kube7.md
+      - KubernetesHorizontal Pod Autoscaling: devops/kube8.md
       - Git: devops/git.md
   - Data Engineering:
       - Data Engineering Overview: DataEngineering/DataEngineering.md
