@@ -83,6 +83,7 @@ nav:
         - KB-ZK Setup & Install: kafka/kafka_install_zookeeper.md
         - MySQL to Kafka to JSON Files: kafka/mysqlkafka.md
   - Airflow:
+      - Airflow Overview: airflow/airflow.md
       - Airflow Installation: airflow/airflow_install_onpremise.md
       - Airflow Maintaneance DAGs: airflow/airflow_maintaneance.md
       - Airflow LDAP integration: airflow/airflow_ldap.md
