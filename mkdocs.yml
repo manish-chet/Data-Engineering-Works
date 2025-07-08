@@ -80,9 +80,7 @@ nav:
         - Offsets: kafka/offsets.md
         - Producers: kafka/producer.md
         - Consumers: kafka/consumer.md
-    - Installation:
         - KB-ZK Setup & Install: kafka/kafka_install_zookeeper.md
-    - Kafka Codes:
         - MySQL to Kafka to JSON Files: kafka/mysqlkafka.md
   - Airflow:
       - Airflow Installation: airflow/airflow_install_onpremise.md
