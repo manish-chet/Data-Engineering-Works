@@ -86,6 +86,12 @@ nav:
       - Airflow Overview: airflow/airflow.md
       - Airflow Installation: airflow/airflow_install_onpremise.md
       - Airflow Maintaneance DAGs: airflow/airflow_maintaneance.md
+  - Spark:
+      - Spark Overview: spark/spark.md
+      - Spark Ecosystem: spark/sparkecosystem.md
+      - Resilient Distributed Datasets (RDD) in Spark: spark/Rdd.md
+      - How Spark Perform Data Partitioning?: spark/spark2.md
+      - Transformations & Actions : spark/sparktrans.md
   - Devops:
       - Kubernetes Architecture Explained: devops/kubernetesarchitecture.md
       - Kubernetes Installation: devops/kubernetes_install.md
