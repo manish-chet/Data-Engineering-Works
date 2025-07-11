@@ -23,8 +23,9 @@
 
 ???-  "Generate config file"
     ```bash
-    jupyter notebook --generate-config
-    wget https://github.com/manish-chet/DataEngineering/blob/main/jupyter/jupyter_notebook_config.py
+    c.NotebookApp.ip = 'IP'
+    c.NotebookApp.open_browser = False
+    c.NotebookApp.port = 18888
     ```
 ???-  "Start the Notebook"
     ```bash
@@ -59,7 +60,23 @@
         mkdir -p /data1/jupyterhub/etc/jupyterhub/
         cd /data1/jupyterhub/etc/jupyterhub/
         /data1/jupyterhub/bin/jupyterhub --generate-config
-        wget https://github.com/manish-chet/DataEngineering/blob/main/jupyter/jupyterhub_config.py
+        ------add the following for LDAP setting------
+        c.LDAPAuthenticator.server_address = 'ldaps://adldaps.in.abc.com:636'
+        c.LDAPAuthenticator.use_ssl = True
+        c.LDAPAuthenticator.lookup_dn = False
+        c.LDAPAuthenticator.server_port = 636
+        c.LDAPAuthenticator.valid_username_regex = '^[a-z][.a-z0-9_-]*$'
+        c.LDAPAuthenticator.lookup_dn_search_filter = '({login_attr}={login})'
+        c.LDAPAuthenticator.lookup_dn_search_user = 'rr.trinodatalake'
+        c.LDAPAuthenticator.lookup_dn_search_password = 'Datalake@2023'
+        c.LDAPAuthenticator.tls_strategy = 'on_connect'
+        c.LDAPAuthenticator.user_search_base = 'OU=FTE,OU=USERS,OU=CORPORATE,OU=RELIANCE JIO,DC=in,DC=ril,DC=com'
+        c.LDAPAuthenticator.user_attribute = 'sAMAccountName'
+        c.LDAPAuthenticator.lookup_dn_user_dn_attribute = 'cn'
+        c.LDAPAuthenticator.escape_userdn = False
+        c.LDAPAuthenticator.bind_dn_template = '{username}@abc.com'
+        c.LDAPAuthenticator.debug = True
+        c.LDAPAuthenticator.admin_users = {'manishkumar'}
         ```
 
 ???-  "Create a systemd service"
