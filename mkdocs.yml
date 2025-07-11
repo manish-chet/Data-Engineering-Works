@@ -1,4 +1,4 @@
-site_name: Data Engineering Works
+site_name: Big Data Works
 site_description: Documentation for Data Engineering and Big Data Technologies
 site_author: Manishkumar Chetpalli
 
@@ -56,6 +56,8 @@ nav:
       - MapReduce Concepts: hadoop/mapreduce.md
       - YARN Concepts: hadoop/yarn.md
       - Kerberos Concepts: hadoop/kerberos.md
+      - Hadoop Interview Questions: hadoop/hadoopiq.md
+      - Hadoop Scenarios: hadoop/hadoopscenarios.md
   - Ignite:
       - Ignite Overview: ignite/ignite.md
       - Caching topology: ignite/ignite2.md
@@ -65,7 +67,6 @@ nav:
       - How SQL Queries Work in Ignite: ignite/ignite6.md
       - Expiration & Eviction of Cache Entries in Ignite: ignite/ignite7.md
       - Discovery and communication mechanisms: ignite/ignite8.md
-      - Setup & Install: ignite/igniteinstall.md
   - Hive:
       - Hive Overview: hive/hive.md
       - Hive SerDe: hive/hive2.md
@@ -80,21 +81,26 @@ nav:
         - Offsets: kafka/offsets.md
         - Producers: kafka/producer.md
         - Consumers: kafka/consumer.md
-        - KB-ZK Setup & Install: kafka/kafka_install_zookeeper.md
-        - MySQL to Kafka to JSON Files: kafka/mysqlkafka.md
+        - Interview Questions: kafka/iq.md
   - Airflow:
       - Airflow Overview: airflow/airflow.md
-      - Airflow Installation: airflow/airflow_install_onpremise.md
-      - Airflow Maintaneance DAGs: airflow/airflow_maintaneance.md
+      - Airflow Architecture: airflow/airflowarc.md
+      - Operators: airflow/operators.md
+      - DAGs: airflow/DAG.md
+      - Airflow Interview Questions: airflow/airflowiq.md
   - Spark:
       - Spark Overview: spark/spark.md
       - Spark Ecosystem: spark/sparkecosystem.md
       - Resilient Distributed Datasets (RDD) in Spark: spark/Rdd.md
       - How Spark Perform Data Partitioning?: spark/spark2.md
       - Transformations & Actions : spark/sparktrans.md
+      - DAG in Spark: spark/DAG.md
+      - Spark Architecture: spark/sparkarchitecture.md
+      - Spark Deployment Modes: spark/deploymentmode.md
+  - Flink:
+      - Flink Interview Questions: flink/iq.md
   - Devops:
       - Kubernetes Architecture Explained: devops/kubernetesarchitecture.md
-      - Kubernetes Installation: devops/kubernetes_install.md
       - Kubernetes Labels, Selectors, and Replication Controllers: devops/kube2.md
       - Kubernetes Jobs,init container and pod lifecycle: devops/kube3.md
       - Deploying object in Kubernetes: devops/kube4.md
@@ -112,9 +118,14 @@ nav:
   - NoSQL: 
       - Overview: sql/Mongo.md
       - MongoDB: sql/mongo2.md
+      - MongoDB Interview Questions: sql/mongoiq.md
   - Tooling & setup:
       - Jupyternotebok and JupyteHhub: tooling/jupyter_setup.md
       - Postgres HA: tooling/postgresHA.md
+      - Ignite 3 Node Cluster: ignite/igniteinstall.md
+      - Kafka SASL_SSL: kafka/kafka_install_zookeeper.md
+      - Airflow 3 Node Cluster: airflow/airflow_install_onpremise.md
+      - Kubernetes Installation: devops/kubernetes_install.md
   - About Me: about.md
   
 markdown_extensions:

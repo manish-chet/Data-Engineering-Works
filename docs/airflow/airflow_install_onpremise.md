@@ -163,3 +163,14 @@ Make sure you install the following packages before starting installation
 
     You should be able to see the worker node coming up on Flower interface at YOUR_MASTER_IP_ADDRESS:5555
     ```
+
+???-  "Airflow DB Cleanup DAG"
+    ```bash
+    wget https://github.com/manish-chet/DataEngineering/airflow/airflow-db-cleanup.py
+    ```
+
+
+???-  "Airflow Log Cleanup DAG"
+    ```bash
+    wget https://github.com/manish-chet/DataEngineering/airflow/airflow-log-cleanup.py
+    ```
