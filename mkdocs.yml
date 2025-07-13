@@ -100,6 +100,7 @@ nav:
   - Flink:
       - Flink Interview Questions: flink/iq.md
   - Devops:
+      - Docker: devops/docker.md
       - Kubernetes Architecture Explained: devops/kubernetesarchitecture.md
       - Kubernetes Labels, Selectors, and Replication Controllers: devops/kube2.md
       - Kubernetes Jobs,init container and pod lifecycle: devops/kube3.md
