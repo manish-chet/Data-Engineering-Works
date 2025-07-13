@@ -114,7 +114,20 @@ nav:
       - Data Engineering Lifecycle: DataEngineering/DEcycle.md
       - Data Engineering UnderCurrents: DataEngineering/DEundercurrent.md
       - Good Data Architecture: DataEngineering/DesigningGDA.md
-  - SQL: sql/sql.md
+  - SQL: 
+      - SQL Overview: sql/sql.md
+      - SQL Data Types: sql/datatype.md
+      - Types of commands in SQL: sql/typeofcommands.md
+      - SQL Constraints: sql/constraints.md
+      - SQL Functions: sql/functions.md
+      - SQL Joins: sql/joins.md
+      - SQL Views: sql/views.md
+      - SQL Window Functions: sql/window.md
+      - SQL Frame clause: sql/frame.md
+      - SQL CTE: sql/cte.md
+      - SQL Subqueries: sql/subq.md
+      - SQL Indexing: sql/index.md
+      - SQL Optimizations: sql/optimize.md
   - NoSQL: 
       - Overview: sql/Mongo.md
       - MongoDB: sql/mongo2.md
