@@ -49,6 +49,8 @@ theme:
 
 nav:
   - Home: index.md
+  - Projects:
+      - FastAPI Kafka Producer: projects/kafkaapi.md
   - Hadoop: 
       - Big Data Overview: hadoop/Bigdata.md
       - Hadoop Concepts: hadoop/HadoopArchitecture.md
@@ -91,12 +93,19 @@ nav:
   - Spark:
       - Spark Overview: spark/spark.md
       - Spark Ecosystem: spark/sparkecosystem.md
-      - Resilient Distributed Datasets (RDD) in Spark: spark/Rdd.md
+      - Resilient Distributed Datasets: spark/Rdd.md
       - How Spark Perform Data Partitioning?: spark/spark2.md
       - Transformations & Actions : spark/sparktrans.md
-      - DAG in Spark: spark/DAG.md
+      - DAG: spark/DAG.md
       - Spark Architecture: spark/sparkarchitecture.md
       - Spark Deployment Modes: spark/deploymentmode.md
+      - Persist and Caching: spark/spark3.md
+      - Data Skewness: spark/skew.md
+      - Repartition vs Coalesce: spark/diff.md
+      - Salting:  spark/salting.md
+      - RDD, Dataframe and Dataset: spark/diff2.md
+      - Spark Submit: spark/submit.md
+      - Memory management: spark/memory.md
   - Flink:
       - Flink Interview Questions: flink/iq.md
   - Devops:

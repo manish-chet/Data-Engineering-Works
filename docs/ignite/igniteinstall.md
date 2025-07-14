@@ -29,7 +29,7 @@
 ???-  "Networking Parameters"
       ```bash
         Copy the following xml in ignitework directory
-        wget https://github.com/manish-chet/DataEngineeringWorks/tree/main/ignite/config
+        wget https://github.com/manish-chet/BigDataSetupfiles/tree/main/ignite/config
         Change the hosts on specific server
       ```
 
