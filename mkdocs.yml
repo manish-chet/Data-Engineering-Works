@@ -92,7 +92,6 @@ nav:
       - Airflow Interview Questions: airflow/airflowiq.md
   - Spark:
       - Spark Overview: spark/spark.md
-      - Spark Ecosystem: spark/sparkecosystem.md
       - Resilient Distributed Datasets: spark/Rdd.md
       - How Spark Perform Data Partitioning?: spark/spark2.md
       - Transformations & Actions : spark/sparktrans.md
@@ -106,6 +105,11 @@ nav:
       - RDD, Dataframe and Dataset: spark/diff2.md
       - Spark Submit: spark/submit.md
       - Memory management: spark/memory.md
+      - How to process 1 TB of data in Apache Spark: spark/data.md
+      - Broadcast and Accumulators in Spark: spark/broadcast.md
+      - Handling Failure: spark/handling.md
+      - Code Level and Resource Level Optimizations in Spark: spark/optimize.md
+      - Best practices to design Spark application: spark/bp.md
   - Flink:
       - Flink Interview Questions: flink/iq.md
   - Devops:
