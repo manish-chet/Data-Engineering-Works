@@ -149,9 +149,9 @@ nav:
   - Tooling & setup:
       - Jupyternotebok and JupyteHhub: tooling/jupyter_setup.md
       - Postgres HA: tooling/postgresHA.md
-      - Ignite 3 Node Cluster: ignite/igniteinstall.md
-      - Kafka SASL_SSL: kafka/kafka_install_zookeeper.md
-      - Airflow 3 Node Cluster: airflow/airflow_install_onpremise.md
+      - Ignite Multi Node Cluster: ignite/igniteinstall.md
+      - Kafka Multi node SASL_SSL: kafka/kafka_install_zookeeper.md
+      - Airflow Multi Node Cluster: airflow/airflow_install_onpremise.md
       - Kubernetes Installation: devops/kubernetes_install.md
   - About Me: about.md
   
