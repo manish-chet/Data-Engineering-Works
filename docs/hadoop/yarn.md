@@ -49,6 +49,8 @@ A container is a set of physical resources (CPU cores, RAM, disks, etc.) on a si
 #### Running and application through YARN
 
 
+![Steps](yarnnew.svg)
+
 When an application is submitted to YARN, the request goes to the Resource Manager, which then instructs a Node Manager to launch the first container for that application, known as the Application Master. The Application Master then assumes responsibility for executing and monitoring the entire job, with its specific functionality varying depending on the application framework (e.g., MapReduce Application Master functions differently than a Spark Application Master). For a MapReduce application, the Application Master requests more containers from the Resource Manager to initiate map and reduce tasks. Once these containers are allocated, the Application Master directs the Node Managers to launch the containers and execute the tasks. Tasks directly report their status and progress back to the Application Master. Upon completion of all tasks, all containers, including the Application Master, perform necessary cleanup and terminate.
 
 

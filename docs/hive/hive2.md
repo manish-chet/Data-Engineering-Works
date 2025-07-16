@@ -20,7 +20,7 @@ Deserialization - Process of converting the bytes back into an object in memory.
 
 In any table definition, there are two important sections. The “Row Format” describes the libraries used to convert a given row into columns. The “Stored as” describes the InputFormat and OutputFormat libraries used by map-reduce to read and write to HDFS files.
 
-![Steps](hive.svg)
+![Steps](hiveserde.svg)
 
 
 ### File formats in Hive with SerDe Library

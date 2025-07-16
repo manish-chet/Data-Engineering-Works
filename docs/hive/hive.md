@@ -9,7 +9,7 @@ The Hive generally runs on your workstation and converts your SQL query into a s
 
 ### Hive Architecture
 
-![Steps](hivearc.svg)
+![Steps](hive.svg)
 
 The major components of Apache Hive are:
 #### Hive Client
