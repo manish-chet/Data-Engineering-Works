@@ -1,11 +1,14 @@
-![Steps](kerberos.svg)
-
-### **Explaination part 1**
 Kerberos is a protocol designed to provide secure authentication to services over an insecure network. It ensures that passwords are never sent across the network and encryption keys are never directly exchanged. Furthermore, you and the application can mutually authenticate each other. Many organizations utilize Kerberos as the foundation for single sign-on capabilities. The name "Kerberos" originates from Greek mythology, specifically from Cerberus, the three-headed dog that guards the gates to the underworld, symbolizing its role in guarding access to applications.
+
+Kerberos was selected over other options like SSL certificates due to its better performance and simpler user management; for instance, removing a user in Kerberos involves a simple deletion, whereas revoking an SSL certificate is a more complicated process. 
+
+A key benefit of Kerberos is that it eliminates the need for passwords to be transmitted across the network, thereby removing the potential threat of attackers "sniffing" or intercepting passwords.
 
 To understand Kerberos, several key terms are essential:
 
    A Kerberos realm is the domain or group of systems where Kerberos has the authority to authenticate users to services. Multiple realms can exist and be interconnected.
+
+   Database - This part stores user and service identities, which are known as principles. It also holds other information like encryption keys, ticket validity durations, and expiration dates.
 
    A principle is a unique identity, which can be either a user or a service (like an application).
 
@@ -24,6 +27,12 @@ To understand Kerberos, several key terms are essential:
    Tickets contain crucial information such as the client's identity, service ID, session keys, timestamps, and time to live, all encrypted with a server's secret key.
 
 The high-level communication process for a user to access a service involves a series of messages exchanged between the user, the Authentication Server (AS), the Ticket Granting Server (TGS), and the service itself, with at least two messages sent at almost every step, some in plaintext and some encrypted with a symmetric key.
+
+
+
+### **Explaination part 1**
+
+![Steps](kerberos.svg)
 
 Here's a detailed breakdown of the Kerberos authentication process:
 
@@ -50,18 +59,6 @@ Here's a detailed breakdown of the Kerberos authentication process:
 
 ![Steps](kerberos.svg)
 
-Kerberos is a network authentication protocol created by MIT that Hadoop uses for authentication and identity propagation. Hadoop needed a network-based authentication system because it operates across multiple computers and operating systems, unlike OS authentication which is limited to a single machine. The Hadoop community chose to integrate with an existing system like Kerberos rather than developing a built-in authentication capability. Kerberos was selected over other options like SSL certificates due to its better performance and simpler user management; for instance, removing a user in Kerberos involves a simple deletion, whereas revoking an SSL certificate is a more complicated process. A key benefit of Kerberos is that it eliminates the need for passwords to be transmitted across the network, thereby removing the potential threat of attackers "sniffing" or intercepting passwords.
-
-To understand how Kerberos works, it's important to know its core components and terminology:
-
-Key Distribution Center (KDC): This is the authentication server in a Kerberos environment, often residing on a separate physical server. The KDC is logically divided into three parts:
-
-Database: This part stores user and service identities, which are known as principles. It also holds other information like encryption keys, ticket validity durations, and expiration dates.
-
-Authentication Server (AS): The AS is responsible for authenticating users. If a user's credentials are valid, the AS issues a Ticket Granting Ticket (TGT). Having a valid TGT means the authentication server has verified your identity.
-
-Ticket Granting Server (TGS): The TGS is essentially the application server of the KDC. Before accessing any service within a Hadoop cluster, you need to obtain a service ticket from the TGS.
-
 Here's a detailed breakdown of how Kerberos authenticates a user attempting to access a service in a Hadoop cluster, such as listing a directory from HDFS:
 
 1.  Initial Authentication (User to KDC - AS): The process begins on a Linux machine where the user executes the `kinit` tool. The `kinit` program prompts for the user's password and then sends an authentication request to the Kerberos Authentication Server (AS). Upon successful authentication, the AS responds by providing a Ticket Granting Ticket (TGT). The `kinit` tool then stores this TGT in the user's credentials cache. At this point, the user has been authenticated and is ready to execute a Hadoop command.
@@ -70,4 +67,5 @@ Here's a detailed breakdown of how Kerberos authenticates a user attempting to a
 
 3.  Accessing the Service (Hadoop Client to Service): With the service ticket in hand, the Hadoop client can now communicate with the target service (e.g., the NameNode). The Hadoop RPC (Remote Procedure Call) mechanism uses this service ticket to reach out to the NameNode. A mutual exchange of tickets occurs between the client and the NameNode. The client's service ticket proves its identity, and the NameNode's ticket confirms its own identity, ensuring that both parties are certain they are communicating with an authenticated entity. This two-way verification is known as mutual authentication.
 
-4.  Authorization: After authentication is complete, the system proceeds to authorization. This is a separate step where the NameNode checks if the authenticated user has the necessary permissions to perform the requested action, such as listing the root directory. If permissions are granted, the NameNode returns the results. The video notes that HDFS authorization (file permissions and ACLs) is covered in a separate video.
+4.  Authorization: After authentication is complete, the system proceeds to authorization. This is a separate step where the NameNode checks if the authenticated user has the necessary permissions to perform the requested action, such as listing the root directory. If permissions are granted, the NameNode returns the results.
+
