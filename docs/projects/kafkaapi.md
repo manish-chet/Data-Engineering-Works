@@ -4,52 +4,49 @@ This project provides a FastAPI-based REST API for publishing messages to Apache
 
 ![Steps](fastapi.svg)
 
-## Features
-- **Publish to Kafka**: Send JSON messages to any Kafka topic via a REST endpoint.
-- **Health Check**: Simple endpoint to verify service status.
-- **Prometheus Metrics**: Exposes metrics for monitoring.
-- **Logging**: Rotating file logging for API activity and errors.
-- **Dockerized**: Ready for containerized deployment and orchestration.
+## **Features**
+- Publish to Kafka: Send JSON messages to any Kafka topic via a REST endpoint.
+- Health Check: Simple endpoint to verify service status.
+- Prometheus Metrics: Exposes metrics for monitoring.
+- Logging: Rotating file logging for API activity and errors.
+- Dockerized: Ready for containerized deployment and orchestration.
 
-## Requirements
+## **Requirements**
 - Python 3.9+
-- Kafka cluster (with SASL/SSL authentication)
-- Docker (optional, for containerized deployment)
+- Kafka cluster
+- Docker/Kubernetes for containerized deployment
 
 ## Installation (Local Development)
-1. **Clone the repository**
+1. Clone the repository
    ```bash
    git clone https://github.com/manish-chet/fastapipythonkafka
    cd fastapipythonkafka
    ```
-2. **Install dependencies**
+2. Install dependencies
    ```bash
    pip install -r requirements.txt
    ```
-3. **Run the FastAPI app**
+3. Run the FastAPI app
    ```bash
    uvicorn main:app --host 0.0.0.0 --port 5000 --reload
    ```
 
-## Docker Usage
-1. **Build the Docker image**
+## **Docker Usage**
+1. Build the Docker image
    ```bash
    docker build -t fastapi-kafka .
    ```
-2. **Run the container**
+2. Run the container
    ```bash
    docker run -p 5000:5000 fastapi-kafka
    ```
+3. Deploy using stack
+   ```bash
+   docker stack deploy -c docker-compose-stack.yaml fastapi-kafka-stack
+   ```
 
-## Docker Compose (Swarm) Usage
-This project includes a `docker-compose-stack.yaml` for orchestrated deployment (e.g., Docker Swarm):
-
-```bash
-docker stack deploy -c docker-compose-stack.yaml fastapi-kafka-stack
-```
-
-## Kubernetes Usage
-This project includes a `deployment.yaml and service.yaml` for kubernetes deployment:
+## **Kubernetes Usage**
+Deploy using following yamls in kubernetes
 
 ```bash
 kubectl apply -f deployment.yaml
@@ -57,27 +54,20 @@ kubectl apply -f service.yaml
 ```
 
 
-## Configuration
-- **Kafka Servers**: Update the `bootstrap_servers`, `username`, `password`, and `ssl_cafile` in `main.py` as needed for your Kafka cluster.
-- **Logging**: Logs are written to `/var/log/fastapi_kafka_api.log` (mount a volume if running in Docker).
+## **Configuration**
+- Kafka Servers: Update the `bootstrap_servers`, `username`, `password`, and `ssl_cafile` in `main.py` as needed for your Kafka cluster.
+- Logging: Logs are written to `/var/log/fastapi_kafka_api.log` (mount a volume if running in Docker/Kubernetes).
 
-## API Endpoints
-- **Cloud Cluster**: Use the external IP of the LoadBalancer service (`kubectl get svc fastapi-kafka-service`).
-- **Local Cluster (minikube)**: Use `minikube service fastapi-kafka-service` to open in your browser.
 
-### Health Check
-- **GET** `/health`
-  - Returns: `{ "status": "healthy" }`
-
-### Publish to Kafka
-- **POST** `/kafka/publish/{topic_name}`
-  - **Path Parameter:** `topic_name` (string) — Kafka topic to publish to
-  - **Body:** JSON object (arbitrary structure)
-  - **Response:**
+## **Publish to Kafka**
+- POST `/kafka/publish/{topic_name}`
+  - Path Parameter: `topic_name` (string) — Kafka topic to publish to
+  - Body: JSON object (arbitrary structure)
+  - Response:
     - Success: `{ "status": "success", "message": "Data sent to Kafka topic '{topic_name}'" }`
     - Error: HTTP 400 (empty body), HTTP 413 (message too large), HTTP 500 (server error)
 
-#### Example Request
+## **Example Request**
 ```bash
 curl -X POST \
   http://localhost:5000/kafka/publish/mytopic \
