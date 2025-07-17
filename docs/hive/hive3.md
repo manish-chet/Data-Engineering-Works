@@ -1,5 +1,5 @@
 
-### Partitioning in Hive
+### **Partitioning in Hive**
 
 Apache Hive organizes tables into partitions. Partitioning is a way of dividing a table into related parts based on the values of particular columns like date, city, and department.
 
@@ -18,7 +18,7 @@ Why is partitioning important?
 7. Enables Scalability: As data grows, new partitions can be added without degradation in performance.
 8. Data Management and Archiving: Makes it easier to archive or delete data based on time or other attributes.
 
-#### Types of Partitioning
+#### **Types of Partitioning**
 
 ##### Static Partitioning
 
@@ -56,7 +56,7 @@ Syntax to load data in Dynamic Partitioned Table:
 
     INSERT OVERWRITE TABLE employees PARTITION (year) SELECT name, age, year FROM emp_data;
 
-### Bucketing in Hive
+### **Bucketing in Hive**
 
 
 ![Steps](bucket.svg)  
@@ -74,7 +74,7 @@ In simple words, You can use bucketing if you need to run queries on columns tha
 
 ![Steps](buc.svg) 
 
-#### Difference between Partitioning and Bucketing
+### **Difference between Partitioning and Bucketing**
 
 ![Steps](diffpb.svg) 
 
@@ -82,13 +82,13 @@ Partitioning and bucketing are not dependent on each other, but they can be used
 
 Using partitioning and bucketing together allows Hive to prune data at the partition level and further organize data within a partition by distributing it into buckets.
 
-### Benefits of partitioning
+### **Benefits of partitioning**
 
 1. Filtering: If queries often filter data based on a certain column, partitioning on that column can significantly reduce the amount of data read, thus improving performance. For example, if a table is partitioned by date and queries frequently request data from a specific date, partitioning can speed up these queries.
 2. Aggregation: If you're aggregating data based on the partition column, partitioning can optimize these operations by reducing the amount of data Hive needs to read.
 3. Data Management: Partitioning helps manage and organize data better. It can be useful for removing or archiving data efficiently. For example, you can quickly drop a partition to delete data for a specific date. 
 
-### Benefits of bucketing
+### **Benefits of bucketing**
 
 1. Sampling: Bucketing allows efficient sampling of data. Since each bucket essentially represents a sample of data, you can quickly get a sample by querying a single bucket.
 2. Join Operations: Bucketing can be used to perform more efficient map-side joins when joining on the bucketed column. If two tables are bucketed on the join columns and are of similar size, Hive can perform a bucketed map join, which is much faster than a regular join.

@@ -7,7 +7,7 @@ Hive abstracts the complexity of Hadoop. The main thing to notice is that there 
 The Hive generally runs on your workstation and converts your SQL query into a series of jobs for execution on a Hadoop cluster. Apache Hive organizes data into tables. This provides a means for attaching the structure to data stored in HDFS.
 
 
-### Hive Architecture
+### **Hive Architecture**
 
 ![Steps](hive.svg)
 
@@ -41,7 +41,7 @@ We can configure metastore in any of the two modes:
  2. Embedded: In embedded mode, the client can directly interact with the metastore using JDBC.
 
 
-### Hive Query Flow
+### **Hive Query Flow**
 ![Steps](hiveqf.svg)
 
 1. execututeQuery: Command Line or Web UI sends the query to the Driver (any Hive interface like database driver JDBC, ODBC, etc.) to execute the query.
@@ -71,7 +71,7 @@ We can configure metastore in any of the two modes:
 9. fetchResults: The driver sends the results to HDFS.
 
 
-### Plain Text Data Storage vs Byte Data Storage
+### **Plain Text Data Storage vs Byte Data Storage**
 
 Plain Text Storage:
 

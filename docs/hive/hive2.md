@@ -1,5 +1,5 @@
 
-### SerDe in Hive
+### **SerDe in Hive**
 SerDe stands for Serializer/Deserializer.
 It's a crucial component of Hive used for IO operations, specifically for reading and writing data.
 It helps Hive to read data in custom formats and translate it into a format Hive can process
@@ -23,7 +23,7 @@ In any table definition, there are two important sections. The “Row Format” 
 ![Steps](hiveserde.svg)
 
 
-### File formats in Hive with SerDe Library
+### **File formats in Hive with SerDe Library**
 
 #### Textfile 
 This is the default file format.
@@ -138,12 +138,12 @@ Language Agnostic:
 ![Steps](avro.svg)
 
 
-### ORC vs Parquet vs AVRO
+### **ORC vs Parquet vs AVRO**
 
 ![Steps](diff.svg)  
 
 
-### How to decide which file format to choose?
+### **How to decide which file format to choose?**
 
 Columnar vs Row-based: Columnar storage like Parquet and ORC is efficient for read-heavy workloads and is especially effective for queries that only access a small subset of total columns, as it allows skipping over non-relevant data quickly. Row-based storage like Avro is typically better for write-heavy workloads and for queries that access many or all columns of a table, as all of the data in a row is located next to each other.
 
