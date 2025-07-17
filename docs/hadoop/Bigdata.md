@@ -1,7 +1,7 @@
-## What is Bigdata?
+## **What is Bigdata?**
 Big Data is a collection of data that is huge in volume, yet growing exponentially with time. It is a data with so large size and complexity that none of traditional data management tools can store it or process it efficiently.
 
-## 5V's of Bigdata
+## **5V's of Bigdata**
 Volume: This refers to the sheer quantity of data, which is typically enormous. It can range from terabytes to petabytes and even exabytes of data. Eg:- Batch,Near Realtime,Streaming, Streams.
 
 Velocity: This refers to the speed at which new data is generated and the speed at which data moves around. With the growth of the Internet and smart devices, data is being generated continuously, in real time, from various sources. Eg:-Structured,Unstructured,Semi Structured.
@@ -13,7 +13,7 @@ Veracity: This refers to the quality of the data, which can vary greatly. Veraci
 Value: This is the ability to turn data into value. This is becoming the most important V of Big Data because it's important that businesses make a return on their investment in big data and data analytics. Eg:-Statistical, Events, Corelation, Hypotheticcal.
 
 
-## Examples Of BigData
+## **Examples Of BigData**
 Social Media: Data from posts, likes, shares on platforms like Facebook, Twitter, Instagram.
 
 Healthcare: Large volumes of data from electronic health records (EHRs), lab results, and patient histories.
@@ -28,7 +28,7 @@ IoT: Real-time data from devices like smart homes, wearables, and industrial sen
 
 Transport: Data on travel times, routes, and traffic conditions from services like Uber and Google Maps.
 
-## Types of Data
+## **Types of Data**
 
 1. Structured Data: This is data that adheres to a model and is easily searchable. Examples include data stored in relational databases and spreadsheets.
 ![Steps](structured.svg)
@@ -37,14 +37,20 @@ Transport: Data on travel times, routes, and traffic conditions from services li
 
 3. Semi-Structured Data: This is a hybrid of structured and unstructured data. While it does not conform to the formal structure of data models, it contains tags or other markers to enforce hierarchy and order. Examples include JSON, XML, and email messages with both defined fields and free-form text.
 
-## What is a cluster
+## **What is a cluster**
 A cluster, in the context of computing, refers to a group of computers or servers that work together and can be viewed as a single system. These computers, known as nodes, interact with each other to accomplish a common goal. This setup is used to improve performance and availability over that provided by a single computer, while typically being much more cost-effective and scalable than a single computer of comparable speed or availability.
 ![Steps](cluster.svg)
 
-## Vertical Scaling vs Horizontal Scaling
+## **Vertical Scaling**
+
+![Steps](verticalscaling.svg)
+
 Vertical Scaling, also known as scaling up, involves increasing the capacity of a single server, such as using a more powerful CPU, adding more RAM, or increasing disk space.
+
+## **Horizontal Scaling**
+![Steps](horizontalscaling.svg)
 
 Horizontal Scaling, also known as scaling out, involves adding more servers to a system and distributing the load across multiple servers. 
 
-![Steps](scaling.svg)
+
 

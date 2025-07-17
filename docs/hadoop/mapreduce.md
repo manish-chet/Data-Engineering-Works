@@ -33,6 +33,9 @@ Now, MapReduce allows us to overcome the above issues by bringing the processing
  3. Every node gets a part of the data to process and therefore, there is no chance of a node getting overburdened.
 
 ### MapReduce Data Flow
+
+![Steps](mapreduce.svg)
+
 Input Files: The data for a MapReduce task is stored in input files, and input files typically lives in HDFS.
 
 InputFormat: Now, InputFormat defines how these input files are split and read. It selects the files or other objects that are used for input.

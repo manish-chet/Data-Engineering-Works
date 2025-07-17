@@ -1,4 +1,4 @@
-## Hadoop
+## **Hadoop**
 ![Steps](architecture.svg)
 
 Hadoop is an open-source software framework for storing and processing big data in a distributed fashion on large clusters of commodity hardware. Essentially, it accomplishes two tasks: massive data storage and faster processing.
@@ -10,7 +10,7 @@ It was developed by the Apache Software Foundation and is based on two main comp
 
 3. Yet Another Resource Negotiator (YARN): This is the resource management layer in Hadoop. Introduced in Hadoop 2.0, YARN decouples the programming model from the resource management infrastructure, and it oversees and manages the compute resources in the clusters.
 
-## Properties of Hadoop
+## **Properties of Hadoop**
 
 Scalability: Can store and distribute large data sets across many servers.
 
@@ -26,7 +26,7 @@ Simplicity: Provides a simple programming model (MapReduce) for processing data.
 
 Open-source: Freely available to use and modify with a large community of contributors.
 
-## HDFS Architecture and Core Concepts
+## **HDFS Architecture and Core Concepts**
 
 HDFS (Hadoop Distributed File System) is a distributed file system. It is designed using a master/slave architecture.
 
@@ -56,7 +56,7 @@ They are called DataNodes because they store and manage the actual data of the f
 ### Key terminologies and Components of HDFS
 
 
-#### Block 
+#### **Block** 
 
 ![Steps](block.svg)
 
