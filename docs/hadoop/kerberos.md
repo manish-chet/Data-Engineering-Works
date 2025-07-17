@@ -1,6 +1,6 @@
 ![Steps](kerberos.svg)
 
-### Explaination part 1
+### **Explaination part 1**
 Kerberos is a protocol designed to provide secure authentication to services over an insecure network. It ensures that passwords are never sent across the network and encryption keys are never directly exchanged. Furthermore, you and the application can mutually authenticate each other. Many organizations utilize Kerberos as the foundation for single sign-on capabilities. The name "Kerberos" originates from Greek mythology, specifically from Cerberus, the three-headed dog that guards the gates to the underworld, symbolizing its role in guarding access to applications.
 
 To understand Kerberos, several key terms are essential:
@@ -46,7 +46,9 @@ Here's a detailed breakdown of the Kerberos authentication process:
 9.  Service Response and Mutual Authentication: If validations are successful, the service creates its own Authenticator message, including its service ID and a timestamp, encrypted with the service session key. This service Authenticator is sent back to the user. The user decrypts this message using the same symmetric service session key. The user then verifies that the service name in the Authenticator matches the expected service, completing the mutual authentication. The user also checks the timestamp to ensure the Authenticator was recently created. Finally, the user caches a copy of the encrypted service ticket for future use with that service, given the mutual authentication. This entire exchange securely distributes a symmetric service session key that allows the user and service to communicate authentication information securely.
 
 
-### Explaination part 2
+### **Explaination part 2**
+
+![Steps](kerberos.svg)
 
 Kerberos is a network authentication protocol created by MIT that Hadoop uses for authentication and identity propagation. Hadoop needed a network-based authentication system because it operates across multiple computers and operating systems, unlike OS authentication which is limited to a single machine. The Hadoop community chose to integrate with an existing system like Kerberos rather than developing a built-in authentication capability. Kerberos was selected over other options like SSL certificates due to its better performance and simpler user management; for instance, removing a user in Kerberos involves a simple deletion, whereas revoking an SSL certificate is a more complicated process. A key benefit of Kerberos is that it eliminates the need for passwords to be transmitted across the network, thereby removing the potential threat of attackers "sniffing" or intercepting passwords.
 

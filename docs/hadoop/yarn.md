@@ -2,7 +2,7 @@ Apache Hadoop YARN (Yet Another Resource Negotiator) is a resource management la
 
 In essence, YARN is responsible for managing cluster resources, which include CPU, memory, disk I/O, and network bandwidth. It provides APIs that computation engines use to request and work with Hadoop cluster resources for their task scheduling and resource requirements. It's important to note that YARN APIs are not designed for individual application developers; instead, they target teams creating new computation engines. The ambition of YARN is to consolidate all types of distributed computation capabilities into a single cluster, thereby eliminating the need for multiple clusters and the associated pain of data movement or duplication. Popular execution engines that operate on top of YARN include Apache Spark, Apache Storm, Apache Solr, and Apache Tez. While some NoSQL databases like Cassandra are not yet YARN-enabled, an incubating Apache project called Slider aims to integrate them into a YARN-managed Hadoop cluster, including existing implementations for HBase and Accumulo, without requiring changes to those systems themselves. Apache Slider also seeks to introduce on-demand scale-up and scale-down capabilities, offering elasticity similar to cloud providers.
 
-### Components of YARN
+### **Components of YARN**
 
 #### Resource Manager 
 Resource Manager is the master daemon of YARN. It is responsible for managing several other applications, along with the global assignments of resources such as CPU and memory. It is used for job scheduling. Resource Manager has two components:
@@ -44,7 +44,7 @@ A container is a set of physical resources (CPU cores, RAM, disks, etc.) on a si
    (CLC). This record contains a map of environment variables, dependencies stored in remotely accessible storage, security tokens, the payload for Node Manager services, and the command necessary to create the process.
 
 
-#### Running and application through YARN
+#### **Running and application through YARN**
 
 
 ![Steps](yarnnew.svg)

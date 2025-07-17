@@ -1,4 +1,4 @@
-### MapReduce
+### **MapReduce**
 MapReduce is a programming framework that allows us to perform distributed and parallel processing on large data sets in a distributed environment.
 
 MapReduce consists of two distinct tasks — Map and Reduce.
@@ -13,7 +13,7 @@ The reducer receives the key-value pair from multiple map jobs.
 
 Then, the reducer aggregates those intermediate data tuples (intermediate key-value pair) into a smaller set of tuples or key-value pairs which is the final output.
 
-### Advantages of MapReduce
+### **Advantages of MapReduce**
 Parallel Processing: In MapReduce, we are dividing the job among multiple nodes and each node works with a part of the job simultaneously. So, MapReduce is based on Divide and Conquer paradigm which helps us to process the data using different machines very quickly.
 
 Data Locality: Instead of moving data to the processing unit, we are moving the processing unit to the data in the MapReduce Framework.  In the traditional system, we used to bring data to the processing unit and process it. But, as the data grew and became very huge, bringing this huge amount of data to the processing unit posed the following issues:
@@ -32,7 +32,7 @@ Now, MapReduce allows us to overcome the above issues by bringing the processing
 
  3. Every node gets a part of the data to process and therefore, there is no chance of a node getting overburdened.
 
-### MapReduce Data Flow
+### **MapReduce Data Flow**
 
 ![Steps](mapreduce.svg)
 

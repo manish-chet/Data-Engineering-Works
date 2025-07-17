@@ -50,7 +50,7 @@
     2nd quarter: 250.44/5.2 = 49 machines 3rd quarter: 300.5/5.2 = 58 machines 4th quarter: 360.6/5.2 = 70 machines
     With these numbers you can predict next year additional machine requirements for the cluster (last quarter + 24), (last quarter + 28) and so on.
 
-???- info "Q. 1 Imagine that you are uploading a file of 500MB into HDFS.100MB of data is successfully uploaded into HDFS and another client wants to read the uploaded data while the upload is still in progress. What will happen in such a scenario, will the 100 MB of data that is uploaded will be displayed?"
+???- info "Q. 2 Imagine that you are uploading a file of 500MB into HDFS.100MB of data is successfully uploaded into HDFS and another client wants to read the uploaded data while the upload is still in progress. What will happen in such a scenario, will the 100 MB of data that is uploaded will be displayed?"
 
     Although the default blocks size is 64 MB in Hadoop 1x and 128 MB in Hadoop 2x whereas in such a scenario let us consider block size to be 100 MB which means that we are going to have 5 blocks replicated 3 times (default replication factor). Let’s consider an example of how does a block is written to HDFS:
 
