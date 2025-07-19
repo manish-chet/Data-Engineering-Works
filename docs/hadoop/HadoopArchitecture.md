@@ -4,11 +4,11 @@
 Hadoop is an open-source software framework for storing and processing big data in a distributed fashion on large clusters of commodity hardware. Essentially, it accomplishes two tasks: massive data storage and faster processing.
 It was developed by the Apache Software Foundation and is based on two main components:
 
-1. Hadoop Distributed File System (HDFS): This is the storage component of Hadoop, designed to hold large amounts of data, potentially in the range of petabytes or even exabytes. The data is distributed across multiple nodes in the cluster, providing high availability and fault tolerance.
+- Hadoop Distributed File System (HDFS): This is the storage component of Hadoop, designed to hold large amounts of data, potentially in the range of petabytes or even exabytes. The data is distributed across multiple nodes in the cluster, providing high availability and fault tolerance.
 
-2. Map-Reduce: This is the processing component of Hadoop, which provides a software framework for writing applications that process large amounts of data in parallel. MapReduce operations are divided into two stages: the Map stage, which sorts and filters the data, and the Reduce stage, which summarizes the data.
+- Map-Reduce: This is the processing component of Hadoop, which provides a software framework for writing applications that process large amounts of data in parallel. MapReduce operations are divided into two stages: the Map stage, which sorts and filters the data, and the Reduce stage, which summarizes the data.
 
-3. Yet Another Resource Negotiator (YARN): This is the resource management layer in Hadoop. Introduced in Hadoop 2.0, YARN decouples the programming model from the resource management infrastructure, and it oversees and manages the compute resources in the clusters.
+- Yet Another Resource Negotiator (YARN): This is the resource management layer in Hadoop. Introduced in Hadoop 2.0, YARN decouples the programming model from the resource management infrastructure, and it oversees and manages the compute resources in the clusters.
 
 ## **Properties of Hadoop**
 
@@ -30,28 +30,36 @@ Open-source: Freely available to use and modify with a large community of contri
 
 HDFS (Hadoop Distributed File System) is a distributed file system. It is designed using a master/slave architecture.
 
-### Hadoop Cluster Setup
 A Hadoop cluster consists of multiple computers networked together.
 
-Racks: A rack is a physical enclosure where multiple computers are fixed.Each rack typically has its individual power supply and a dedicated network switch. The importance of racks lies in the possibility of an entire rack failing if its switch or power supply goes out of network, affecting all computers within it. Multiple racks are connected, with their switches linked to a core switch, forming the Hadoop cluster.
+- Racks: A rack is a physical enclosure where multiple computers are fixed.Each rack typically has its individual power supply and a dedicated network switch. The importance of racks lies in the possibility of an entire rack failing if its switch or power supply goes out of network, affecting all computers within it. Multiple racks are connected, with their switches linked to a core switch, forming the Hadoop cluster.
 
 ### Master/Slave Architecture: NameNode and DataNode
 
 In HDFS, there is one master and multiple slaves.
 
-1. NameNode (Master Node):
+- NameNode (Master Node):
 The Hadoop master is called the NameNode.
 It is called NameNode because it stores and manages the names of directories and files within the HDFS namespace.
 
     Responsibilities:
-    Manages the file system namespace. Regulates access to files by clients (e.g., checking access permissions, user quotas). Maintains an image of the entire HDFS namespace in memory, known as in-memory FS image (File System Image). This allows it to perform checks quickly. Does not store actual file data. Assigns DataNodes for block storage based on free disk space information from DataNodes. Maintains the mapping of blocks to files, their order, and all other metadata.
 
-2. DataNode (Slave Node):
+     1. Manages the file system namespace. 
+     2. Regulates access to files by clients (e.g., checking access permissions, user quotas). 
+     3. Maintains an image of the entire HDFS namespace in memory, known as in-memory FS image (File System Image). This allows it to perform checks quickly. 
+     4. Does not store actual file data. 
+     5. Assigns DataNodes for block storage based on free disk space information from DataNodes. 
+     6. Maintains the mapping of blocks to files, their order, and all other metadata.
+
+- DataNode (Slave Node):
 The Hadoop slaves are called DataNodes.
 They are called DataNodes because they store and manage the actual data of the files.
 
     Responsibilities:
-    Stores file data in the form of blocks. Periodically sends a heartbeat to the NameNode to signal that it is alive. This heartbeat also includes resource capacity information that helps the NameNode in making decisions. Sends a block report to the NameNode, which is health information about all the blocks maintained by that DataNode.
+   
+     1. Stores file data in the form of blocks. 
+     2. Periodically sends a heartbeat to the NameNode to signal that it is alive. This heartbeat also includes resource capacity information that helps the NameNode in making decisions. 
+     3. Sends a block report to the NameNode, which is health information about all the blocks maintained by that DataNode.
 
 ### Key terminologies and Components of HDFS
 
@@ -61,10 +69,14 @@ They are called DataNodes because they store and manage the actual data of the f
 ![Steps](block.svg)
 
 Block is nothing but the smallest unit of storage on a computer system. It is the smallest contiguous storage allocated to a file. In Hadoop, we have a default block size of 128MB or 256MB.
-If you have a file of 50 MB and the HDFS block size is set to 128 MB, the file will only use 50 MB of one block. The remaining 78 MB in that block will remain unused, as HDFS blocks are allocated on a per-file basis.
-It's important to note that this is one of the reasons why HDFS is not well-suited to handling a large number of small files. Since each file is allocated its own blocks, if you have a lot of files that are much smaller than the block size, then a lot of space can be wasted.
-This is also why block size in HDFS is considerably larger than it is in other file systems
-(default of 128 MB, as opposed to a few KBs or MBs in other systems). Larger block sizes mean fewer blocks for the same amount of data, leading to less metadata to manage, less communication between the NameNode and DataNodes, and better performance for large, streaming reads of data.
+
+!!! Note "Note"
+    If you have a file of 50 MB and the HDFS block size is set to 128 MB, the file will only use 50 MB of one block. The remaining 78 MB in that block will remain unused, as HDFS blocks are allocated on a per-file basis.
+    It's important to note that this is one of the reasons why HDFS is not well-suited to handling a large number of small files. Since each file is allocated its own blocks, if you have a lot of files that are much smaller than the block size, then a lot of space can be wasted.
+    This is also why block size in HDFS is considerably larger than it is in other file systems
+    (default of 128 MB, as opposed to a few KBs or MBs in other systems).
+
+Larger block sizes mean fewer blocks for the same amount of data, leading to less metadata to manage, less communication between the NameNode and DataNodes, and better performance for large, streaming reads of data.
 
 #### Replication Management
 To provide fault tolerance HDFS uses a replication technique. In that, it makes copies of the blocks and stores in on different DataNodes. Replication factor decides how many copies of the blocks get stored. It is 3 by default but we can configure to any value.

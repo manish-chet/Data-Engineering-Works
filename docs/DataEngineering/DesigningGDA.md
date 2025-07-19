@@ -1,355 +1,235 @@
-# Data Engineering and Architecture Overview
+Cloud data architecture, by design, handles the ingestion, transformation, and analysis of data that is too large or complex for traditional data architectures.
 
-## Successful data engineering is built upon rock-solid data architecture
 
----
+## Patterns of Good Cloud Data Architecture
 
-## What Is Data Architecture?
+Let's learn about 5 principles for cloud-native data architecture that are useful for designing and operating reliable, cost-effective and efficient systems in the cloud.
 
-Enterprise architecture is the design of systems to support change in the enterprise, achieved by flexible and reversible decisions reached through careful evaluation of trade-offs.
+Cloud offers incredible capabilities, but without deliberate design decisions, the architecture can become fragile, expensive, and challenging to maintain.
+Most cloud environments have not just one application but several technologies that need to be integrated.
 
-### Data Architecture Defined
+The overarching goal of cloud architecture is to connect the dots to provide customers with a valuable online platform.
 
-Data architecture is a subset of enterprise architecture, inheriting its properties: processes, strategy, change management, and evaluating trade-offs. Here are a couple of definitions of data architecture that influence our definition:
+## 5 cloud-native architecture principles
 
-**TOGAF’s definition**  
-TOGAF defines data architecture as follows:  
-*A description of the structure and interaction of the enterprise’s major types and sources of data, logical data assets, physical data assets, and data management resources.*
+This is essential for creating a good design:
 
-**DAMA’s definition**  
-*Identifying the data needs of the enterprise (regardless of structure) and designing and maintaining the master blueprints to meet those needs. Using master blueprints to guide data integration, control data assets, and align data investments with business strategy.*
+- **Reliable**: The system should continue to work correctly regardless of system faults or human errors.
 
-**Our Definition**  
-Data architecture is the design of systems to support the evolving data needs of an enterprise, achieved by flexible and reversible decisions reached through a careful evaluation of trade-offs.
+- **Efficient**: The system must use computing resources efficiently to meet system requirements and maintain efficiency as the business grows.
 
----
+- **Maintainable**: The world is fluid. Good data architecture should be able to respond to changes within the business and new technologies to unlock more possibilities in the future.
 
-### Operational vs Technical Architecture
+- **Cost-optimized**: The system should leverage various payment options to achieve cost efficiency.
 
-- **Operational architecture** encompasses the functional requirements related to people, processes, and technology.
-  - What business processes does the data serve?
-  - How is data quality managed?
-  - What is the latency from data production to availability?
+- **Secure**: The system should be hardened to avoid insider attacks.
 
-- **Technical architecture** outlines how data is ingested, stored, transformed, and served.
-  - For example, how will you move 10 TB of data every hour from a source database to your data lake?
+### Principle 1: Have an automation mindset
 
-> Operational architecture describes **what** needs to be done.  
-> Technical architecture describes **how** it will happen.
+Automation has always been good practice for software systems.
+In traditional environments, automation refers to building, testing, and deploying software through continuous integration/continuous delivery (CI/CD) pipelines.
 
----
+A good cloud architecture takes a step ahead by automating the infrastructure as well as the internal components.
 
-## “Good” Data Architecture
+The five common areas for automation are shown below:
 
-> Never shoot for the best architecture, but rather the least worst architecture.  
-> — *Mark Richards and Neal Ford*
 
-Good data architecture is:
-- Flexible and maintainable.
-- Evolves with business and technology changes.
-- Designed for reversibility to reduce cost of changes.
+- Software
 
-Bad data architecture is:
-- Tightly coupled, rigid, overly centralized.
-- Uses the wrong tools for the job.
-- Hampers development and change management.
+Software has been the most common area for automation regardless of the environment.
+Automation happens throughout the software's life cycle, from coding and deployment to maintenance and updates.
 
----
+- Infrastructure
 
-## Principles of Good Data Architecture
+In the cloud, we can apply the same engineering principles we use for applications to the entire environment.
+This implies the ability to create and manage infrastructure through code.
 
-### AWS Well-Architected Framework (6 Pillars)
-- Operational excellence
-- Security
-- Reliability
-- Performance efficiency
-- Cost optimization
-- Sustainability
+!!! note
 
-### Google Cloud’s Five Principles for Cloud-Native Architecture
-- Design for automation.
-- Be smart with state.
-- Favor managed services.
-- Practice defense in depth.
-- Always be architecting.
+    **Infrastructure as Code (IaC)** is a process that enables us to manage infrastructure provisioning and configuration in the same way as we handle application code.
 
-### Principles of Data Engineering Architecture
-1. Choose common components wisely  
-2. Plan for failure  
-3. Architect for scalability  
-4. Architecture is leadership  
-5. Always be architecting  
-6. Build loosely coupled systems  
-7. Make reversible decisions  
-8. Prioritize security  
-9. Embrace FinOps  
+!!! example
 
----
+    we first provision a VM in the dev environment and then decide to create the same one in the production environment.
 
-## Major Architecture Concepts
+    Provisioning a server manually through a graphic interface often leads to mistakes.
 
-### Domains and Services
+    IaC means storing infrastructure configurations in a version-control environment and benefiting from CI/CD pipelines to ensure consistency across environments.
 
-- A **domain** is the real-world subject area you’re architecting for.
-- A **service** is a set of functionality designed to accomplish a task.
+- Autoscaling
 
-**Example:**
-- *Sales Domain*: services = orders, invoicing, products.
-- *Accounting Domain*: services = invoicing (shared), payroll, accounts receivable.
+The world is fluctuating, and a reliable system must handle the fluctuation in the load accordingly.
+Autoscaling helps the applications handle traffic increases and reduce costs when the demand is low without disrupting business operations.
 
-> Talk to users and stakeholders to determine what the domain should encompass and what services to include.  
-> Avoid architecting in a vacuum.
+- Recovery
 
----
+According to Google SRE philosophy, building a system with 100% availability is almost impossible and unnecessary.
+The team should, instead, embrace the risk and develop mechanisms to allow systems to recover from the failure quickly.
 
-### Distributed Systems, Scalability, and Designing for Failure
+!!! tip
 
-We focus on four characteristics:
+    Automatic recovery works by monitoring workloads for key indicators and triggering operations when specific thresholds are reached.
 
-- **Scalability**: Improve performance to handle demand.
-- **Elasticity**: Dynamically scale up/down based on workload.
-- **Availability**: Percentage of uptime.
-- **Reliability**: Probability of successful function during a specific interval.
+!!! example
 
-**Key Relationships:**
-- Low reliability = low availability.
-- Elasticity supports reliability.
-- Distributed systems improve scaling and fault tolerance.
+    In the event of full memory or disk, the cloud will automatically request more resources and scale the system vertically, instead of just throwing an error and disrupting the system.
 
-**Vertical vs Horizontal Scaling:**
-- Vertical = one machine with more resources.
-- Horizontal = multiple machines (preferred for resilience).
+- Backup
 
-**Modern Distributed Architecture:**
-- Leader node coordinates tasks.
-- Worker nodes execute.
-- Redundancy ensures continuity in case of failures.
+A backup strategy guarantees the business won't get interrupted during system failure, outage, data corruption, or natural disaster.
+Cloud backup operates by copying and storing data in a different physical location.
 
-Distributed systems are foundational in most modern cloud data technologies.
+### Principle 2: Outsource with caution
 
----
+Most cloud providers offer different abstract levels of services, namely IaaS, PaaS, and SaaS.
+Their ever-growing features help us offload day-to-day management to the vendors.
+However, some organizations are concerned with giving providers access to their internal data for security reasons.
 
+!!! warning
 
+    The decision of whether or not to use managed services comes down to operational overhead and security.
 
+!!! tip
 
-## Tight Versus Loose Coupling: Tiers, Monoliths, and Microservices
+    The best practice is to find a cloud provider with a high reputation, express our concerns, and find a solution together.
+    Even if the provider can't solve the problem immediately, the discussion might open the door to future possibilities.
 
-### Architecture Tiers
+### Principle 3: Keep an eye on the cost
 
-In a **single-tier architecture**, your database and application are tightly coupled, residing on a single server. This server could be your laptop or a single virtual machine (VM) in the cloud. The tightly coupled nature means if the server, database, or application fails, the entire architecture fails. While single-tier architectures are good for prototyping and development, they are not advised for production environments due to obvious failure risks.
+Cost control isn’t a prominent concern in traditional architecture because the assets and costs are pretty much fixed.
+However, in the cloud, the cost can be highly dynamic, and the team might surprisingly end up with a high bill.
 
-### Multitier Architecture
+!!! warning
 
-A **multitier** architecture (also known as n-tier architecture) decouples data and application layers. These layers are hierarchical, where the lower layers are independent of the upper layers, but the upper layers depend on the lower ones. A common example is the **three-tier architecture**, which consists of:
-- **Data** tier
-- **Application logic** tier
-- **Presentation** tier
+    Implementing cloud financial management is vital, and the organization must allocate time and resources to build knowledge around it and share the best practices with the teams.
 
-Each tier is isolated, allowing for separation of concerns and flexibility in choosing technologies within each tier.
+    Fortunately, most cloud providers offer a centralized cost-monitoring tool that helps the team analyze and optimize the costs.
 
-### Monoliths
+A few quick wins on saving the cost:
 
-A **monolith** is an architecture where as much functionality as possible is bundled into a single codebase running on a single machine. Monoliths are characterized by tight coupling, both technically (across architectural tiers) and domain-wise (in how domains are interwoven). The tight coupling within a monolith can make it difficult to swap out or upgrade components, often requiring extensive rewiring of other areas of the architecture. 
+- **Only pay what you need**. Turn off stale servers and delete stale data.
 
-Because of this tight coupling, monolithic architectures lack modularity, making it hard to reuse components across the architecture and improve parts without unintended side effects.
+- **Enable table expiration on temporary data** so they won't cost money after the expiration date.
 
-### Microservices
+- **Maximize utilization**. Implement efficient design to ensure high utilization of the underlying hardware.
 
-In contrast, **microservices** architecture is based on separate, decentralized, and loosely coupled services. Each microservice performs a specific function and operates independently, meaning that if one service goes down, it doesn’t impact the others. Microservices offer greater flexibility, scalability, and fault tolerance compared to monolithic systems, making them ideal for large, complex applications that require frequent updates and scaling.
+- **Query optimization**. Learn different query optimization strategies such as incremental load, partitioning, and clustering.
 
----
+### Principle 4: Embrace changes
 
-Considerations for Data Architecture
+The world is constantly evolving, and that's true for cloud architecture.
+As the business changes, the landscape of systems also needs to change.
+Good architecture doesn't stay in the existing state forever.
+Instead, they are very agile and can respond to business changes and adapt to them with the least effort.
 
-User Access: Single Versus Multitenant
-As a data engineer, you have to make decisions about sharing systems across multiple teams, organizations, and customers. In some sense, all cloud services are multitenant, although this multitenancy occurs at various grains. For example, a cloud compute instance is usually on a shared server, but the VM itself provides some degree of isolation. Object storage is a multitenant system, but cloud vendors guarantee security and isolation so long as customers configure their permissions correctly.
+Example changes in cloud architecture, as below
 
-Engineers frequently need to make decisions about multitenancy at a much smaller scale. For example, do multiple departments in a large company share the same data warehouse? Does the organization share data for multiple large customers within the same table?
+1. Migrate Database
+2. Switch Vendor
+3. Migrate from batch to realtime stream processing
+4. Upgrade Services
+5. Adapt to high volume or low volume.
 
-We have two factors to consider in multitenancy: performance and security. With multiple large tenants within a cloud system, will the system support consistent performance for all tenants, or will there be a noisy neighbor problem? (That is, will high usage from one tenant degrade performance for other tenants?) Regarding security, data from different tenants must be properly isolated. When a company has multiple external customer tenants, these tenants should not be aware of one another, and engineers must prevent data leakage. Strategies for data isolation vary by system. For instance, it is often perfectly acceptable to use multitenant tables and isolate data through views. However, you must make certain that these views cannot leak data. Read vendor or project documentation to understand appropriate strategies and risks.
+### Principle 5: Do not neglect security
 
-Event-Driven Architecture
-Your business is rarely static. Things often happen in your business, such as getting a new customer, a new order from a customer, or an order for a product or service. These are all examples of events that are broadly defined as something that happened, typically a change in the state of something. For example, a new order might be created by a customer, or a customer might later make an update to this order.
+Last but not least, implementing a strong identity foundation becomes a huge responsibility of the data team.
 
-An event-driven workflow (Figure 3-8) encompasses the ability to create, update, and asynchronously move events across various parts of the data engineering lifecycle. This workflow boils down to three main areas: event production, routing, and consumption. An event must be produced and routed to something that consumes it without tightly coupled dependencies among the producer, event router, and consumer.
+!!! tip
 
-Figure 3-8. In an event-driven workflow, an event is produced, routed, and then consumed.
+    Traditional architectures place a lot of faith in perimeter security, crudely a hardened network perimeter with "trusted" things inside and "untrusted" things outside. Unfortunately, this approach has always been vulnerable to insider attackers, as well as external threats such as spear phishing.
 
-An event-driven architecture (Figure 3-9) embraces the event-driven workflow and uses this to communicate across various services. The advantage of an event-driven architecture is that it distributes the state of an event across multiple services. This is helpful if a service goes offline, a node fails in a distributed system, or you’d like multiple consumers or services to access the same events. Anytime you have loosely coupled services, this is a candidate for event-driven architecture. Many of the examples we describe later in this chapter incorporate some form of event-driven architecture.
+In the cloud environment, all assets are connected to the outside world to some degree.
+**Zero Trust architecture** has been created to eliminate the risk from both outside and inside.
+**Zero Trust** is a strategy that secures an organization by eliminating implicit trust and validating every stage of digital interaction.
 
-Brownfield Versus Greenfield Projects
-Before you design your data architecture project, you need to know whether you’re starting with a clean slate or redesigning an existing architecture. Each type of project requires assessing trade-offs, albeit with different considerations and approaches. Projects roughly fall into two buckets: brownfield and greenfield.
 
-Brownfield Projects
-Brownfield projects often involve refactoring and reorganizing an existing architecture and are constrained by the choices of the present and past. Because a key part of architecture is change management, you must figure out a way around these limitations and design a path forward to achieve your new business and technical objectives. Brownfield projects require a thorough understanding of the legacy architecture and the interplay of various old and new technologies. All too often, it’s easy to criticize a prior team’s work and decisions, but it is far better to dig deep, ask questions, and understand why decisions were made. Empathy and context go a long way in helping you diagnose problems with the existing architecture, identify opportunities, and recognize pitfalls.
+Another important concept in terms of security is the **shared responsibility model**.
+It divides security into the security of the cloud and security in the cloud.
+Most cloud providers are responsible for the security of the cloud, and it's the user's responsibility to design a custom security model for their applications.
+Users are responsible for managing sensitive data, internal access to data and services, and ensuring GDPR compliance.
 
-Greenfield Projects
-On the opposite end of the spectrum, a greenfield project allows you to pioneer a fresh start, unconstrained by the history or legacy of a prior architecture. Greenfield projects tend to be easier than brownfield projects, and many data architects and engineers find them more fun! You have the opportunity to try the newest and coolest tools and architectural patterns. What could be more exciting?
 
-You should watch out for some things before getting too carried away. We see teams get overly exuberant with shiny object syndrome. They feel compelled to reach for the latest and greatest technology fad without understanding how it will impact the value of the project. There’s also a temptation to do resume-driven development, stacking up impressive new technologies without prioritizing the project’s ultimate goals. Always prioritize requirements over building something cool.
+## LAMBDA Architecture
 
-Whether you’re working on a brownfield or greenfield project, always focus on the tenets of “good” data architecture. Assess trade-offs, make flexible and reversible decisions, and strive for positive ROI.
+![Steps](lambda.svg)
 
+In the “old days” (the early to mid-2010s), the popularity of working with streaming data exploded with the emergence of Kafka as a highly scalable message queue and frameworks such as Apache Storm and Samza for streaming/real-time analyt‐ ics. These technologies allowed companies to perform new types of analytics and modeling on large amounts of data, user aggregation and ranking, and product recommendations. Data engineers needed to figure out how to reconcile batch and streaming data into a single architecture. The Lambda architecture was one of the early popular responses to this problem. 
 
-Examples and Types of Data Architecture
-Data Warehouse
-A data warehouse is a central data hub used for reporting and analysis. Data in a data warehouse is typically highly formatted and structured for analytics use cases. It’s one of the oldest and most well-established data architectures.
+In a Lambda architecture, you have systems operating independently of each other—batch, streaming, and serving. The source system is ideally immutable and append-only, sending data to two destinations for processing: stream and batch. In-stream processing intends to serve the data with the lowest possible latency in a “speed” layer, usually a NoSQL database. In the batch layer, data is processed and transformed in a system such as a data warehouse, creating precomputed and aggre‐ gated views of the data. The serving layer provides a combined view by aggregating query results from the two layers
 
-In the past, data warehouses were widely used by enterprises with significant budgets (often in the millions of dollars) to acquire data systems and support internal teams. This approach was expensive and labor-intensive. With the rise of cloud technologies, the scalable, pay-as-you-go model made cloud data warehouses accessible even to smaller companies. Since a third-party provider manages the data warehouse infrastructure, companies can do more with fewer people, even as their data complexity grows.
+Lambda architecture has its share of challenges and criticisms. Managing multiple systems with different codebases is as difficult as it sounds, creating error-prone systems with code and data that are extremely difficult to reconcile.
 
-Types of Data Warehouse Architecture
-Organizational Architecture: This organizes data according to business team structures and processes.
+How it works: The system will dispatch all incoming data to batch and streaming layers. The batch layer will maintain an append-only primary dataset and precompute the batch views The streaming layer will only handle the most recent data to achieve low latency. Both batch and stream views are served in the serving layer to be queried.The result of merging batch and real-time results can answer any incoming query.
 
-Technical Architecture: This reflects the technical nature of the data warehouse, such as Massively Parallel Processing (MPP).
+Challenges: Complexity and cost of running 2 parallel systems instead of 1. This approach often uses systems with different software ecosystems, making it challenging to replicate the business logic across the systems. It's also quite difficult to reconcile the outputs of 2 pipelines at the end.
 
-Cloud Data Warehouse
-Cloud data warehouses represent a significant evolution of the traditional on-premises data warehouse. Amazon Redshift kicked off the cloud data warehouse revolution by allowing companies to spin up a Redshift cluster on demand, scale it over time, and delete clusters when no longer needed. Other competitors, like Google BigQuery and Snowflake, popularized the idea of separating compute from storage.
+## KAPPA Architecture
 
-With cloud data warehouses, data is housed in object storage, providing virtually limitless storage. Compute power can be spun up on demand, making big data capabilities available on an ad hoc basis without the long-term cost of maintaining thousands of nodes.
+![Steps](kappa.svg)
 
-Cloud data warehouses can process petabytes of data in a single query and support data structures such as complex JSON documents, enabling them to handle use cases previously reserved for Hadoop clusters.
 
-Data Marts
-A data mart is a refined subset of a data warehouse designed to serve analytics and reporting needs for a specific department, suborganization, or line of business. For example, each department within a company might have its own data mart tailored to its needs.
+As a response to the shortcomings of Lambda architecture, Jay Kreps proposed an alternative called Kappa architecture. The central thesis is this: why not just use a stream-processing platform as the backbone for all data handling—inges‐ tion, storage, and serving? This facilitates a true event-based architecture. Real-time and batch processing can be applied seamlessly to the same data by reading the live event stream directly and replaying large chunks of data for batch processing. 
 
-Data marts serve two purposes:
+Kappa architecture Though the original Kappa architecture article came out in 2014, we haven’t seen it widely adopted. There may be a couple of reasons for this. First, streaming itself is still a bit of a mystery for many companies; it’s easy to talk about, but harder than expected to execute. Second, Kappa architecture turns out to be complicated and expensive in practice. While some streaming systems can scale to huge data volumes, they are complex and expensive; batch storage and processing remain much more efficient and cost-effective for enormous historical datasets.
 
-Improved Data Access: They make data more easily accessible to analysts and report developers.
+Advantages: In Kappa architecture, a streaming processing engine continuously processes real-time data and ingests it into long-term storage. When code changes occur, developers can recompute using the raw data stored in the event logs database.
 
-Performance Enhancement: They offer an additional transformation step beyond the initial ETL or ELT pipelines, improving performance for complex queries and joins, especially when the raw data is large.
+Challenges: Streaming remains a challenge for many companies due to its complexity and most likely high cost and maintainance.
+Managing duplicates and preserving order, for instance, can be more challenging than batch processing.
+data replay is often trickier than it may seem.
 
-Data Lake
-The data lake is one of the most popular architectures that emerged during the big data era. Instead of imposing structural limitations on data, a data lake allows storing all data—structured and unstructured—in a central location. The first generation of data lakes, called "Data Lake 1.0," had its shortcomings but was a significant step forward.
+## Data Lake
 
-Initially built on HDFS, data lakes moved to cloud-based object storage, offering extremely cheap storage with virtually limitless capacity. This architecture allows for the storage of immense amounts of data in any format, and on-demand compute power can be used to query or transform this data.
+A data lake is a popular data architecture comparable, to a data warehouse.
+It’s a storage repository that holds a large amount of data, but unlike a data warehouse where data is structured, data in a data lake is in its raw format.
 
-Despite its promises, Data Lake 1.0 had its challenges:
+| Topic        | Data Lake                                                                                                                                               | Data Warehouse                                                                   |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| Data Format  | Store unstructured, semi-structured and structured data in its raw format.                                                                              | Store only structured data after the transformation.                             |
+| Schema       | Schema-on-read: Schema is defined after data is stored.                                                                                                 | Schema-on-write: Schema is predefined prior to when data is stored.              |
+| Usecase      | Data exploration: Unstructured data opens more possibilities for analysis and ML algorithms, A landing place before loading data into a data warehouse. | Reporting: Reporting tools and dashboards prefer highly coherent data.           |
+| Data Quality | Data is in its raw format without cleaning, so data quality is not ensured.                                                                             | Data is highly curated, resulting in higher data quality.                        |
+| Cost         | Both storage and operational costs are lower.                                                                                                           | Storing data in the data warehouse is usually more expensive and time-consuming. |
 
-Data Management: Without schema management and proper cataloging tools, data lakes often became unmanageable.
+The following graph illustrates the key components of a data lake
 
-Processing Issues: Data processing was difficult due to the lack of simple data manipulation tools like SQL for operations like deleting or updating records.
+![Steps](datalake.svg)
 
-Cost and Complexity: Managing Hadoop clusters required significant resources, and the cost of building and maintaining these clusters ballooned due to the complexities involved.
+- **Ingestion layer**: The ingestion layer collects raw data and loads them into the data lake. The raw data is not modified in this layer.
 
-Despite these challenges, many organizations—especially large tech companies like Netflix and Facebook—found significant value in data lakes, though smaller organizations struggled to realize the same benefits.
+- **Processing layer**: Data lake uses object storage to store data. Object storage stores data with metadata tags and a unique identifier, making searching and accessing data easier. Due to the variety and high volume of data, a data lake usually provides tools for features like data catalog, authentication, data quality, etc.
 
+- **Insights layer**: The insights layer is for clients to query the data from the data lake. Direct usage could be feeding the reporting tools, dashboards, or a data warehouse.
 
 
+## Data Mesh
 
+The term **data mesh** was coined by _Zhamak Dehghani_ in 2019 and created the idea of domain-oriented decentralization for analytical data.
+Centrally managed architectures tend to create data bottlenecks and hold back analytics agility.
+On the other hand, completely decentralized architectures create silos and duplicates, making management across domains very difficult.
 
+The data mesh architecture proposes distributed data ownership, allowing teams to own the entire life cycle of their domains and deliver quicker analyses.
 
+The organization's IT team is responsible for the overall infrastructure, governance, and efficiency without owning any domain-related business.
 
-Convergence, Next-Generation Data Lakes, and the Data Platform
-In response to the limitations of first-generation data lakes, various players have sought to enhance the concept to fully realize its promise. For example, Databricks introduced the notion of a data lakehouse. The lakehouse incorporates the controls, data management, and data structures found in a data warehouse while still housing data in object storage and supporting a variety of query and transformation engines. In particular, the data lakehouse supports atomicity, consistency, isolation, and durability (ACID) transactions—a big departure from the original data lake, where you simply pour in data and never update or delete it.
+Adopting data mesh requires some pretty cultural and organizational changes.
 
-The term data lakehouse suggests a convergence between data lakes and data warehouses. The technical architecture of cloud data warehouses has evolved to be very similar to a data lake architecture. Cloud data warehouses:
+Currently, no template solutions for a data mesh, so many companies are still trying to figure out if it's a good fit for their organizations.
 
-Separate compute from storage
+![Steps](datamesh.svg)
 
-Support petabyte-scale queries
+Each domain team is responsible for ingesting the operational data and building analytics models.
 
-Store a variety of unstructured data and semi-structured objects
+The domain team agrees with the rest on global policies to safely and efficiently interact with the other domains within the mesh.
 
-Integrate with advanced processing technologies such as Spark or Beam
+A centralized data platform team builds infrastructures and tools for domain teams to build data products and perform analysis more effectively and quickly.
 
-We believe that the trend of convergence will only continue. The data lake and the data warehouse will still exist as different architectures. In practice, their capabilities will converge so that few users will notice a boundary between them in their day-to-day work.
+- Principles
 
-We now see several vendors offering data platforms that combine data lake and data warehouse capabilities. From our perspective, AWS, Azure, Google Cloud, Snowflake, and Databricks are class leaders, each offering a constellation of tightly integrated tools for working with data, running the gamut from relational to completely unstructured.
+    1. **Domain ownership**: Each domain team takes responsibility for the entire data life cycle.
 
-Instead of choosing between a data lake or data warehouse architecture, future data engineers will have the option to choose a converged data platform based on a variety of factors, including:
+    2. **Data as a product**: Treat provided data as a high-quality product, like APIs to other domains.
 
-Vendor
+    3. **Self-serve data platform**: Build an effective data platform for domain teams to build data products quickly.
 
-Ecosystem
-
-Relative openness
-
-
-Modern Data Stack
-The modern data stack (Figure 3-13) is currently a trendy analytics architecture that highlights the type of abstraction we expect to see more widely used over the next several years. Whereas past data stacks relied on expensive, monolithic toolsets, the main objective of the modern data stack is to use cloud-based, plug-and-play, easy-to-use, off-the-shelf components to create a modular and cost-effective data architecture.
-
-These components include:
-
-Data pipelines
-
-Storage
-
-Transformation
-
-Data management/governance
-
-Monitoring
-
-Visualization
-
-Exploration
-
-The domain is still in flux, and the specific tools are changing and evolving rapidly, but the core aim will remain the same: to reduce complexity and increase modularization. Note that the notion of a modern data stack integrates nicely with the converged data platform idea from the previous section.
-
-Key Outcomes of the Modern Data Stack:
-Self-service (analytics and pipelines)
-
-Agile data management
-
-Using open-source tools or simple proprietary tools with clear pricing structures
-
-Community is a central aspect of the modern data stack as well. Unlike products of the past that had releases and roadmaps largely hidden from users, projects and companies operating in the modern data stack space typically have strong user bases and active communities. These communities participate in the development by:
-
-Using the product early
-
-Suggesting features
-
-Submitting pull requests to improve the code
-
-
-
-Lambda Architecture
-In the "old days" (the early to mid-2010s), the popularity of working with streaming data exploded with the emergence of Kafka as a highly scalable message queue and frameworks such as Apache Storm and Samza for streaming/real-time analytics. These technologies allowed companies to perform new types of analytics and modeling on large amounts of data, such as:
-
-User aggregation and ranking
-
-Product recommendations
-
-Data engineers needed to figure out how to reconcile batch and streaming data into a single architecture. The Lambda architecture was one of the early popular responses to this problem.
-
-In a Lambda architecture (Figure 3-14), you have systems operating independently of each other—batch, streaming, and serving. The source system is ideally immutable and append-only, sending data to two destinations for processing: stream and batch.
-
-Stream processing: This intends to serve the data with the lowest possible latency in a "speed" layer, usually a NoSQL database.
-
-Batch processing: Data is processed and transformed in a system such as a data warehouse, creating precomputed and aggregated views of the data.
-
-Serving layer: This provides a combined view by aggregating query results from the two layers.
-
-Challenges of Lambda Architecture:
-Managing multiple systems with different codebases is difficult and error-prone, creating systems where code and data are extremely difficult to reconcile.
-
-While Lambda architecture still gets attention and remains popular in search-engine results for data architecture, it's no longer the recommended approach for combining streaming and batch data for analytics
-
-
-
-Kappa Architecture
-As a response to the shortcomings of Lambda architecture, Jay Kreps proposed an alternative called Kappa architecture (Figure 3-15). The central thesis of Kappa architecture is this: Why not just use a stream-processing platform as the backbone for all data handling—ingestion, storage, and serving? This facilitates a true event-based architecture. Real-time and batch processing can be applied seamlessly to the same data by:
-
-Reading the live event stream directly
-
-Replaying large chunks of data for batch processing
-
-Key Points of Kappa Architecture:
-Unified stream processing: Instead of managing separate systems for batch and real-time processing, everything is handled through a stream-processing platform.
-
-Event-based: This architecture supports a truly event-driven design, where data is continuously processed as it flows in.
-
-Though the original Kappa architecture article came out in 2014, it hasn’t been widely adopted. There may be a couple of reasons for this:
-
-Complexity of streaming: Streaming is still a bit of a mystery for many companies; it’s easy to talk about, but harder than expected to execute.
-
-Cost and complexity: Kappa architecture can be complicated and expensive in practice. While some streaming systems can scale to huge data volumes, they are complex and costly. Batch storage and processing remain much more efficient and cost-effective for enormous historical datasets.
-
-Data Mesh
-The data mesh is a recent response to sprawling monolithic data platforms, such as centralized data lakes and data warehouses, and "the great divide of data," where the landscape is divided between operational data and analytical data.
-
-The data mesh attempts to invert the challenges of centralized data architecture by taking the concepts of domain-driven design (commonly used in software architectures) and applying them to data architecture.
-
-Because the data mesh has captured much recent attention, you should be aware of it as an emerging approach in modern data architectures.
-
-
+    4. **Federated governance**: Standardize data policies to create a healthy data ecosystem for domain interoperability.

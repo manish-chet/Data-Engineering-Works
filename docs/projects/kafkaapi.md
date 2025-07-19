@@ -16,6 +16,12 @@ This project provides a FastAPI-based REST API for publishing messages to Apache
 - Kafka cluster
 - Docker/Kubernetes for containerized deployment
 
+
+!!! Note "Note"
+    Code changes: Update the `bootstrap_servers`, `username`, `password`, and `ssl_cafile` in `main.py` as needed for your Kafka cluster.
+
+    Logging: Logs are written to `/var/log/fastapi_kafka_api.log` (mount a volume if running in Docker/Kubernetes).
+
 ## Installation (Local Development)
 1. Clone the repository
    ```bash
@@ -52,11 +58,6 @@ Deploy using following yamls in kubernetes
 kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
 ```
-
-
-## **Configuration**
-- Kafka Servers: Update the `bootstrap_servers`, `username`, `password`, and `ssl_cafile` in `main.py` as needed for your Kafka cluster.
-- Logging: Logs are written to `/var/log/fastapi_kafka_api.log` (mount a volume if running in Docker/Kubernetes).
 
 
 ## **Publish to Kafka**

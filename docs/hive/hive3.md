@@ -20,7 +20,7 @@ Why is partitioning important?
 
 #### **Types of Partitioning**
 
-##### Static Partitioning
+##### **Static Partitioning**
 
 1. Insert input data files individually into a partition table is Static Partition.
 2. Usually when loading files (big files) into Hive tables static partitions are preferred.
@@ -32,13 +32,18 @@ Why is partitioning important?
 8. You should use where clause to use limit in the static partition.
 9. You can perform Static partition on Hive Manage table or External table.
 
-Syntax to load data in Static Partitioned Table:
 
-    LOAD DATA INPATH '/hdfs/path/to/datafile' INTO TABLE employees PARTITION (year='2023');
-    OR
-    INSERT OVERWRITE TABLE employees PARTITION (year='2023') SELECT name, age FROM emp_data WHERE year = '2023';
+!!! note "Note" 
+     
+     Syntax to load data in Static Partitioned Table
 
-##### Dynamic Partitioning
+     LOAD DATA INPATH '/hdfs/path/to/datafile' INTO TABLE employees PARTITION (year='2023');
+
+     OR
+    
+     INSERT OVERWRITE TABLE employees PARTITION (year='2023') SELECT name, age FROM emp_data WHERE year = '2023';
+
+##### **Dynamic Partitioning**
 
 1. Single insert to partition table is known as a dynamic partition.
 2. Usually, dynamic partition loads the data from the non-partitioned table.
@@ -52,9 +57,10 @@ Syntax to load data in Static Partitioned Table:
     SET hive.exec.dynamic.partition = true;
     SET hive.exec.dynamic.partition.mode = nonstrict;
 
-Syntax to load data in Dynamic Partitioned Table:
+!!! note "Note"
+      Syntax to load data in Dynamic Partitioned Table
 
-    INSERT OVERWRITE TABLE employees PARTITION (year) SELECT name, age, year FROM emp_data;
+     INSERT OVERWRITE TABLE employees PARTITION (year) SELECT name, age, year FROM emp_data
 
 ### **Bucketing in Hive**
 

@@ -25,14 +25,17 @@ theme:
     - navigation.tabs
     - navigation.tabs.sticky
     - navigation.path
-    - navigation.sections
     - navigation.top
+    - navigation.indexes
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.path
     - search.highlight
     - search.suggest
     - search.share
     - navigation.footer  
     - content.action.feedback 
-    - toc.follow
   palette:
     - scheme: default
       primary: indigo
@@ -49,111 +52,117 @@ theme:
 
 nav:
   - Home: index.md
+
   - Projects:
       - FastAPI Kafka Producer: projects/kafkaapi.md
-  - Hadoop: 
-      - Big Data Overview: hadoop/Bigdata.md
-      - Hadoop Concepts: hadoop/HadoopArchitecture.md
-      - Hadoop HA Architecture: hadoop/HadoopHA.md
-      - MapReduce Concepts: hadoop/mapreduce.md
-      - YARN Concepts: hadoop/yarn.md
-      - Kerberos Concepts: hadoop/kerberos.md
-      - Hadoop Interview Questions: hadoop/hadoopiq.md
-      - Hadoop Scenarios: hadoop/hadoopscenarios.md
-  - Ignite:
-      - Ignite Overview: ignite/ignite.md
-      - Caching topology: ignite/ignite2.md
-      - Caching strategy: ignite/ignite3.md
-      - CAP Theorem and Where Does Ignite Stand: ignite/ignite4.md
-      - Zero SPOF: ignite/ignite5.md
-      - How SQL Queries Work in Ignite: ignite/ignite6.md
-      - Expiration & Eviction of Cache Entries in Ignite: ignite/ignite7.md
-      - Discovery and communication mechanisms: ignite/ignite8.md
-  - Hive:
-      - Hive Overview: hive/hive.md
-      - Hive SerDe: hive/hive2.md
-      - Partitioning & Bucketing: hive/hive3.md
-      - Joins in Hive: hive/hive4.md
-  - Kafka:
-    - Concepts:
-        - Overview: kafka/kafka.md
-        - Architecture: kafka/kafkaarch.md
-        - Concepts: kafka/kafka concepts.md
-        - Role of Zookeeper in Kafka: kafka/kafkazk.md
-        - Offsets: kafka/offsets.md
-        - Producers: kafka/producer.md
-        - Consumers: kafka/consumer.md
-        - Interview Questions: kafka/iq.md
-  - Airflow:
-      - Airflow Overview: airflow/airflow.md
-      - Airflow Architecture: airflow/airflowarc.md
-      - Operators: airflow/operators.md
-      - DAGs: airflow/DAG.md
-      - Airflow Interview Questions: airflow/airflowiq.md
-  - Spark:
-      - Spark Overview: spark/spark.md
-      - Resilient Distributed Datasets: spark/Rdd.md
-      - How Spark Perform Data Partitioning?: spark/spark2.md
-      - Transformations & Actions : spark/sparktrans.md
-      - DAG: spark/DAG.md
-      - Spark Architecture: spark/sparkarchitecture.md
-      - Spark Deployment Modes: spark/deploymentmode.md
-      - Persist and Caching: spark/spark3.md
-      - Data Skewness: spark/skew.md
-      - Repartition vs Coalesce: spark/diff.md
-      - Salting:  spark/salting.md
-      - RDD, Dataframe and Dataset: spark/diff2.md
-      - Spark Submit: spark/submit.md
-      - Memory management: spark/memory.md
-      - How to process 1 TB of data in Apache Spark: spark/data.md
-      - Broadcast and Accumulators in Spark: spark/broadcast.md
-      - Handling Failure: spark/handling.md
-      - Code Level and Resource Level Optimizations in Spark: spark/optimize.md
-      - Best practices to design Spark application: spark/bp.md
-  - Flink:
-      - Flink Interview Questions: flink/iq.md
-  - Devops:
+  - Setup Guides:
+      - Jupyter Notebook and JupyterHub: tooling/jupyter_setup.md
+      - Postgres HA: tooling/postgresHA.md
+      - Ignite Multi Node Cluster: ignite/igniteinstall.md
+      - Kafka Multi Node SASL_SSL: kafka/kafka_install_zookeeper.md
+      - Airflow Multi Node Cluster: airflow/airflow_install_onpremise.md
+      - Kubernetes Installation: devops/kubernetes_install.md
+  - Data Engineering:
+      - Overview: DataEngineering/DE.md
+      - Data Engineering Lifecycle: DataEngineering/DEcycle.md
+      - UnderCurrents: DataEngineering/DEundercurrent.md
+      - Architecture & Design: DataEngineering/DesigningGDA.md
+  - Data Warehouse:
+      - SQL & NoSQL:
+          - SQL Overview: sql/sql.md
+          - SQL Data Types: sql/datatype.md
+          - Types of commands in SQL: sql/typeofcommands.md
+          - SQL Constraints: sql/constraints.md
+          - SQL Functions: sql/functions.md
+          - SQL Joins: sql/joins.md
+          - SQL Views: sql/views.md
+          - SQL Window Functions: sql/window.md
+          - SQL Frame clause: sql/frame.md
+          - SQL CTE: sql/cte.md
+          - SQL Subqueries: sql/subq.md
+          - SQL Indexing: sql/index.md
+          - SQL Optimizations: sql/optimize.md
+      - NoSQL Overview: 
+          - MongoDB Overview: sql/Mongo.md
+          - MongoDB: sql/mongo2.md
+      - Hive:
+          - Hive Overview: hive/hive.md
+          - Hive SerDe: hive/hive2.md
+          - Partitioning & Bucketing: hive/hive3.md
+          - Joins in Hive: hive/hive4.md
+      - Ignite:
+          - Ignite Overview: ignite/ignite.md
+          - Caching topology: ignite/ignite2.md
+          - Caching strategy: ignite/ignite3.md
+          - CAP Theorem and Where Does Ignite Stand: ignite/ignite4.md
+          - Zero SPOF: ignite/ignite5.md
+          - How SQL Queries Work in Ignite: ignite/ignite6.md
+          - Expiration & Eviction of Cache Entries in Ignite: ignite/ignite7.md
+          - Discovery and communication mechanisms: ignite/ignite8.md
+  - Data Processing & Streaming:
+      - Hadoop:
+          - Big Data Overview: hadoop/Bigdata.md
+          - Hadoop Concepts: hadoop/HadoopArchitecture.md
+          - Hadoop HA Architecture: hadoop/HadoopHA.md
+          - MapReduce Concepts: hadoop/mapreduce.md
+          - YARN Concepts: hadoop/yarn.md
+          - Kerberos Concepts: hadoop/kerberos.md
+      - Spark: 
+          - Spark Overview: spark/spark.md
+          - Resilient Distributed Datasets: spark/Rdd.md
+          - How Spark Perform Data Partitioning?: spark/spark2.md
+          - Transformations & Actions: spark/sparktrans.md
+          - DAG: spark/DAG.md
+          - Spark Architecture: spark/sparkarchitecture.md
+          - Spark Deployment Modes: spark/deploymentmode.md
+          - Persist and Caching: spark/spark3.md
+          - Data Skewness: spark/skew.md
+          - Repartition vs Coalesce: spark/diff.md
+          - Salting: spark/salting.md
+          - RDD, Dataframe and Dataset: spark/diff2.md
+          - Spark Submit: spark/submit.md
+          - Memory management: spark/memory.md
+          - How to process 1 TB of data in Apache Spark: spark/data.md
+          - Broadcast and Accumulators in Spark: spark/broadcast.md
+          - Handling Failure: spark/handling.md
+          - Code Level and Resource Level Optimizations in Spark: spark/optimize.md
+          - Best practices to design Spark application: spark/bp.md
+      - Kafka:
+          - Overview: kafka/kafka.md
+          - Architecture: kafka/kafkaarch.md
+          - Concepts: kafka/kafka concepts.md
+          - Role of Zookeeper in Kafka: kafka/kafkazk.md
+          - Offsets: kafka/offsets.md
+          - Producers: kafka/producer.md
+          - Consumers: kafka/consumer.md
+  - Data Orchestration:
+      - Airflow:
+          - Airflow Overview: airflow/airflow.md
+          - Airflow Architecture: airflow/airflowarc.md
+          - Operators: airflow/operators.md
+          - DAGs: airflow/DAG.md
+  - DevOps:
       - Git: devops/git.md
       - Docker: devops/docker.md
       - Kubernetes:
-          - Architecture : devops/kubernetesarchitecture.md
+          - Architecture: devops/kubernetesarchitecture.md
           - Labels, Selectors, and Replication Controllers: devops/kube2.md
-          - Jobs,init container and pod lifecycle: devops/kube3.md
+          - Jobs, init container and pod lifecycle: devops/kube3.md
           - Deploying object: devops/kube4.md
           - Networking: devops/kube5.md
           - Persistent Volumes & Liveness Probes: devops/kube6.md
           - Namespaces & Resource Quotas: devops/kube7.md
           - Horizontal Pod Autoscaling: devops/kube8.md
-  - Data Engineering:
-      - Data Engineering Overview: DataEngineering/DataEngineering.md
-      - Data Engineering Lifecycle: DataEngineering/DEcycle.md
-      - Data Engineering UnderCurrents: DataEngineering/DEundercurrent.md
-      - Good Data Architecture: DataEngineering/DesigningGDA.md
-  - SQL: 
-      - SQL Overview: sql/sql.md
-      - SQL Data Types: sql/datatype.md
-      - Types of commands in SQL: sql/typeofcommands.md
-      - SQL Constraints: sql/constraints.md
-      - SQL Functions: sql/functions.md
-      - SQL Joins: sql/joins.md
-      - SQL Views: sql/views.md
-      - SQL Window Functions: sql/window.md
-      - SQL Frame clause: sql/frame.md
-      - SQL CTE: sql/cte.md
-      - SQL Subqueries: sql/subq.md
-      - SQL Indexing: sql/index.md
-      - SQL Optimizations: sql/optimize.md
-  - NoSQL: 
-      - Overview: sql/Mongo.md
-      - MongoDB: sql/mongo2.md
+
+  - Interview Prep:
+      - Hadoop Questions: hadoop/hadoopiq.md
+      - Hadoop Scenarios: hadoop/hadoopscenarios.md
+      - Kafka Questions: kafka/iq.md
+      - Airflow Questions: airflow/airflowiq.md
+      - Flink Interview Questions: flink/iq.md
       - MongoDB Interview Questions: sql/mongoiq.md
-  - Tooling & setup:
-      - Jupyternotebok and JupyteHhub: tooling/jupyter_setup.md
-      - Postgres HA: tooling/postgresHA.md
-      - Ignite Multi Node Cluster: ignite/igniteinstall.md
-      - Kafka Multi node SASL_SSL: kafka/kafka_install_zookeeper.md
-      - Airflow Multi Node Cluster: airflow/airflow_install_onpremise.md
-      - Kubernetes Installation: devops/kubernetes_install.md
+
+
   - About Me: about.md
   
 markdown_extensions:
