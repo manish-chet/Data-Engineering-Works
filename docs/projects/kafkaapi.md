@@ -1,58 +1,51 @@
 # FastAPI Kafka Producer API
 
-This project provides a FastAPI-based REST API for publishing messages to Apache Kafka topics. It is containerized with Docker and supports metrics via Prometheus. The API is designed for high availability and scalability, suitable for production environments.
+
+
+A production-ready **FastAPI-based REST API** for publishing JSON messages to **Apache Kafka** topics. Designed for high availability, containerized with Docker, and includes Prometheus metrics support for observability.
+
 
 ![Steps](fastapi.svg)
 
 ## **Features**
-- Publish to Kafka: Send JSON messages to any Kafka topic via a REST endpoint.
-- Health Check: Simple endpoint to verify service status.
-- Prometheus Metrics: Exposes metrics for monitoring.
-- Logging: Rotating file logging for API activity and errors.
-- Dockerized: Ready for containerized deployment and orchestration.
 
-## **Requirements**
-- Python 3.9+
-- Kafka cluster
-- Docker/Kubernetes for containerized deployment
+- **REST to Kafka**: Publish JSON data to Kafka via POST endpoint.
+- **Health Check**: `/health` endpoint for service monitoring.
+- **Prometheus Metrics**: Available at `/metrics`.
+- **Logging**: Rotating file logs stored at `/var/log/fastapi_kafka_api.log`.
+- **Containerized**: Docker & Docker Compose support for fast deployment.
 
+!!! Tip "Tip"
+    
+    For better understanding, you should clone the repo `fastapipythonkafka`
+    ```bash
+    git clone https://github.com/manish-chet/fastapipythonkafka
+    ```
 
 !!! Note "Note"
-    Code changes: Update the `bootstrap_servers`, `username`, `password`, and `ssl_cafile` in `main.py` as needed for your Kafka cluster.
 
-    Logging: Logs are written to `/var/log/fastapi_kafka_api.log` (mount a volume if running in Docker/Kubernetes).
+    If you're looking for the full FastAPI + Kafka implementation, see main.py
 
-## Installation (Local Development)
-1. Clone the repository
-   ```bash
-   git clone https://github.com/manish-chet/fastapipythonkafka
-   cd fastapipythonkafka
-   ```
-2. Install dependencies
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Run the FastAPI app
-   ```bash
-   uvicorn main:app --host 0.0.0.0 --port 5000 --reload
-   ```
 
 ## **Docker Usage**
-1. Build the Docker image
-   ```bash
-   docker build -t fastapi-kafka .
-   ```
-2. Run the container
-   ```bash
-   docker run -p 5000:5000 fastapi-kafka
-   ```
-3. Deploy using stack
-   ```bash
-   docker stack deploy -c docker-compose-stack.yaml fastapi-kafka-stack
-   ```
+
+Build and run the container
+```bash
+docker build -t fastapi-kafka .
+docker run -p 5000:5000 fastapi-kafka
+```
+
+With Docker Compose use fast-api.yaml and kafka-docker.yaml to spin up FastAPI with Kafka locally:
+```bash
+docker-compose -f kafka-docker.yaml -f fast-api.yaml up -d
+```
+
 
 ## **Kubernetes Usage**
-Deploy using following yamls in kubernetes
+
+**Deployment.yaml**: 3 replicas with environment variables for Kafka.
+
+**Service.yaml**: LoadBalancer (or NodePort for local) to expose FastAPI.
 
 ```bash
 kubectl apply -f deployment.yaml
@@ -60,15 +53,10 @@ kubectl apply -f service.yaml
 ```
 
 
-## **Publish to Kafka**
-- POST `/kafka/publish/{topic_name}`
-  - Path Parameter: `topic_name` (string) — Kafka topic to publish to
-  - Body: JSON object (arbitrary structure)
-  - Response:
-    - Success: `{ "status": "success", "message": "Data sent to Kafka topic '{topic_name}'" }`
-    - Error: HTTP 400 (empty body), HTTP 413 (message too large), HTTP 500 (server error)
 
-## **Example Request**
+
+## **Publish to Kafka**
+
 ```bash
 curl -X POST \
   http://localhost:5000/kafka/publish/mytopic \
@@ -76,6 +64,32 @@ curl -X POST \
   -d '{"key": "value"}'
 ```
 
-## Metrics
+- **Request**
+
+    Path Param: topic_name – Kafka topic to publish to
+
+    Body: JSON object (arbitrary schema)
+
+- **Responses**
+
+    200 OK: Successfully published
+
+    400: Empty body
+
+    413: Message exceeds 10MB
+
+    500: Internal server error
+
+## **Screenshots of local deployment**
+
+
+![Steps](docker.svg)
+
+![Steps](postman.svg)
+
+![Steps](ui.svg)
+
+
+## **Metrics**
 Prometheus metrics are exposed at `/metrics` (enabled by [prometheus-fastapi-instrumentator](https://github.com/trallard/prometheus-fastapi-instrumentator)).
 

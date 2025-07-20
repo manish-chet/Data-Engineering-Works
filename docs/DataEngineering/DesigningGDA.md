@@ -1,7 +1,7 @@
 Cloud data architecture, by design, handles the ingestion, transformation, and analysis of data that is too large or complex for traditional data architectures.
 
 
-## Patterns of Good Cloud Data Architecture
+## **Patterns of Good Cloud Data Architecture**
 
 Let's learn about 5 principles for cloud-native data architecture that are useful for designing and operating reliable, cost-effective and efficient systems in the cloud.
 
@@ -10,7 +10,7 @@ Most cloud environments have not just one application but several technologies t
 
 The overarching goal of cloud architecture is to connect the dots to provide customers with a valuable online platform.
 
-## 5 cloud-native architecture principles
+## **5 cloud-native architecture principles**
 
 This is essential for creating a good design:
 
@@ -24,7 +24,7 @@ This is essential for creating a good design:
 
 - **Secure**: The system should be hardened to avoid insider attacks.
 
-### Principle 1: Have an automation mindset
+### **Principle 1: Have an automation mindset**
 
 Automation has always been good practice for software systems.
 In traditional environments, automation refers to building, testing, and deploying software through continuous integration/continuous delivery (CI/CD) pipelines.
@@ -34,12 +34,12 @@ A good cloud architecture takes a step ahead by automating the infrastructure as
 The five common areas for automation are shown below:
 
 
-- Software
+- **Software**
 
 Software has been the most common area for automation regardless of the environment.
 Automation happens throughout the software's life cycle, from coding and deployment to maintenance and updates.
 
-- Infrastructure
+- **Infrastructure**
 
 In the cloud, we can apply the same engineering principles we use for applications to the entire environment.
 This implies the ability to create and manage infrastructure through code.
@@ -56,12 +56,12 @@ This implies the ability to create and manage infrastructure through code.
 
     IaC means storing infrastructure configurations in a version-control environment and benefiting from CI/CD pipelines to ensure consistency across environments.
 
-- Autoscaling
+- **Autoscaling**
 
 The world is fluctuating, and a reliable system must handle the fluctuation in the load accordingly.
 Autoscaling helps the applications handle traffic increases and reduce costs when the demand is low without disrupting business operations.
 
-- Recovery
+- **Recovery**
 
 According to Google SRE philosophy, building a system with 100% availability is almost impossible and unnecessary.
 The team should, instead, embrace the risk and develop mechanisms to allow systems to recover from the failure quickly.
@@ -74,12 +74,12 @@ The team should, instead, embrace the risk and develop mechanisms to allow syste
 
     In the event of full memory or disk, the cloud will automatically request more resources and scale the system vertically, instead of just throwing an error and disrupting the system.
 
-- Backup
+- **Backup**
 
 A backup strategy guarantees the business won't get interrupted during system failure, outage, data corruption, or natural disaster.
 Cloud backup operates by copying and storing data in a different physical location.
 
-### Principle 2: Outsource with caution
+### **Principle 2: Outsource with caution**
 
 Most cloud providers offer different abstract levels of services, namely IaaS, PaaS, and SaaS.
 Their ever-growing features help us offload day-to-day management to the vendors.
@@ -94,7 +94,7 @@ However, some organizations are concerned with giving providers access to their 
     The best practice is to find a cloud provider with a high reputation, express our concerns, and find a solution together.
     Even if the provider can't solve the problem immediately, the discussion might open the door to future possibilities.
 
-### Principle 3: Keep an eye on the cost
+### **Principle 3: Keep an eye on the cost**
 
 Cost control isn’t a prominent concern in traditional architecture because the assets and costs are pretty much fixed.
 However, in the cloud, the cost can be highly dynamic, and the team might surprisingly end up with a high bill.
@@ -115,7 +115,7 @@ A few quick wins on saving the cost:
 
 - **Query optimization**. Learn different query optimization strategies such as incremental load, partitioning, and clustering.
 
-### Principle 4: Embrace changes
+### **Principle 4: Embrace changes**
 
 The world is constantly evolving, and that's true for cloud architecture.
 As the business changes, the landscape of systems also needs to change.
@@ -130,7 +130,7 @@ Example changes in cloud architecture, as below
 4. Upgrade Services
 5. Adapt to high volume or low volume.
 
-### Principle 5: Do not neglect security
+### **Principle 5: Do not neglect security**
 
 Last but not least, implementing a strong identity foundation becomes a huge responsibility of the data team.
 
@@ -149,7 +149,7 @@ Most cloud providers are responsible for the security of the cloud, and it's the
 Users are responsible for managing sensitive data, internal access to data and services, and ensuring GDPR compliance.
 
 
-## LAMBDA Architecture
+## **LAMBDA Architecture**
 
 ![Steps](lambda.svg)
 
@@ -159,11 +159,11 @@ In a Lambda architecture, you have systems operating independently of each other
 
 Lambda architecture has its share of challenges and criticisms. Managing multiple systems with different codebases is as difficult as it sounds, creating error-prone systems with code and data that are extremely difficult to reconcile.
 
-How it works: The system will dispatch all incoming data to batch and streaming layers. The batch layer will maintain an append-only primary dataset and precompute the batch views The streaming layer will only handle the most recent data to achieve low latency. Both batch and stream views are served in the serving layer to be queried.The result of merging batch and real-time results can answer any incoming query.
+**How it works**: The system will dispatch all incoming data to batch and streaming layers. The batch layer will maintain an append-only primary dataset and precompute the batch views The streaming layer will only handle the most recent data to achieve low latency. Both batch and stream views are served in the serving layer to be queried.The result of merging batch and real-time results can answer any incoming query.
 
-Challenges: Complexity and cost of running 2 parallel systems instead of 1. This approach often uses systems with different software ecosystems, making it challenging to replicate the business logic across the systems. It's also quite difficult to reconcile the outputs of 2 pipelines at the end.
+**Challenges**: Complexity and cost of running 2 parallel systems instead of 1. This approach often uses systems with different software ecosystems, making it challenging to replicate the business logic across the systems. It's also quite difficult to reconcile the outputs of 2 pipelines at the end.
 
-## KAPPA Architecture
+## **KAPPA Architecture**
 
 ![Steps](kappa.svg)
 
@@ -172,13 +172,13 @@ As a response to the shortcomings of Lambda architecture, Jay Kreps proposed an 
 
 Kappa architecture Though the original Kappa architecture article came out in 2014, we haven’t seen it widely adopted. There may be a couple of reasons for this. First, streaming itself is still a bit of a mystery for many companies; it’s easy to talk about, but harder than expected to execute. Second, Kappa architecture turns out to be complicated and expensive in practice. While some streaming systems can scale to huge data volumes, they are complex and expensive; batch storage and processing remain much more efficient and cost-effective for enormous historical datasets.
 
-Advantages: In Kappa architecture, a streaming processing engine continuously processes real-time data and ingests it into long-term storage. When code changes occur, developers can recompute using the raw data stored in the event logs database.
+**Advantages**: In Kappa architecture, a streaming processing engine continuously processes real-time data and ingests it into long-term storage. When code changes occur, developers can recompute using the raw data stored in the event logs database.
 
-Challenges: Streaming remains a challenge for many companies due to its complexity and most likely high cost and maintainance.
+**Challenges**: Streaming remains a challenge for many companies due to its complexity and most likely high cost and maintainance.
 Managing duplicates and preserving order, for instance, can be more challenging than batch processing.
 data replay is often trickier than it may seem.
 
-## Data Lake
+## **Data Lake**
 
 A data lake is a popular data architecture comparable, to a data warehouse.
 It’s a storage repository that holds a large amount of data, but unlike a data warehouse where data is structured, data in a data lake is in its raw format.
@@ -202,7 +202,7 @@ The following graph illustrates the key components of a data lake
 - **Insights layer**: The insights layer is for clients to query the data from the data lake. Direct usage could be feeding the reporting tools, dashboards, or a data warehouse.
 
 
-## Data Mesh
+## **Data Mesh**
 
 The term **data mesh** was coined by _Zhamak Dehghani_ in 2019 and created the idea of domain-oriented decentralization for analytical data.
 Centrally managed architectures tend to create data bottlenecks and hold back analytics agility.

@@ -2,7 +2,7 @@ site_name: Data Engineering Works
 site_description: Documentation for Data Engineering and Big Data Technologies
 site_author: Manishkumar Chetpalli
 
-repo_url: https://github.com/manish-chet/DataEngineering
+repo_url: https://github.com/manish-chet
 repo_name: "DataEngineering"
 edit_uri: edit/main/docs/
 
@@ -26,25 +26,30 @@ theme:
     - navigation.tabs.sticky
     - navigation.path
     - navigation.top
+    - navigation.footer
     - navigation.indexes
     - navigation.instant
     - navigation.instant.prefetch
     - navigation.instant.progress
+    - navigation.instant.preview
+    - navigation.tracking
     - navigation.path
     - search.highlight
     - search.suggest
     - search.share
     - navigation.footer  
     - content.action.feedback 
+    - toc.follow
+    - toc.extend
   palette:
     - scheme: default
-      primary: indigo
+      primary: custom
       accent: pink
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     - scheme: slate
-      primary: indigo
+      primary: custom
       accent: light green
       toggle:
         icon: material/brightness-4
@@ -52,15 +57,14 @@ theme:
 
 nav:
   - Home: index.md
-
   - Projects:
-      - FastAPI Kafka Producer: projects/kafkaapi.md
+    - FastAPI Kafka Producer: projects/kafkaapi.md
   - Setup Guides:
       - Jupyter Notebook and JupyterHub: tooling/jupyter_setup.md
-      - Postgres HA: tooling/postgresHA.md
-      - Ignite Multi Node Cluster: ignite/igniteinstall.md
+      - Postgres HA : tooling/postgresHA.md
+      - Ignite Multi Node: ignite/igniteinstall.md
       - Kafka Multi Node SASL_SSL: kafka/kafka_install_zookeeper.md
-      - Airflow Multi Node Cluster: airflow/airflow_install_onpremise.md
+      - Airflow Multi Node: airflow/airflow_install_onpremise.md
       - Kubernetes Installation: devops/kubernetes_install.md
   - Data Engineering:
       - Overview: DataEngineering/DE.md
@@ -69,78 +73,78 @@ nav:
       - Architecture & Design: DataEngineering/DesigningGDA.md
   - Data Warehouse:
       - SQL & NoSQL:
-          - SQL Overview: sql/sql.md
-          - SQL Data Types: sql/datatype.md
-          - Types of commands in SQL: sql/typeofcommands.md
-          - SQL Constraints: sql/constraints.md
-          - SQL Functions: sql/functions.md
-          - SQL Joins: sql/joins.md
-          - SQL Views: sql/views.md
-          - SQL Window Functions: sql/window.md
-          - SQL Frame clause: sql/frame.md
-          - SQL CTE: sql/cte.md
-          - SQL Subqueries: sql/subq.md
-          - SQL Indexing: sql/index.md
-          - SQL Optimizations: sql/optimize.md
+        - SQL Overview: sql/sql.md
+        - SQL Data Types: sql/datatype.md
+        - Types of commands in SQL: sql/typeofcommands.md
+        - SQL Constraints: sql/constraints.md
+        - SQL Functions: sql/functions.md
+        - SQL Joins: sql/joins.md
+        - SQL Views: sql/views.md
+        - SQL Window Functions: sql/window.md
+        - SQL Frame clause: sql/frame.md
+        - SQL CTE: sql/cte.md
+        - SQL Subqueries: sql/subq.md
+        - SQL Indexing: sql/index.md
+        - SQL Optimizations: sql/optimize.md
       - NoSQL Overview: 
-          - MongoDB Overview: sql/Mongo.md
-          - MongoDB: sql/mongo2.md
+        - MongoDB Overview: sql/Mongo.md
+        - MongoDB: sql/mongo2.md
       - Hive:
-          - Hive Overview: hive/hive.md
-          - Hive SerDe: hive/hive2.md
-          - Partitioning & Bucketing: hive/hive3.md
-          - Joins in Hive: hive/hive4.md
+        - Hive Overview: hive/hive.md
+        - Hive SerDe: hive/hive2.md
+        - Partitioning & Bucketing: hive/hive3.md
+        - Joins in Hive: hive/hive4.md
       - Ignite:
-          - Ignite Overview: ignite/ignite.md
-          - Caching topology: ignite/ignite2.md
-          - Caching strategy: ignite/ignite3.md
-          - CAP Theorem and Where Does Ignite Stand: ignite/ignite4.md
-          - Zero SPOF: ignite/ignite5.md
-          - How SQL Queries Work in Ignite: ignite/ignite6.md
-          - Expiration & Eviction of Cache Entries in Ignite: ignite/ignite7.md
-          - Discovery and communication mechanisms: ignite/ignite8.md
+        - Ignite Overview: ignite/ignite.md
+        - Caching topology: ignite/ignite2.md
+        - Caching strategy: ignite/ignite3.md
+        - CAP Theorem and Where Does Ignite Stand: ignite/ignite4.md
+        - Zero SPOF: ignite/ignite5.md
+        - How SQL Queries Work in Ignite: ignite/ignite6.md
+        - Expiration & Eviction of Cache Entries in Ignite: ignite/ignite7.md
+        - Discovery and communication mechanisms: ignite/ignite8.md
   - Data Processing & Streaming:
       - Hadoop:
-          - Big Data Overview: hadoop/Bigdata.md
-          - Hadoop Concepts: hadoop/HadoopArchitecture.md
-          - Hadoop HA Architecture: hadoop/HadoopHA.md
-          - MapReduce Concepts: hadoop/mapreduce.md
-          - YARN Concepts: hadoop/yarn.md
-          - Kerberos Concepts: hadoop/kerberos.md
+        - Big Data Overview: hadoop/Bigdata.md
+        - Hadoop Concepts: hadoop/HadoopArchitecture.md
+        - Hadoop HA Architecture: hadoop/HadoopHA.md
+        - MapReduce Concepts: hadoop/mapreduce.md
+        - YARN Concepts: hadoop/yarn.md
+        - Kerberos Concepts: hadoop/kerberos.md
       - Spark: 
-          - Spark Overview: spark/spark.md
-          - Resilient Distributed Datasets: spark/Rdd.md
-          - How Spark Perform Data Partitioning?: spark/spark2.md
-          - Transformations & Actions: spark/sparktrans.md
-          - DAG: spark/DAG.md
-          - Spark Architecture: spark/sparkarchitecture.md
-          - Spark Deployment Modes: spark/deploymentmode.md
-          - Persist and Caching: spark/spark3.md
-          - Data Skewness: spark/skew.md
-          - Repartition vs Coalesce: spark/diff.md
-          - Salting: spark/salting.md
-          - RDD, Dataframe and Dataset: spark/diff2.md
-          - Spark Submit: spark/submit.md
-          - Memory management: spark/memory.md
-          - How to process 1 TB of data in Apache Spark: spark/data.md
-          - Broadcast and Accumulators in Spark: spark/broadcast.md
-          - Handling Failure: spark/handling.md
-          - Code Level and Resource Level Optimizations in Spark: spark/optimize.md
-          - Best practices to design Spark application: spark/bp.md
+        - Spark Overview: spark/spark.md
+        - Resilient Distributed Datasets: spark/Rdd.md
+        - How Spark Perform Data Partitioning?: spark/spark2.md
+        - Transformations & Actions: spark/sparktrans.md
+        - DAG: spark/DAG.md
+        - Spark Architecture: spark/sparkarchitecture.md
+        - Spark Deployment Modes: spark/deploymentmode.md
+        - Persist and Caching: spark/spark3.md
+        - Data Skewness: spark/skew.md
+        - Repartition vs Coalesce: spark/diff.md
+        - Salting: spark/salting.md
+        - RDD, Dataframe and Dataset: spark/diff2.md
+        - Spark Submit: spark/submit.md
+        - Memory management: spark/memory.md
+        - How to process 1 TB of data in Apache Spark: spark/data.md
+        - Broadcast and Accumulators in Spark: spark/broadcast.md
+        - Handling Failure: spark/handling.md
+        - Code Level and Resource Level Optimizations in Spark: spark/optimize.md
+        - Best practices to design Spark application: spark/bp.md
       - Kafka:
           - Overview: kafka/kafka.md
           - Architecture: kafka/kafkaarch.md
-          - Concepts: kafka/kafka concepts.md
           - Role of Zookeeper in Kafka: kafka/kafkazk.md
-          - Offsets: kafka/offsets.md
+          - Partitions, Replication & Offsets: kafka/offsets.md
           - Producers: kafka/producer.md
           - Consumers: kafka/consumer.md
   - Data Orchestration:
+      - What is Data Orchestration?: airflow/dataorchestration.md
       - Airflow:
-          - Airflow Overview: airflow/airflow.md
-          - Airflow Architecture: airflow/airflowarc.md
-          - Operators: airflow/operators.md
-          - DAGs: airflow/DAG.md
+        - Airflow Overview: airflow/airflow.md
+        - Airflow Architecture: airflow/airflowarc.md
+        - Operators: airflow/operators.md
+        - DAGs: airflow/DAG.md
   - DevOps:
       - Git: devops/git.md
       - Docker: devops/docker.md
@@ -153,52 +157,54 @@ nav:
           - Persistent Volumes & Liveness Probes: devops/kube6.md
           - Namespaces & Resource Quotas: devops/kube7.md
           - Horizontal Pod Autoscaling: devops/kube8.md
-
   - Interview Prep:
-      - Hadoop Questions: hadoop/hadoopiq.md
-      - Hadoop Scenarios: hadoop/hadoopscenarios.md
-      - Kafka Questions: kafka/iq.md
-      - Airflow Questions: airflow/airflowiq.md
-      - Flink Interview Questions: flink/iq.md
-      - MongoDB Interview Questions: sql/mongoiq.md
+      - Hadoop : hadoop/hadoopiq.md
+      - Hadoop Scenario based: hadoop/hadoopscenarios.md
+      - Kafka : kafka/iq.md
+      - Airflow : airflow/airflowiq.md
+      - Flink Interview : flink/iq.md
+      - MongoDB Interview : sql/mongoiq.md
 
 
   - About Me: about.md
   
+# Extensions
 markdown_extensions:
   - admonition
-  - codehilite
-  - footnotes
-  - meta
-  - toc:
-      permalink: true
-  - pymdownx.arithmatex
+  - attr_list
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.betterem:
       smart_enable: all
   - pymdownx.caret
   - pymdownx.critic
   - pymdownx.details
   - pymdownx.emoji:
+  - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - pymdownx.highlight
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.snippets
   - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.mark
-  - pymdownx.smartsymbols
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tilde
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tabbed
+  - toc:
+      permalink: "#"
+  - tables
+  - def_list
   - pymdownx.tasklist:
       custom_checkbox: true
-  - pymdownx.tilde
-  - pymdownx.tabbed
-  - pymdownx.details
-  - pymdownx.mark
-  - attr_list
 
 extra:
   social:
@@ -210,3 +216,4 @@ extra:
 
 extra_css:
   - stylesheets/extra.css
+

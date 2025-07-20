@@ -1,11 +1,12 @@
-# Data Engineering Fundamentals
-
 Data engineering is evolving beyond just tools and technology.  
 Undercurrents are foundational practices that support the entire data engineering lifecycle.
 ![Steps](uc.png)
-#### Security: A Critical Undercurrent
+
+## **Security: A Critical Undercurrent**
+
 Only grant users/systems the minimum access necessary to perform their function. Avoid giving admin or superuser access unless strictly required. Prevents accidental damage and maintains a security-first mindset.
 Giving all users full admin access. Running commands with root privileges unnecessarily. Querying data with superuser roles when not needed.
+
 People and organizational behavior are the biggest vulnerabilities.  
 Security breaches often stem from: Neglecting security protocols, Falling for phishing, Irresponsible behavior.
 
@@ -16,7 +17,7 @@ Security is Continuous: Security is embedded across all phases of the data engin
 
 ---
 
-#### Data Management: Importance of Metadata in Data Engineering
+## **Data Management: Importance of Metadata in Data Engineering**
 
 Metadata is not just technical—it's social.  
 Airbnb emphasized human-centric metadata via tools like Dataportal to capture data ownership and usability context.
@@ -28,7 +29,7 @@ Types of Metadata
 - **Operational Metadata:** Includes logs, stats, job run data—useful for debugging and monitoring.
 - **Reference Metadata:** Lookup values like codes and classifications (e.g., ISO country codes).
 
-Data Accountability: Assign a responsible person (not necessarily a data engineer) for specific data artifacts (tables, fields, logs). Supports data quality by enabling someone to coordinate governance.
+**Data Accountability**: Assign a responsible person (not necessarily a data engineer) for specific data artifacts (tables, fields, logs). Supports data quality by enabling someone to coordinate governance.
 
 Data Quality Characteristics:
 
@@ -36,12 +37,12 @@ Data Quality Characteristics:
 - **Completeness:** All required fields are filled with valid data. 
 - **Timeliness:** Data should be available at the right time for its intended use.
 
-Real-World Complexity: Accuracy and completeness are challenged by factors like bots or offline data submissions (e.g., ad views in video apps). Data engineers must define and enforce acceptable latency standards.
+**Real-World Complexity**: Accuracy and completeness are challenged by factors like bots or offline data submissions (e.g., ad views in video apps). Data engineers must define and enforce acceptable latency standards.
 
-Master Data Management (MDM): Centralized "golden records" for business entities (customers, products, etc.). Combines business policy with tech (like APIs) to enforce consistency across systems and partners.
+**Master Data Management (MDM**): Centralized "golden records" for business entities (customers, products, etc.). Combines business policy with tech (like APIs) to enforce consistency across systems and partners.
 
 ---
-#### DataOps
+## **DataOps**
 
 DataOps aims to improve the delivery, quality, and reliability of data products, just as DevOps does for software products.  
 Data products, unlike software products, revolve around business logic, metrics, and decision-making processes.  
@@ -60,7 +61,7 @@ DataOps Lifecycle in an Organization:
 - **Medium Maturity:** Adoption of orchestration frameworks like Airflow helps automate dependencies and scheduling. However, challenges like broken DAGs may still occur, which necessitate automated DAG deployment and pre-deployment testing to prevent issues.
 - **High Maturity:** Engineers continuously enhance automation, possibly introducing next-gen orchestration frameworks or frameworks for automatic DAG generation based on data lineage.
 
- Core Pillars of DataOps:
+Core Pillars of DataOps:
 
 - **Automation:** Ensures consistency and reliability in data product delivery by automating various aspects of the data lifecycle. This includes CI/CD and automating data quality checks, metadata integrity, and model drift.
 - **Observability and Monitoring:** Critical to catch problems early, prevent data disasters, and keep stakeholders informed of system performance and data quality.
@@ -68,14 +69,18 @@ DataOps Lifecycle in an Organization:
 
 ---
 
-#### Data Architecture
+## **Data Architecture**
 
 
-Data engineers need to start by understanding the business requirements and use cases. These needs will inform the design and decisions about how to capture, store, transform, and serve data. The design of data systems must strike a balance between simplicity, cost, and operational efficiency. Data engineers must understand the trade-offs involved in choosing tools and technologies, whether for data ingestion, storage, transformation, or serving data. While data engineers and data architects often have distinct roles, collaboration is key. Data engineers should be able to implement the designs created by data architects and provide valuable feedback on those designs. With the rapid evolution of tools, technologies, and practices in the data space, data engineers must remain agile and continuously update their knowledge to maintain a relevant and effective data architecture.
+Data engineers need to start by understanding the business requirements and use cases. These needs will inform the design and decisions about how to capture, store, transform, and serve data. The design of data systems must strike a balance between simplicity, cost, and operational efficiency. 
+
+Data engineers must understand the trade-offs involved in choosing tools and technologies, whether for data ingestion, storage, transformation, or serving data. While data engineers and data architects often have distinct roles, collaboration is key. 
+
+Data engineers should be able to implement the designs created by data architects and provide valuable feedback on those designs. With the rapid evolution of tools, technologies, and practices in the data space, data engineers must remain agile and continuously update their knowledge to maintain a relevant and effective data architecture.
 
 ---
 
-#### Orchestration
+## **Orchestration**
 
 What is Orchestration?
 
@@ -106,7 +111,7 @@ Orchestration plays a pivotal role in data engineering by enabling the coordinat
 
 ---
 
-#### Software Engineering
+## **Software Engineering**
 
 Software engineering plays a central role in data engineering, and its importance has only grown as the field has evolved.  
 While modern frameworks like Spark, SQL-based cloud data warehouses, and dataframes have abstracted much of the complexity, core software engineering skills are still crucial.

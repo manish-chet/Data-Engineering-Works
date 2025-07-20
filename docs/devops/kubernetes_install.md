@@ -2,10 +2,10 @@
 
 ![Steps](kubeinstall.svg)
 
-## Sanity Setup and Pre-requisites
+## **Sanity Setup and Pre-requisites**
 
-???- "Perform Sanity Checks on All Hosts"
-    ```bash
+!!!- "Perform Sanity Checks on All Hosts"
+    ```
     # 1. Disable SELinux on all hosts.
     # 2. Docker user should have root access.
     # 3. Add host entries.
@@ -13,21 +13,21 @@
     # 5. Enable passwordless SSH from docker user and root.
     ```
 
-## Master Node Setup
+## **Master Node Setup**
 
-???- "SSH into the Master Node"
-    ```bash
+!!!- "SSH into the Master Node"
+    ```
     ssh user@master-node
     ```
 
-???- "Disable Swap"
-    ```bash
+!!!- "Disable Swap"
+    ```
     swapoff -a
     sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
     ```
 
-???- "Configure Networking for Kubernetes"
-    ```bash
+!!!- "Configure Networking for Kubernetes"
+    ```
     cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
     overlay
     br_netfilter
@@ -49,13 +49,13 @@
     sysctl -p
     ```
 
-???- "Install Container Runtime (containerd)"
+!!!- "Install Container Runtime (containerd)"
     === "RPM-based Installation"
-        ```bash
+        ```
         yum install -y containerd-*.rpm
         ```
     === "Tar-based Installation"
-        ```bash
+        ```
         curl -LO https://github.com/containerd/containerd/releases/download/v1.7.14/containerd-1.7.14-linux-amd64.tar.gz
         sudo tar Cxzvf /usr/local containerd-1.7.14-linux-amd64.tar.gz
         curl -LO https://raw.githubusercontent.com/containerd/containerd/main/containerd.service
@@ -66,33 +66,33 @@
         sudo sed -i 's/SystemdCgroup \= false/SystemdCgroup \= true/g' /etc/containerd/config.toml
         ```
 
-???- "Enable and Start containerd"
-    ```bash
+!!!- "Enable and Start containerd"
+    ```
     sudo systemctl daemon-reload
     sudo systemctl enable --now containerd
     systemctl status containerd
     ```
 
-???- "Install Runc"
+!!!- "Install Runc"
     === "RPM-based Installation"
-        ```bash
+        ```
         yum install -y runc
         ```
     === "Tar-based Installation"
-        ```bash
+        ```
         curl -LO https://github.com/opencontainers/runc/releases/download/v1.1.12/runc.amd64
         sudo install -m 755 runc.amd64 /usr/local/sbin/runc
         ```
 
-???- "Install CNI Plugin"
-    ```bash
+!!!- "Install CNI Plugin"
+    ```
     curl -LO https://github.com/containernetworking/plugins/releases/download/v1.5.0/cni-plugins-linux-amd64-v1.5.0.tgz
     sudo mkdir -p /opt/cni/bin
     sudo tar Cxzvf /opt/cni/bin cni-plugins-linux-amd64-v1.5.0.tgz
     ```
 
-???- "Install Kubernetes Components"
-    ```bash
+!!!- "Install Kubernetes Components"
+    ```
     # Download rpm from official kubernetes documentation
     yum install -y kube*.rpm
     kubeadm version
@@ -100,13 +100,13 @@
     kubectl version --client
     ```
 
-???- "Configure crictl for Containerd"
-    ```bash
+!!!- "Configure crictl for Containerd"
+    ```
     sudo crictl config runtime-endpoint unix:///var/run/containerd/containerd.sock
     ```
 
-???- "Initialize Kubernetes Control Plane"
-    ```bash
+!!!- "Initialize Kubernetes Control Plane"
+    ```
     # Load necessary Kubernetes images before initializing
     kubeadm config images list
     # Example images:
@@ -125,40 +125,40 @@
       --apiserver-advertise-address=hostIP
     ```
 
-???- "Set Up kubeconfig for kubectl"
-    ```bash
+!!!- "Set Up kubeconfig for kubectl"
+    ```
     mkdir -p $HOME/.kube
     sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
     sudo chown $(id -u):$(id -g) $HOME/.kube/config
     ```
 
-???- "Install Calico for Networking"
-    ```bash
+!!!- "Install Calico for Networking"
+    ```
     wget https://github.com/manish-chet/DataEngineering/blob/main/kubernetes/calico_edited.yaml
     kubectl apply -f calico_edited.yaml
     ```
 
-## Worker Node Setup
+## **Worker Node Setup**
 
-???- "Repeat Master node Setup Steps and Join Cluster"
-    ```bash
+!!!- "Repeat Master node Setup Steps and Join Cluster"
+    ```
     # Repeat the above steps on all worker nodes, then join them to the cluster:
     sudo kubeadm join hostIP:6443 --token xxxxx --discovery-token-ca-cert-hash sha256:xxx
     ```
     If you need the join command again, run the following on the master node:
-    ```bash
+    ```
     kubeadm token create --print-join-command
     ```
 
-## Validation
+## **Validation**
 
-???- "Validate Cluster Status"
-    ```bash
+!!!- "Validate Cluster Status"
+    ```
     kubectl get nodes
     kubectl get pods -A
     ```
 
-## References
+## **References**
 - [Official Kubernetes Documentation](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)
 - [Mirantis Kubernetes Guide](https://www.mirantis.com/blog/how-install-kubernetes-kubeadm/)
 - [Containerd Setup Guide](https://github.com/containerd/containerd/blob/main/docs/getting-started.md)

@@ -16,13 +16,13 @@ We will be using MySQL as backend database, RabbitMQ as message broker, Celery a
 More details and step-by-step instructions will follow in the next sections.
 Make sure you install the following packages before starting installation
 
-???-  "Required Python Packages"
-    ```bash
+!!!-  "Required Python Packages"
+    ```
     yum install libmysqlclient-dev python3 python3-dev build-essential libssl-dev libffi-dev libxml2-dev libxslt1-dev zlib1g-dev freetds-bin krb5-user ldap-utils libsasl2-2 libsasl2-modules libssl1.1 locales lsb-release sasl2-bin sqlite3 unixodbc
     ```
 
-???-  "Database Setup"
-    ```bash
+!!!-  "Database Setup"
+    ```
     yum -y install @mysql
 
     # Start MySQL service and create symlink
@@ -46,18 +46,18 @@ Make sure you install the following packages before starting installation
     FLUSH PRIVILEGES;
     ```
 
-???-  "Rabbitmq Setup"
+!!!-  "Rabbitmq Setup"
 
-    ```bash
+    ```
     # Extract the RabbitMQ setup file
     Download the setup file before installing rabbitmq install erlang package first
 
     # Download the rabbitmq.conf file
-    wget https://github.com/manish-chet/DataEngineering/blob/main/airflow/rabbitmq.comf
+    wget https://github.com/manish-chet/BigDataSetupfiles/tree/main/airflow
     copy the file in rabbitmq/etc/conf directory
     edit the rabbitmq.conf with IP and details
 
-    #Set environment variables in bashrc
+    #Set environment variables in rc
     export RABBITMQ_LOG_BASE=/data/rabbitmq/rabbitmq/logs
     export PATH=$PATH:/data/rabbitmq/rabbitmq/rabbitmq_server-3.13.7/sbin
 
@@ -80,9 +80,9 @@ Make sure you install the following packages before starting installation
     rabbitmqctl eval 'application:set_env(rabbit, consumer_timeout, undefined).'
     ```
 
-???-  "Airflow configuration"
+!!!-  "Airflow configuration"
 
-    ```bash
+    ```
     # Create virtualenv 
     pip install virtualenv
     python3.8 -m pip install --upgrade pip
@@ -101,7 +101,7 @@ Make sure you install the following packages before starting installation
     airflow version
 
     # Download the airflow.cfg and edit the hostname and IP details
-    wget https://github.com/manish-chet/DataEngineering/blob/main/airflow/airflow.cfg
+    wget https://github.com/manish-chet/BigDataSetupfiles/tree/main/airflow
 
 
     # Create users
@@ -127,9 +127,9 @@ Make sure you install the following packages before starting installation
     airflow triggerer -D
     ```
 
-???-  "Worker Node Addition"
+!!!-  "Worker Node Addition"
 
-    ```bash
+    ```
     # Create virtualenv 
     pip install virtualenv
     python3.8 -m pip install --upgrade pip
@@ -148,7 +148,7 @@ Make sure you install the following packages before starting installation
     airflow version
 
     # Download the airflow.cfg and edit the hostname and IP details
-    wget https://github.com/manish-chet/DataEngineering/blob/main/airflow/airflow.cfg
+    wget https://github.com/manish-chet/BigDataSetupfiles/tree/main/airflow
 
 
     After this you need to go to master node and run below MySQL command so that user from worker node can connect to the database on master node.
@@ -164,13 +164,13 @@ Make sure you install the following packages before starting installation
     You should be able to see the worker node coming up on Flower interface at YOUR_MASTER_IP_ADDRESS:5555
     ```
 
-???-  "Airflow DB Cleanup DAG"
-    ```bash
-    wget https://github.com/manish-chet/DataEngineering/airflow/airflow-db-cleanup.py
+!!!-  "Airflow DB Cleanup DAG"
+    ```
+    wget https://github.com/manish-chet/BigDataSetupfiles/tree/main/airflow
     ```
 
 
-???-  "Airflow Log Cleanup DAG"
-    ```bash
-    wget https://github.com/manish-chet/DataEngineering/airflow/airflow-log-cleanup.py
+!!!-  "Airflow Log Cleanup DAG"
+    ```
+    wget https://github.com/manish-chet/BigDataSetupfiles/tree/main/airflow
     ```
