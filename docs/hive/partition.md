@@ -1,4 +1,6 @@
 
+
+
 ### **Partitioning in Hive**
 
 Apache Hive organizes tables into partitions. Partitioning is a way of dividing a table into related parts based on the values of particular columns like date, city, and department.
@@ -99,3 +101,4 @@ Using partitioning and bucketing together allows Hive to prune data at the parti
 1. Sampling: Bucketing allows efficient sampling of data. Since each bucket essentially represents a sample of data, you can quickly get a sample by querying a single bucket.
 2. Join Operations: Bucketing can be used to perform more efficient map-side joins when joining on the bucketed column. If two tables are bucketed on the join columns and are of similar size, Hive can perform a bucketed map join, which is much faster than a regular join.
 3. Handling Skew: If data is skewed (i.e., some values appear very frequently), bucketing can distribute the data more evenly across files, improving query performance.
+

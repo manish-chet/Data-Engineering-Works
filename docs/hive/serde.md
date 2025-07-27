@@ -1,4 +1,7 @@
 
+
+
+
 ### **SerDe in Hive**
 SerDe stands for Serializer/Deserializer.
 It's a crucial component of Hive used for IO operations, specifically for reading and writing data.

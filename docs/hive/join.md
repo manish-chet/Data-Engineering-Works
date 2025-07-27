@@ -1,4 +1,5 @@
 
+
 ### **Primary key in Hive**
 
 Apache Hive does not enforce primary key constraints natively like traditional RDBMS systems do. Hive is designed to operate on large datasets using a distributed computing approach, which is fundamentally different from how relational databases manage data.

@@ -88,5 +88,3 @@ In byte (or binary) data storage, data is stored as binary values, not as readab
 Using our previous example, the number 12345 can be represented in binary format as 11000000111001, which is 14 bits or 2 bytes (with 6 unused bits). In a more memory-optimized format, it could use only the necessary 14 bits.
 The advantage of binary storage is that it's very space-efficient. Each type of data (integer, float, etc.) has a standard size, regardless of its value.
 The disadvantage is that binary data is not human-readable. You need to know the type of data and how it's encoded to convert it back to a readable format.
-
-
