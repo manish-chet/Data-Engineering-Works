@@ -1,21 +1,22 @@
-# Flink Ignite JDBC Dialect
+This project draws inspiration from this Medium article:  
+[Enhancing Real-Time Analytics with Apache Ignite and Flink SQL](https://medium.com/datareply/enhancing-real-time-analytics-with-apache-ignite-and-flink-sql-40fb198620c8)
 
 A custom Apache Flink JDBC dialect implementation for Apache Ignite, enabling seamless integration between Flink and Ignite via the JDBC connector. This dialect allows Flink to read from and write to Apache Ignite tables using SQL and the Table API.
 
-## Features
+### **Features**
 - Custom `JdbcDialect` for Apache Ignite
 - Supports upsert (MERGE) statements for idempotent writes
 - Compatible with Flink Table & SQL API
 - Auto-discovery via Java SPI (no manual registration required)
 - Supports a wide range of SQL types
 
-## Requirements
+### **Requirements**
 - Java 8+
 - Apache Maven
 - Apache Flink 1.16.1
 - Apache Ignite 2.15.0
 
-## Build Instructions
+### **Build Instructions**
 1. Clone this repository:
    ```sh
    git clone <repo-url>
@@ -27,7 +28,7 @@ A custom Apache Flink JDBC dialect implementation for Apache Ignite, enabling se
    ```
    The resulting JAR will be in `target/flink-ignite-dialect-1.0.0.jar`.
 
-## Usage
+### **Usage**
 1. **Add the JAR to Flink:**
    - Copy `flink-ignite-dialect-1.0.0.jar` to the `lib/` directory of your Flink distribution or add it to your job’s classpath.
 2. **Ensure Ignite JDBC Driver is available:**
@@ -51,7 +52,7 @@ A custom Apache Flink JDBC dialect implementation for Apache Ignite, enabling se
 4. **Use in Flink SQL or Table API:**
    - You can now read from and write to Ignite tables using Flink SQL or the Table API.
 
-## Configuration Options
+### **Configuration Options**
 Common connector options (see [Flink JDBC connector docs](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/table/jdbc/)):
 
 - `'connector' = 'jdbc'`
@@ -61,7 +62,7 @@ Common connector options (see [Flink JDBC connector docs](https://nightlies.apac
 - `'username'` / `'password'` (if authentication is enabled)
 - `'sink.buffer-flush.max-rows'`, `'sink.buffer-flush.interval'`, etc.
 
-## How It Works
+### **How It Works**
 - The dialect is auto-registered via the Java Service Provider Interface (SPI) using the file:
   - `src/main/resources/META-INF/services/org.apache.flink.connector.jdbc.dialect.JdbcDialectFactory`
 - Flink will automatically use this dialect for any JDBC URL starting with `jdbc:ignite:thin:`.

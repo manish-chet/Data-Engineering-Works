@@ -25,7 +25,6 @@ In any table definition, there are two important sections. The “Row Format” 
 
 ![Steps](hiveserde.svg)
 
-
 ### **File formats in Hive with SerDe Library**
 
 #### Textfile 

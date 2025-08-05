@@ -74,6 +74,7 @@ nav:
       - Data Engineering UnderCurrents: DataEngineering/DEundercurrent.md
       - Data Architecture & Design: DataEngineering/DesigningGDA.md
       - Data Orchestration: airflow/dataorchestration.md
+      - File Formats: DataEngineering/fileformat.md
       - SQL:
         - SQL Overview: sql/sql.md
         - SQL Data Types: sql/datatype.md
@@ -114,16 +115,19 @@ nav:
       - Ignite: ignite/ignite.md
       - Airflow: airflow/airflow.md
       - Spark: 
-        - Spark Overview: spark/spark.md
-        - Resilient Distributed Datasets: spark/Rdd.md
-        - How Spark Perform Data Partitioning?: spark/spark2.md
+        - Spark Overview: spark/overview.md
+        - Spark Architecture: spark/sparkarchitecture.md
         - Transformations & Actions: spark/sparktrans.md
         - DAG: spark/DAG.md
-        - Spark Architecture: spark/sparkarchitecture.md
+        - SparkSQL Engine: spark/sparksqlengine.md
+        - Resilient Distributed Datasets: spark/Rdd.md
+        - Partition & Bucketing: spark/partition.md
+        - SparkSession vs SparkContext: spark/context.md
+        - Job, Stage, Task: spark/job.md
+        - Repartition vs Coalesce: spark/repart.md
         - Spark Deployment Modes: spark/deploymentmode.md
         - Persist and Caching: spark/spark3.md
         - Data Skewness: spark/skew.md
-        - Repartition vs Coalesce: spark/diff.md
         - Salting: spark/salting.md
         - RDD, Dataframe and Dataset: spark/diff2.md
         - Spark Submit: spark/submit.md
@@ -133,6 +137,9 @@ nav:
         - Handling Failure: spark/handling.md
         - Code Level and Resource Level Optimizations in Spark: spark/optimize.md
         - Best practices to design Spark application: spark/bp.md
+        - SparkExample: spark/sparkexample.md
+        - SparkExample: spark/Untitled.md
+        - Notebook: spark/Untitled.py
       - Mongo: sql/Mongo.md
   - DevOps:
       - Git: devops/git.md
@@ -158,6 +165,7 @@ nav:
 # Extensions
 markdown_extensions:
   - admonition
+  - codehilite
   - attr_list
   - pymdownx.arithmatex:
       generic: true
@@ -200,7 +208,8 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/manish-chet
 
-
+plugins:
+  - mkdocs-jupyter
 extra_css:
   - stylesheets/extra.css
 
